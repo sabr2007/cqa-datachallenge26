@@ -1,0 +1,5706 @@
+{
+ "created_at": "2026-11-07T16:40:32.236985+00:00",
+ "models": [
+  "@cf/qwen/qwen3.8-27b",
+  "@cf/zai-org/glm-5.3",
+  "claude-opus-5-5"
+ ],
+ "set": "tuning",
+ "filters": {
+  "lang": null,
+  "ids": "p1-ru-010,p1-en-006,p1-kz-003,p1-ru-016,p1-kz-008,p1-en-001",
+  "limit": null
+ },
+ "checklist": {
+  "id": "chat-quality",
+  "version": 1
+ },
+ "engine": {
+  "prompt_version": "2026-11-07.5"
+ },
+ "summary": {
+  "conversations": 6,
+  "cost_usd_total": 0.9038,
+  "cost_usd_mean": 0.1506,
+  "latency_ms_median": 63115,
+  "latency_ms_max": 89002,
+  "errors": 0,
+  "warnings": 2
+ },
+ "accuracy": {
+  "group_id": null,
+  "checklist_version": null,
+  "gold_count": 60,
+  "evaluated_count": 6,
+  "overall": {
+   "matched": 48,
+   "total": 48,
+   "accuracy": 1.0
+  },
+  "by_set": {
+   "holdout": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null
+   },
+   "tuning": {
+    "matched": 48,
+    "total": 48,
+    "accuracy": 1.0
+   }
+  },
+  "by_criterion": [
+   {
+    "criterion_id": "c01",
+    "title": "Установление контакта",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c02",
+    "title": "Выявление потребности",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c03",
+    "title": "Идентификация",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c04",
+    "title": "Корректная и полная консультация",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    },
+    "within_one": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c05",
+    "title": "Эмпатия и клиентоориентированность",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c06",
+    "title": "Управление диалогом, скорость и грамотность",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    },
+    "within_one": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c07",
+    "title": "Завершение",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   },
+   {
+    "criterion_id": "c08",
+    "title": "Грубые ошибки",
+    "matched": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0
+    }
+   }
+  ],
+  "by_language": [
+   {
+    "language": "RU",
+    "matched": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   {
+    "language": "KZ",
+    "matched": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   {
+    "language": "EN",
+    "matched": 16,
+    "total": 16,
+    "accuracy": 1.0
+   }
+  ],
+  "na_confusion": {
+   "na_as_no": 0,
+   "no_as_na": 0,
+   "by_criterion": []
+  },
+  "by_model": [
+   {
+    "model": "@cf/qwen/qwen3.8-27b",
+    "matched": 45,
+    "total": 46,
+    "accuracy": 0.9783
+   },
+   {
+    "model": "@cf/zai-org/glm-5.3",
+    "matched": 45,
+    "total": 45,
+    "accuracy": 1.0
+   },
+   {
+    "model": "claude-opus-5-5",
+    "matched": 44,
+    "total": 48,
+    "accuracy": 0.9167
+   }
+  ],
+  "expert_agreement": {
+   "matched": 32,
+   "total": 32,
+   "accuracy": 1.0
+  },
+  "human_decided": {
+   "matched": 0,
+   "total": 0,
+   "accuracy": null,
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    }
+   },
+   "items": []
+  },
+  "conversations": [
+   {
+    "conversation_id": "p1-ru-002",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-005",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-013",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-015",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-019",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-020",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-022",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-026",
+    "language": "RU",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-002",
+    "language": "KZ",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-004",
+    "language": "KZ",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-005",
+    "language": "KZ",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-009",
+    "language": "KZ",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-012",
+    "language": "KZ",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-014",
+    "language": "KZ",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-002",
+    "language": "EN",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-003",
+    "language": "EN",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-004",
+    "language": "EN",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-005",
+    "language": "EN",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-007",
+    "language": "EN",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-014",
+    "language": "EN",
+    "set": "holdout",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-001",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-003",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-004",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-006",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-007",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-008",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-009",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-010",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": 1,
+    "matched": 8,
+    "total": 8,
+    "accuracy": 1.0,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-011",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-012",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-014",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-016",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": 1,
+    "matched": 8,
+    "total": 8,
+    "accuracy": 1.0,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-017",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-018",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-021",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-023",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-024",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-025",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-027",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-028",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-029",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-ru-030",
+    "language": "RU",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-001",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-003",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": 1,
+    "matched": 8,
+    "total": 8,
+    "accuracy": 1.0,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-006",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-007",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-008",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": 1,
+    "matched": 8,
+    "total": 8,
+    "accuracy": 1.0,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-010",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-011",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-013",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-kz-015",
+    "language": "KZ",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-001",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": 1,
+    "matched": 8,
+    "total": 8,
+    "accuracy": 1.0,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-006",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": 1,
+    "matched": 8,
+    "total": 8,
+    "accuracy": 1.0,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-008",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-009",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-010",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-011",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-012",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-013",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   },
+   {
+    "conversation_id": "p1-en-015",
+    "language": "EN",
+    "set": "tuning",
+    "evaluation_id": null,
+    "checklist_version": null,
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "mismatches": []
+   }
+  ]
+ },
+ "per_model": {
+  "@cf/qwen/qwen3.8-27b": {
+   "overall": {
+    "matched": 45,
+    "total": 46,
+    "accuracy": 0.9783
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 45,
+     "total": 46,
+     "accuracy": 0.9783
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 14,
+     "total": 14,
+     "accuracy": 1.0
+    },
+    {
+     "language": "KZ",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "EN",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c05": {
+     "matched": 5,
+     "total": 5,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 5,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 5,
+     "total": 5,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 5,
+      "accuracy": 1.0
+     }
+    },
+    "c07": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  },
+  "@cf/zai-org/glm-5.3": {
+   "overall": {
+    "matched": 45,
+    "total": 45,
+    "accuracy": 1.0
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 45,
+     "total": 45,
+     "accuracy": 1.0
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "KZ",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "EN",
+     "matched": 13,
+     "total": 13,
+     "accuracy": 1.0
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 5,
+     "total": 5,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 5,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 4,
+     "total": 4,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 4,
+      "total": 4,
+      "accuracy": 1.0
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c05": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c07": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  },
+  "claude-opus-5-5": {
+   "overall": {
+    "matched": 44,
+    "total": 48,
+    "accuracy": 0.9167
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 44,
+     "total": 48,
+     "accuracy": 0.9167
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    },
+    {
+     "language": "KZ",
+     "matched": 14,
+     "total": 16,
+     "accuracy": 0.875
+    },
+    {
+     "language": "EN",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c05": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 4,
+     "total": 6,
+     "accuracy": 0.6667,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 4,
+      "total": 6,
+      "accuracy": 0.6667
+     }
+    },
+    "c07": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  },
+  "@cf/qwen/qwen3.8-27b+@cf/zai-org/glm-5.3": {
+   "overall": {
+    "matched": 47,
+    "total": 48,
+    "accuracy": 0.9792
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 47,
+     "total": 48,
+     "accuracy": 0.9792
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "KZ",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "EN",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c05": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c07": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  },
+  "@cf/qwen/qwen3.8-27b+claude-opus-5-5": {
+   "overall": {
+    "matched": 44,
+    "total": 48,
+    "accuracy": 0.9167
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 44,
+     "total": 48,
+     "accuracy": 0.9167
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    },
+    {
+     "language": "KZ",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    },
+    {
+     "language": "EN",
+     "matched": 14,
+     "total": 16,
+     "accuracy": 0.875
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c05": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 4,
+     "total": 6,
+     "accuracy": 0.6667,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 4,
+      "total": 6,
+      "accuracy": 0.6667
+     }
+    },
+    "c07": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  },
+  "@cf/zai-org/glm-5.3+claude-opus-5-5": {
+   "overall": {
+    "matched": 45,
+    "total": 48,
+    "accuracy": 0.9375
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 45,
+     "total": 48,
+     "accuracy": 0.9375
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    },
+    {
+     "language": "KZ",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    },
+    {
+     "language": "EN",
+     "matched": 15,
+     "total": 16,
+     "accuracy": 0.9375
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 5,
+     "total": 6,
+     "accuracy": 0.8333,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 5,
+      "total": 6,
+      "accuracy": 0.8333
+     }
+    },
+    "c05": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 4,
+     "total": 6,
+     "accuracy": 0.6667,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 4,
+      "total": 6,
+      "accuracy": 0.6667
+     }
+    },
+    "c07": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  },
+  "@cf/qwen/qwen3.8-27b+@cf/zai-org/glm-5.3+claude-opus-5-5": {
+   "overall": {
+    "matched": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "by_set": {
+    "holdout": {
+     "matched": 0,
+     "total": 0,
+     "accuracy": null
+    },
+    "tuning": {
+     "matched": 48,
+     "total": 48,
+     "accuracy": 1.0
+    }
+   },
+   "by_language": [
+    {
+     "language": "RU",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "KZ",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    },
+    {
+     "language": "EN",
+     "matched": 16,
+     "total": 16,
+     "accuracy": 1.0
+    }
+   ],
+   "by_criterion": {
+    "c01": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c02": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c03": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c04": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c05": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c06": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c07": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    },
+    "c08": {
+     "matched": 6,
+     "total": 6,
+     "accuracy": 1.0,
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 6,
+      "total": 6,
+      "accuracy": 1.0
+     }
+    }
+   },
+   "na_confusion": {
+    "na_as_no": 0,
+    "no_as_na": 0
+   },
+   "human_decided": {
+    "matched": 0,
+    "total": 0,
+    "accuracy": null,
+    "by_set": {
+     "holdout": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     },
+     "tuning": {
+      "matched": 0,
+      "total": 0,
+      "accuracy": null
+     }
+    }
+   }
+  }
+ },
+ "evaluations": [
+  {
+   "conversation_id": "p1-ru-010",
+   "checklist_id": "chat-quality",
+   "checklist_version": 1,
+   "models": [
+    "claude-opus-5-5",
+    "@cf/zai-org/glm-5.3",
+    "@cf/qwen/qwen3.8-27b"
+   ],
+   "criteria": [
+    {
+     "criterion_id": "c01",
+     "title": "Установление контакта",
+     "answer_type": "yes_no",
+     "weight": 10,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В первой реплике оператора #11 есть приветствие на языке клиента и имя: «Здравствуйте, я Соня».",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Здравствуйте, я Соня.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 есть приветствие на языке клиента и имя: «Здравствуйте, я Соня».",
+       "latency_ms": 3249,
+       "output_tokens": 242,
+       "cost_usd": 0.02495,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 есть и приветствие на языке клиента «Здравствуйте», и имя «я Соня», что соответствует требованию критерия.",
+       "latency_ms": 1194,
+       "output_tokens": 191,
+       "cost_usd": 0.001574,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 присутствуют и приветствие «Здравствуйте», и имя «я Соня», что полностью соответствует требованию критерия.",
+       "latency_ms": 10524,
+       "output_tokens": 326,
+       "cost_usd": 0.002183,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "83d9f2b91a79a74c",
+     "reused": false,
+     "points": 10.0,
+     "max_points": 10.0,
+     "final_points": 10.0
+    },
+    {
+     "criterion_id": "c02",
+     "title": "Выявление потребности",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В #11 оператор учёл, что пропала строка, и уточнил платформу: «вы смотрите в приложении или в веб-версии?». В #16 он запросил недостающее название бумаги: «Напишите название бумаги».",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Понимаю, что пропавшая строка в портфеле беспокоит. Уточните, вы смотрите в приложении или в веб-версии?",
+       "verified": true
+      },
+      {
+       "index": 15,
+       "quote": "Напишите название бумаги, чтобы они проверяли нужную строку.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #11 оператор учёл, что пропала строка, и уточнил платформу: «вы смотрите в приложении или в веб-версии?». В #16 он запросил недостающее название бумаги: «Напишите название бумаги».",
+       "latency_ms": 7303,
+       "output_tokens": 553,
+       "cost_usd": 0.01434,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор до первого ответа уточнил недостающую деталь: в #11 «Уточните, вы смотрите в приложении или в веб-версии?», учёл ответ клиента #12 и далее действовал с его учётом.",
+       "latency_ms": 2214,
+       "output_tokens": 320,
+       "cost_usd": 0.002165,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #11 задал уточняющий вопрос о платформе («в приложении или в веб-версии?»), которая не была указана клиентом ранее, и далее учёл ответ клиента.",
+       "latency_ms": 55038,
+       "output_tokens": 869,
+       "cost_usd": 0.003992,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "0a9c6ceb09e7fa97",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c03",
+     "title": "Идентификация",
+     "answer_type": "yes_no",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор запросил идентификацию в #13 («начнём с идентификации»), личность подтверждена системой в #15. Только после этого в #16 вопрос о позиции передан на проверку.",
+     "evidence": [
+      {
+       "index": 12,
+       "quote": "Чтобы проверить конкретную позицию, начнём с идентификации.",
+       "verified": true
+      },
+      {
+       "index": 14,
+       "quote": "Личность клиента подтверждена.",
+       "verified": true
+      },
+      {
+       "index": 15,
+       "quote": "Я передам специалистам вопрос об отображении позиции.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросил идентификацию в #13 («начнём с идентификации»), личность подтверждена системой в #15. Только после этого в #16 вопрос о позиции передан на проверку.",
+       "latency_ms": 4368,
+       "output_tokens": 427,
+       "cost_usd": 0.011572,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросила идентификацию до проверки позиции #13 «начнём с идентификации», личность подтверждена системой #15, данные счёта раскрыты только после этого.",
+       "latency_ms": 1949,
+       "output_tokens": 265,
+       "cost_usd": 0.001937,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросил идентификацию #13 до проверки позиции, личность подтверждена системным сообщением #15, и только затем выполнено защищённое действие #16.",
+       "latency_ms": 47802,
+       "output_tokens": 573,
+       "cost_usd": 0.003022,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "9f0bd77d039f39fa",
+     "reused": false,
+     "points": 20.0,
+     "max_points": 20.0,
+     "final_points": 20.0
+    },
+    {
+     "criterion_id": "c04",
+     "title": "Корректная и полная консультация",
+     "answer_type": "scale",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": 20,
+     "final_answer": 20,
+     "explanation": "Все вопросы клиента закрыты: позиция передана на проверку после сбора данных #16, отчёт скачан по подсказке #21–#24, даны совет по периоду #28 и следующий шаг #30.",
+     "evidence": [
+      {
+       "index": 15,
+       "quote": "Я передам специалистам вопрос об отображении позиции. Напишите название бумаги, чтобы они проверяли нужную строку.",
+       "verified": true
+      },
+      {
+       "index": 20,
+       "quote": "В приложении откройте «Меню → Отчёты и документы → Отчёт брокера» и выберите нужный период.",
+       "verified": true
+      },
+      {
+       "index": 27,
+       "quote": "Для проверки начните с недельного, если в этот период вы ещё видели позицию.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 0.67,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 15,
+       "verified": true,
+       "explanation": "Все вопросы клиента получили ответ, позиция передана на проверку #32 «Вопрос о позиции передан». При этом название бумаги, которое оператор сам запросил в #16 «Напишите название бумаги», так и не было получено: в #19 он ответил «Понял» без уточнения.",
+       "latency_ms": 10003,
+       "output_tokens": 925,
+       "cost_usd": 0.022276,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Все вопросы клиента закрыты: позиция передана на проверку после сбора данных #16, отчёт скачан по подсказке #21–#24, даны совет по периоду #28 и следующий шаг #30.",
+       "latency_ms": 2724,
+       "output_tokens": 370,
+       "cost_usd": 0.002439,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Все существенные вопросы клиента закрыты или дан корректный следующий шаг: основной вопрос передан специалистам после сбора данных #16, вопрос об отчёте решён путём в меню #21, вопрос о повторном появлении закрыт #30.",
+       "latency_ms": 28844,
+       "output_tokens": 1068,
+       "cost_usd": 0.004677,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "c7b0cae0409b6c47",
+     "reused": false,
+     "points": 20.0,
+     "max_points": 20.0,
+     "final_points": 20.0
+    },
+    {
+     "criterion_id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор вежлив и отреагировал на конкретную проблему клиента: #11 «Понимаю, что пропавшая строка в портфеле беспокоит», а в #19 пояснил разницу между поиском и позицией.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Понимаю, что пропавшая строка в портфеле беспокоит.",
+       "verified": true
+      },
+      {
+       "index": 18,
+       "quote": "Понял. Наличие бумаги в поиске и отображение вашей позиции — разные вещи. Передам на проверку именно позицию.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на конкретную проблему клиента: #11 «Понимаю, что пропавшая строка в портфеле беспокоит», а в #19 пояснил разницу между поиском и позицией.",
+       "latency_ms": 3917,
+       "output_tokens": 380,
+       "cost_usd": 0.01066,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на беспокойство клиента о пропавшей позиции: #11 «Понимаю, что пропавшая строка в портфеле беспокоит», далее в #16 и #19 конкретно занимается проблемой позиции.",
+       "latency_ms": 2048,
+       "output_tokens": 303,
+       "cost_usd": 0.002121,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #11 эмпатично отреагировал на проблему клиента: «Понимаю, что пропавшая строка в портфеле беспокоит», что соответствует требованию критерия.",
+       "latency_ms": 28812,
+       "output_tokens": 800,
+       "cost_usd": 0.003769,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "4e62b7d0fa2afb2f",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answer_type": "scale",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": 10,
+     "final_answer": 10,
+     "explanation": "Оператор ответил вовремя и вёл диалог связно: например, в #19 он ясно разграничил «Наличие бумаги в поиске и отображение вашей позиции — разные вещи», и клиент сразу перешёл к следующему вопросу.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Здравствуйте, я Соня. Понимаю, что пропавшая строка в портфеле беспокоит. Уточните, вы смотрите в приложении или в веб-версии?",
+       "verified": true
+      },
+      {
+       "index": 18,
+       "quote": "Наличие бумаги в поиске и отображение вашей позиции — разные вещи. Передам на проверку именно позицию.",
+       "verified": true
+      },
+      {
+       "index": 27,
+       "quote": "Для проверки начните с недельного, если в этот период вы ещё видели позицию.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Оператор ответил вовремя и вёл диалог связно: например, в #19 он ясно разграничил «Наличие бумаги в поиске и отображение вашей позиции — разные вещи», и клиент сразу перешёл к следующему вопросу.",
+       "latency_ms": 7226,
+       "output_tokens": 741,
+       "cost_usd": 0.01856,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Реплики оператора ясные и логичные (#11, #21, #28), первая реакция в пределах порога, клиенту не приходилось переспрашивать — оснований для снижения оценки нет.",
+       "latency_ms": 2386,
+       "output_tokens": 344,
+       "cost_usd": 0.002327,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Диалог ведётся ясно и последовательно: первая реакция в пределах порога #11, реплики логичны и не вызывают переспрашиваний, например #19 «Наличие бумаги в поиске и отображение вашей позиции — разные вещи».",
+       "latency_ms": 59170,
+       "output_tokens": 1925,
+       "cost_usd": 0.007421,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "d88d5cb57f543e69",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c07",
+     "title": "Завершение",
+     "answer_type": "yes_no",
+     "weight": 5,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В #32 оператор подвёл итог «Вопрос о позиции передан» и попрощался «Хорошего вечера!».",
+     "evidence": [
+      {
+       "index": 31,
+       "quote": "Спасибо. Вопрос о позиции передан. Хорошего вечера!",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #32 оператор подвёл итог «Вопрос о позиции передан» и попрощался «Хорошего вечера!».",
+       "latency_ms": 3167,
+       "output_tokens": 308,
+       "cost_usd": 0.00914,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #32 оператор кратко подвёл итог «Вопрос о позиции передан» и попрощался «Хорошего вечера!», что соответствует требованию критерия.",
+       "latency_ms": 1535,
+       "output_tokens": 173,
+       "cost_usd": 0.001515,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #32 подвёл итог («Вопрос о позиции передан») и попрощался («Хорошего вечера!»), что полностью соответствует требованию критерия.",
+       "latency_ms": 17809,
+       "output_tokens": 509,
+       "cost_usd": 0.002819,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "8b976d8568bcb216",
+     "reused": false,
+     "points": 5.0,
+     "max_points": 5.0,
+     "final_points": 5.0
+    },
+    {
+     "criterion_id": "c08",
+     "title": "Грубые ошибки",
+     "answer_type": "yes_no",
+     "weight": 0,
+     "critical": true,
+     "scored": false,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Грубых ошибок нет: оператор вежлив, платных услуг в обход компании не предлагал, данные не раскрывал. Проверка позиции начата только после подтверждения личности в #15.",
+     "evidence": [],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок нет: оператор вежлив, платных услуг в обход компании не предлагал, данные не раскрывал. Проверка позиции начата только после подтверждения личности в #15.",
+       "latency_ms": 3340,
+       "output_tokens": 265,
+       "cost_usd": 0.00812,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок нет: оператор вежлива, обсуждает данные клиента только после подтверждения личности #15, никаких предложений платных услуг в обход компании в чате нет.",
+       "latency_ms": 1659,
+       "output_tokens": 176,
+       "cost_usd": 0.00155,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок (оскорбление, предложение платной услуги в обход компании, раскрытие конфиденциальной информации) в репликах оператора не выявлено.",
+       "latency_ms": 18112,
+       "output_tokens": 621,
+       "cost_usd": 0.003155,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "3886d4476f649dcf",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Начало и понимание запроса",
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "id": "security",
+     "title": "Безопасность и решение",
+     "points": 40.0,
+     "max_points": 40.0,
+     "final_points": 40.0
+    },
+    {
+     "id": "conduct",
+     "title": "Ведение и завершение диалога",
+     "points": 35.0,
+     "max_points": 35.0,
+     "final_points": 35.0
+    },
+    {
+     "id": "critical",
+     "title": "Грубые нарушения",
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "total": 100.0,
+   "final_total": 100.0,
+   "max_total": 100.0,
+   "critical_flag": false,
+   "critical_note": null,
+   "needs_review": false,
+   "cost_usd": 0.16628,
+   "tokens": {
+    "input": 76680,
+    "output": 12674,
+    "cache_read": 46122,
+    "cache_write": 3718,
+    "neurons": 4242.2
+   },
+   "latency_ms": 59212,
+   "status": "done",
+   "error": null,
+   "warnings": [],
+   "engine": {
+    "prompt_version": "2026-11-07.5"
+   },
+   "queued_ms": 0,
+   "created_at": "2026-11-07T16:37:46.651894+00:00"
+  },
+  {
+   "conversation_id": "p1-ru-016",
+   "checklist_id": "chat-quality",
+   "checklist_version": 1,
+   "models": [
+    "claude-opus-5-5",
+    "@cf/zai-org/glm-5.3",
+    "@cf/qwen/qwen3.8-27b"
+   ],
+   "criteria": [
+    {
+     "criterion_id": "c01",
+     "title": "Установление контакта",
+     "answer_type": "yes_no",
+     "weight": 10,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В первой реплике #10 оператор поздоровался по-русски и представился: «Здравствуйте, меня зовут Антон».",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "Здравствуйте, меня зовут Антон. Переустановите приложение.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике #10 оператор поздоровался по-русски и представился: «Здравствуйте, меня зовут Антон».",
+       "latency_ms": 3557,
+       "output_tokens": 263,
+       "cost_usd": 0.007381,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #10 есть и приветствие на языке клиента, и имя: «Здравствуйте, меня зовут Антон» — критерий выполнен.",
+       "latency_ms": 1347,
+       "output_tokens": 191,
+       "cost_usd": 0.001453,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #10 есть и приветствие «Здравствуйте», и имя «меня зовут Антон» — критерий выполнен.",
+       "latency_ms": 4967,
+       "output_tokens": 246,
+       "cost_usd": 0.001683,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "83d9f2b91a79a74c",
+     "reused": false,
+     "points": 12.5,
+     "max_points": 12.5,
+     "final_points": 12.5
+    },
+    {
+     "criterion_id": "c02",
+     "title": "Выявление потребности",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Оператор не выяснил платформу и суть проблемы и сразу ответил наугад: #10 «Переустановите приложение.». Клиент в ответ возразил: #11 «Я на компьютере вообще».",
+     "evidence": [
+      {
+       "index": 0,
+       "quote": "Не пускает, что делать?",
+       "verified": true
+      },
+      {
+       "index": 9,
+       "quote": "Здравствуйте, меня зовут Антон. Переустановите приложение.",
+       "verified": true
+      },
+      {
+       "index": 10,
+       "quote": "Какое приложение? Я на компьютере вообще.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      9,
+      11
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор не выяснил платформу и суть проблемы и сразу ответил наугад: #10 «Переустановите приложение.». Клиент в ответ возразил: #11 «Я на компьютере вообще».",
+       "latency_ms": 4942,
+       "output_tokens": 446,
+       "cost_usd": 0.012057,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор ответил наугад в #10 «Переустановите приложение», не уточнив платформу и текст ошибки, хотя клиент их не называл; детали выяснились только после возражений клиента #11, #13.",
+       "latency_ms": 2323,
+       "output_tokens": 293,
+       "cost_usd": 0.001925,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор в #10 сразу предложил «Переустановите приложение», не уточнив, где именно клиент пытается войти и какая ошибка, хотя запрос #1 «Не пускает, что делать?» был слишком общим для однозначного ответа.",
+       "latency_ms": 16627,
+       "output_tokens": 770,
+       "cost_usd": 0.003431,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "0a9c6ceb09e7fa97",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 18.75,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c03",
+     "title": "Идентификация",
+     "answer_type": "yes_no",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": "na",
+     "final_answer": "na",
+     "explanation": "Оператор лишь подсказал адрес веб-кабинета в #14: «Веб-кабинет доступен через tradernet.global», без раскрытия данных счёта, поэтому идентификация не требовалась.",
+     "evidence": [
+      {
+       "index": 13,
+       "quote": "На этом сайте входа нет, он информационный. Веб-кабинет доступен через tradernet.global.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": "Запрос общий (где найти вход в веб-кабинет) и не требовал идентификации: данные счёта не раскрывались, защищённые действия не выполнялись.",
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Оператор лишь подсказал адрес веб-кабинета в #14: «Веб-кабинет доступен через tradernet.global», без раскрытия данных счёта, поэтому идентификация не требовалась.",
+       "latency_ms": 4605,
+       "output_tokens": 394,
+       "cost_usd": 0.010769,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Клиент спрашивал, где кнопка входа на сайте #13, оператор лишь подсказал адрес «tradernet.global» #14, данные счёта не раскрывались — идентификация не требовалась.",
+       "latency_ms": 2394,
+       "output_tokens": 304,
+       "cost_usd": 0.001988,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Оператор в #14 лишь указал общий путь к веб-кабинету («Веб-кабинет доступен через tradernet.global»), не раскрывая данных счёта и не выполняя защищённых действий, поэтому идентификация не требовалась.",
+       "latency_ms": 56135,
+       "output_tokens": 601,
+       "cost_usd": 0.002868,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "9f0bd77d039f39fa",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    },
+    {
+     "criterion_id": "c04",
+     "title": "Корректная и полная консультация",
+     "answer_type": "scale",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": 20,
+     "final_answer": 20,
+     "explanation": "В #14 оператор дал корректный ответ: «Веб-кабинет доступен через tradernet.global». Клиент подтвердил результат в #15: «Вот это я и хотел узнать».",
+     "evidence": [
+      {
+       "index": 13,
+       "quote": "На этом сайте входа нет, он информационный. Веб-кабинет доступен через tradernet.global.",
+       "verified": true
+      },
+      {
+       "index": 14,
+       "quote": "Вот это я и хотел узнать.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 20,
+       "verified": true,
+       "explanation": "В #14 оператор дал корректный ответ: «Веб-кабинет доступен через tradernet.global». Клиент подтвердил результат в #15: «Вот это я и хотел узнать».",
+       "latency_ms": 6403,
+       "output_tokens": 603,
+       "cost_usd": 0.015693,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Оператор в #14 дал корректный ответ по существу, а клиент в #15 подтвердил: «Вот это я и хотел узнать» — все существенные вопросы закрыты.",
+       "latency_ms": 2390,
+       "output_tokens": 314,
+       "cost_usd": 0.002072,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Оператор дал корректный ответ на вопрос клиента о входе в систему #14 «Веб-кабинет доступен через tradernet.global», клиент подтвердил результат #15 «Вот это я и хотел узнать».",
+       "latency_ms": 20997,
+       "output_tokens": 907,
+       "cost_usd": 0.003918,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "c7b0cae0409b6c47",
+     "reused": false,
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "criterion_id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "В #12 оператор пренебрежительно отреагировал на уточнение клиента фразой «Ну, тогда сайт.», не вникнув в его проблему.",
+     "evidence": [
+      {
+       "index": 11,
+       "quote": "Ну, тогда сайт.",
+       "verified": true
+      },
+      {
+       "index": 9,
+       "quote": "Переустановите приложение.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      9,
+      11
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В #12 оператор пренебрежительно отреагировал на уточнение клиента фразой «Ну, тогда сайт.», не вникнув в его проблему.",
+       "latency_ms": 4626,
+       "output_tokens": 381,
+       "cost_usd": 0.010537,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор отказался вникать в проблему: на вопрос клиента #11 «Какое приложение? Я на компьютере вообще» ответил #12 «Ну, тогда сайт» — пренебрежительный ответ без выяснения ситуации, что эксперт прямо относит к нарушению критерия.",
+       "latency_ms": 4006,
+       "output_tokens": 333,
+       "cost_usd": 0.002132,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": null,
+       "error": "модель не ответила за отведённое время",
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "4e62b7d0fa2afb2f",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 18.75,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answer_type": "scale",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": 4,
+     "final_answer": 4,
+     "explanation": "Оператор ответил наугад «Переустановите приложение» #10, и клиент переспросил «Какое приложение?» #11. Затем последовала бессодержательная реплика «Ну, тогда сайт.» #12, после которой клиенту пришлось заново объяснять ситуацию #13.",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "Здравствуйте, меня зовут Антон. Переустановите приложение.",
+       "verified": true
+      },
+      {
+       "index": 10,
+       "quote": "Какое приложение? Я на компьютере вообще.",
+       "verified": true
+      },
+      {
+       "index": 11,
+       "quote": "Ну, тогда сайт.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      9,
+      12
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 4,
+       "verified": true,
+       "explanation": "Оператор ответил наугад «Переустановите приложение» #10, и клиент переспросил «Какое приложение?» #11. Затем последовала бессодержательная реплика «Ну, тогда сайт.» #12, после которой клиенту пришлось заново объяснять ситуацию #13.",
+       "latency_ms": 7070,
+       "output_tokens": 716,
+       "cost_usd": 0.017917,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 4,
+       "verified": true,
+       "explanation": "Оператор дважды сбился: #10 «Переустановите приложение» — ответ наугад, #12 «Ну, тогда сайт» — отсылка вместо ответа, из-за чего клиент заново объясняет ситуацию в #13.",
+       "latency_ms": 3938,
+       "output_tokens": 369,
+       "cost_usd": 0.002317,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": null,
+       "error": "модель не ответила за отведённое время",
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "d88d5cb57f543e69",
+     "reused": false,
+     "points": 7.5,
+     "max_points": 18.75,
+     "final_points": 7.5
+    },
+    {
+     "criterion_id": "c07",
+     "title": "Завершение",
+     "answer_type": "yes_no",
+     "weight": 5,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "В #16 оператор ограничился фразой «Пожалуйста, до свидания.»: нет ни итога, ни предложения дальнейшей помощи.",
+     "evidence": [
+      {
+       "index": 15,
+       "quote": "Пожалуйста, до свидания.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      14,
+      15
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В #16 оператор ограничился фразой «Пожалуйста, до свидания.»: нет ни итога, ни предложения дальнейшей помощи.",
+       "latency_ms": 3892,
+       "output_tokens": 294,
+       "cost_usd": 0.008717,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В #16 оператор ограничился фразой «Пожалуйста, до свидания» — это прощание без итога и предложения дальнейшей помощи, что по критерию оценивается как «Нет».",
+       "latency_ms": 10030,
+       "output_tokens": 210,
+       "cost_usd": 0.001557,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор попрощался в #16 «Пожалуйста, до свидания.», но не подвёл итог и не предложил дальнейшую помощь, что не соответствует требованию критерия.",
+       "latency_ms": 12960,
+       "output_tokens": 560,
+       "cost_usd": 0.002738,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "8b976d8568bcb216",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 6.25,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c08",
+     "title": "Грубые ошибки",
+     "answer_type": "yes_no",
+     "weight": 0,
+     "critical": true,
+     "scored": false,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Грубых ошибок нет: в #14 слово «доступен» ошибочно распознано как оскорбление «тупен». Предложений платных услуг и раскрытия данных в чате нет.",
+     "evidence": [],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок нет: в #14 слово «доступен» ошибочно распознано как оскорбление «тупен». Предложений платных услуг и раскрытия данных в чате нет.",
+       "latency_ms": 4721,
+       "output_tokens": 418,
+       "cost_usd": 0.011037,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В репликах оператора нет оскорблений, обходных платных предложений или раскрытия конфиденциальных данных; «тупен» в #14 — лишь часть адреса «tradernet.global».",
+       "latency_ms": 15162,
+       "output_tokens": 214,
+       "cost_usd": 0.001596,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок (оскорблений, предложений платных услуг в обход компании, раскрытия конфиденциальной информации) в репликах оператора не выявлено.",
+       "latency_ms": 12701,
+       "output_tokens": 576,
+       "cost_usd": 0.002767,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "3886d4476f649dcf",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Начало и понимание запроса",
+     "points": 12.5,
+     "max_points": 31.25,
+     "final_points": 12.5
+    },
+    {
+     "id": "security",
+     "title": "Безопасность и решение",
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "id": "conduct",
+     "title": "Ведение и завершение диалога",
+     "points": 7.5,
+     "max_points": 43.75,
+     "final_points": 7.5
+    },
+    {
+     "id": "critical",
+     "title": "Грубые нарушения",
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "total": 45.0,
+   "final_total": 45.0,
+   "max_total": 100.0,
+   "critical_flag": false,
+   "critical_note": null,
+   "needs_review": false,
+   "cost_usd": 0.126551,
+   "tokens": {
+    "input": 58196,
+    "output": 9403,
+    "cache_read": 40024,
+    "cache_write": 0,
+    "neurons": 2949.7
+   },
+   "latency_ms": 89002,
+   "status": "done",
+   "error": null,
+   "warnings": [
+    "c05: @cf/qwen/qwen3.8-27b не ответила за отведённое время",
+    "c06: @cf/qwen/qwen3.8-27b не ответила за отведённое время"
+   ],
+   "engine": {
+    "prompt_version": "2026-11-07.5"
+   },
+   "queued_ms": 0,
+   "created_at": "2026-11-07T16:38:16.472580+00:00"
+  },
+  {
+   "conversation_id": "p1-kz-003",
+   "checklist_id": "chat-quality",
+   "checklist_version": 1,
+   "models": [
+    "claude-opus-5-5",
+    "@cf/zai-org/glm-5.3",
+    "@cf/qwen/qwen3.8-27b"
+   ],
+   "criteria": [
+    {
+     "criterion_id": "c01",
+     "title": "Установление контакта",
+     "answer_type": "yes_no",
+     "weight": 10,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В первой реплике #11 оператор поздоровался на языке клиента и представился: «Сәлеметсіз бе, мен Дана».",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Сәлеметсіз бе, мен Дана.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике #11 оператор поздоровался на языке клиента и представился: «Сәлеметсіз бе, мен Дана».",
+       "latency_ms": 3168,
+       "output_tokens": 248,
+       "cost_usd": 0.024515,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 есть и приветствие на казахском «Сәлеметсіз бе», и имя «мен Дана» — критерий выполнен.",
+       "latency_ms": 1532,
+       "output_tokens": 189,
+       "cost_usd": 0.001672,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 присутствуют и приветствие на языке клиента «Сәлеметсіз бе», и имя «мен Дана».",
+       "latency_ms": 37051,
+       "output_tokens": 335,
+       "cost_usd": 0.002252,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "83d9f2b91a79a74c",
+     "reused": false,
+     "points": 10.0,
+     "max_points": 10.0,
+     "final_points": 10.0
+    },
+    {
+     "criterion_id": "c02",
+     "title": "Выявление потребности",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор до первого ответа по существу задал уточняющие вопросы о валюте #14 и времени перевода #17 и учёл ответы клиента, что соответствует «Да».",
+     "evidence": [
+      {
+       "index": 13,
+       "quote": "Ақшаны қай валютамен аудардыңыз?",
+       "verified": true
+      },
+      {
+       "index": 16,
+       "quote": "Алдымен аударымның шамамен қашан жасалғанын айтыңыз.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 0.67,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В #17 оператор спрашивает «аударымның шамамен қашан жасалғанын айтыңыз», хотя клиент уже написал в #1 «Кеше шотқа ақша аудардым».",
+       "latency_ms": 8449,
+       "output_tokens": 736,
+       "cost_usd": 0.017977,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор до первого ответа по существу задал уточняющие вопросы о валюте #14 и времени перевода #17 и учёл ответы клиента, что соответствует «Да».",
+       "latency_ms": 3496,
+       "output_tokens": 281,
+       "cost_usd": 0.0021,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #14 уточнил валюту перевода («Ақшаны қай валютамен аудардыңыз?»), которая не была указана клиентом, и далее учёл ответ при передаче вопроса специалистам.",
+       "latency_ms": 50554,
+       "output_tokens": 1354,
+       "cost_usd": 0.005584,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "0a9c6ceb09e7fa97",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c03",
+     "title": "Идентификация",
+     "answer_type": "yes_no",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор запросил идентификацию перед проверкой платежа (#11 «жеке басыңызды растау қажет»), и она подтверждена системным сообщением #13 «Клиенттің жеке басы расталды».",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Нақты төлемді тексеру үшін жеке басыңызды растау қажет.",
+       "verified": true
+      },
+      {
+       "index": 12,
+       "quote": "Клиенттің жеке басы расталды.",
+       "verified": true
+      },
+      {
+       "index": 13,
+       "quote": "Төлем туралы сұрағыңызды мамандарға жолдаймын.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросил идентификацию перед проверкой платежа (#11 «жеке басыңызды растау қажет»), и она подтверждена системным сообщением #13 «Клиенттің жеке басы расталды».",
+       "latency_ms": 4702,
+       "output_tokens": 419,
+       "cost_usd": 0.011389,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросила идентификацию до проверки платежа #11 «жеке басыңызды растау қажет», личность подтверждена системно #13, данные счёта до этого не раскрывались.",
+       "latency_ms": 7003,
+       "output_tokens": 297,
+       "cost_usd": 0.002112,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросил идентификацию в #11 («жеке басыңызды растау қажет»), она подтверждена системным сообщением #13, и только после этого были уточнены детали платежа.",
+       "latency_ms": 11761,
+       "output_tokens": 606,
+       "cost_usd": 0.003168,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "9f0bd77d039f39fa",
+     "reused": false,
+     "points": 20.0,
+     "max_points": 20.0,
+     "final_points": 20.0
+    },
+    {
+     "criterion_id": "c04",
+     "title": "Корректная и полная консультация",
+     "answer_type": "scale",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": 20,
+     "final_answer": 20,
+     "explanation": "Вопрос о переводе передан специалистам после сбора данных (#14 «сұрағыңызды мамандарға жолдаймын»). Вопрос об отчёте решён, клиент подтвердил результат (#25 «Жүктелді»).",
+     "evidence": [
+      {
+       "index": 13,
+       "quote": "Төлем туралы сұрағыңызды мамандарға жолдаймын. Ақшаны қай валютамен аудардыңыз?",
+       "verified": true
+      },
+      {
+       "index": 23,
+       "quote": "Иә, керекті кезеңнің басы мен соңын көрсетіп, есепті жүктеңіз.",
+       "verified": true
+      },
+      {
+       "index": 24,
+       "quote": "Жүктелді. Аударым бойынша осы чаттан жауап күтемін.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Вопрос о переводе передан специалистам после сбора данных (#14 «сұрағыңызды мамандарға жолдаймын»). Вопрос об отчёте решён, клиент подтвердил результат (#25 «Жүктелді»).",
+       "latency_ms": 7143,
+       "output_tokens": 658,
+       "cost_usd": 0.016913,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Основной вопрос о переводе закрыт корректным следующим шагом: #14 «мамандарға жолдаймын» с уточнением данных и #26 обещание ответа в чате; вопрос об отчёте закрыт в #22–#24, клиент подтвердил «Жүктелді» #25.",
+       "latency_ms": 16859,
+       "output_tokens": 558,
+       "cost_usd": 0.003301,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Все существенные вопросы клиента закрыты: по переводу дан корректный следующий шаг (передача специалистам, ответ в чате #26), по отчёту дана конкретная инструкция #22 и подтверждена возможность за один месяц #24.",
+       "latency_ms": 62739,
+       "output_tokens": 1216,
+       "cost_usd": 0.005191,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "c7b0cae0409b6c47",
+     "reused": false,
+     "points": 20.0,
+     "max_points": 20.0,
+     "final_points": 20.0
+    },
+    {
+     "criterion_id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор отреагировал на беспокойство клиента о непоступивших деньгах: #11 «Ақша көрінбей қалса, алаңдайтыныңыз түсінікті», затем передал вопрос специалистам #14; тон вежливый на протяжении всего чата.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Ақша көрінбей қалса, алаңдайтыныңыз түсінікті. Нақты төлемді тексеру үшін жеке басыңызды растау қажет.",
+       "verified": true
+      },
+      {
+       "index": 13,
+       "quote": "Рақмет. Төлем туралы сұрағыңызды мамандарға жолдаймын.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор отреагировал на беспокойство клиента о непоступивших деньгах: #11 «Ақша көрінбей қалса, алаңдайтыныңыз түсінікті», затем передал вопрос специалистам #14; тон вежливый на протяжении всего чата.",
+       "latency_ms": 6820,
+       "output_tokens": 610,
+       "cost_usd": 0.015237,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на беспокойство клиента: #11 «Ақша көрінбей қалса, алаңдайтыныңыз түсінікті», грубости и отписок в чате нет.",
+       "latency_ms": 3707,
+       "output_tokens": 319,
+       "cost_usd": 0.002226,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #11 прямо отреагировал на беспокойство клиента: «алаңдайтыныңыз түсінікті», что соответствует требованию эмпатичной реакции на описанное неудобство.",
+       "latency_ms": 17917,
+       "output_tokens": 756,
+       "cost_usd": 0.003668,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "4e62b7d0fa2afb2f",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answer_type": "scale",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": 10,
+     "final_answer": 10,
+     "explanation": "Реплики оператора ясные и последовательные (#11, #17, #22), первая реакция в пределах порога, клиенту не приходилось переспрашивать — оснований снижать оценку нет.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Сәлеметсіз бе, мен Дана. Ақша көрінбей қалса, алаңдайтыныңыз түсінікті.",
+       "verified": true
+      },
+      {
+       "index": 16,
+       "quote": "Әзірге түбіртекті жібермей тұрыңыз. Алдымен аударымның шамамен қашан жасалғанын айтыңыз.",
+       "verified": true
+      },
+      {
+       "index": 21,
+       "quote": "Қосымшадағы «Отчёты и документы» бөлімін ашып, «Отчёт брокера» тармағын таңдаңыз.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 0.67,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 7,
+       "verified": true,
+       "explanation": "В #17 оператор спрашивает «аударымның шамамен қашан жасалғанын айтыңыз», хотя клиент уже сообщил в #1 «Кеше шотқа ақша аудардым». Это один заметный сбой, после которого клиент продолжил диалог.",
+       "latency_ms": 7946,
+       "output_tokens": 778,
+       "cost_usd": 0.019277,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Реплики оператора ясные и последовательные (#11, #17, #22), первая реакция в пределах порога, клиенту не приходилось переспрашивать — оснований снижать оценку нет.",
+       "latency_ms": 32755,
+       "output_tokens": 416,
+       "cost_usd": 0.002679,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Оператор отреагировал в пределах порога, все реплики ясные и последовательные, о передаче вопроса специалистам предупредил в #14 «Төлем туралы сұрағыңызды мамандарға жолдаймын».",
+       "latency_ms": 31177,
+       "output_tokens": 1442,
+       "cost_usd": 0.005915,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "d88d5cb57f543e69",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c07",
+     "title": "Завершение",
+     "answer_type": "yes_no",
+     "weight": 5,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В #26 оператор подвёл итог «аударымға қатысты жауапты осында жібереміз» и попрощался «Сау болыңыз!».",
+     "evidence": [
+      {
+       "index": 25,
+       "quote": "Жақсы, аударымға қатысты жауапты осында жібереміз. Сау болыңыз!",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #26 оператор подвёл итог «аударымға қатысты жауапты осында жібереміз» и попрощался «Сау болыңыз!».",
+       "latency_ms": 3776,
+       "output_tokens": 318,
+       "cost_usd": 0.009317,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #26 оператор зафиксировал итог («аударымға қатысты жауапты осында жібереміз») и попрощался («Сау болыңыз!»), что соответствует критерию завершения.",
+       "latency_ms": 37395,
+       "output_tokens": 264,
+       "cost_usd": 0.002023,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #26 подвёл итог («аударымға қатысты жауапты осында жібереміз») и попрощался («Сау болыңыз!»), что полностью соответствует критерию.",
+       "latency_ms": 10614,
+       "output_tokens": 506,
+       "cost_usd": 0.002849,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "8b976d8568bcb216",
+     "reused": false,
+     "points": 5.0,
+     "max_points": 5.0,
+     "final_points": 5.0
+    },
+    {
+     "criterion_id": "c08",
+     "title": "Грубые ошибки",
+     "answer_type": "yes_no",
+     "weight": 0,
+     "critical": true,
+     "scored": false,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "В чате нет оскорблений, платных услуг в обход компании и раскрытия конфиденциальных данных: оператор действовал после подтверждения личности #13 и корректно завершил диалог #26 «Сау болыңыз!».",
+     "evidence": [],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В чате нет оскорблений, платных услуг в обход компании и раскрытия конфиденциальных данных: оператор действовал после подтверждения личности #13 и корректно завершил диалог #26 «Сау болыңыз!».",
+       "latency_ms": 3368,
+       "output_tokens": 269,
+       "cost_usd": 0.008177,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор вежлива, оскорблений нет, платные услуги в обход компании не предлагались, конфиденциальные данные не раскрывались — грубых ошибок нет.",
+       "latency_ms": 14277,
+       "output_tokens": 187,
+       "cost_usd": 0.001632,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок (оскорбление, предложение платной услуги в обход компании, раскрытие конфиденциальной информации) в чате не обнаружено.",
+       "latency_ms": 13752,
+       "output_tokens": 693,
+       "cost_usd": 0.003425,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "3886d4476f649dcf",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Начало и понимание запроса",
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "id": "security",
+     "title": "Безопасность и решение",
+     "points": 40.0,
+     "max_points": 40.0,
+     "final_points": 40.0
+    },
+    {
+     "id": "conduct",
+     "title": "Ведение и завершение диалога",
+     "points": 35.0,
+     "max_points": 35.0,
+     "final_points": 35.0
+    },
+    {
+     "id": "critical",
+     "title": "Грубые нарушения",
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "total": 100.0,
+   "final_total": 100.0,
+   "max_total": 100.0,
+   "critical_flag": false,
+   "critical_note": null,
+   "needs_review": false,
+   "cost_usd": 0.172602,
+   "tokens": {
+    "input": 78368,
+    "output": 13455,
+    "cache_read": 47201,
+    "cache_write": 3607,
+    "neurons": 4527.0
+   },
+   "latency_ms": 62754,
+   "status": "done",
+   "error": null,
+   "warnings": [],
+   "engine": {
+    "prompt_version": "2026-11-07.5"
+   },
+   "queued_ms": 0,
+   "created_at": "2026-11-07T16:38:49.407213+00:00"
+  },
+  {
+   "conversation_id": "p1-kz-008",
+   "checklist_id": "chat-quality",
+   "checklist_version": 1,
+   "models": [
+    "claude-opus-5-5",
+    "@cf/zai-org/glm-5.3",
+    "@cf/qwen/qwen3.8-27b"
+   ],
+   "criteria": [
+    {
+     "criterion_id": "c01",
+     "title": "Установление контакта",
+     "answer_type": "yes_no",
+     "weight": 10,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "В первой реплике оператора #10 есть только приветствие «Сәлем», а представления по имени нет.",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "Сәлем. Қай сайтқа кірдіңіз?",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      9,
+      9
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В первой реплике оператора #10 есть только приветствие «Сәлем», а представления по имени нет.",
+       "latency_ms": 3570,
+       "output_tokens": 281,
+       "cost_usd": 0.022485,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В первой реплике оператора #10 «Сәлем. Қай сайтқа кірдіңіз?» есть приветствие на языке клиента, но отсутствует представление именем — критерий не выполнен.",
+       "latency_ms": 2076,
+       "output_tokens": 211,
+       "cost_usd": 0.001583,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор поздоровался («Сәлем» в #10), но не представился именем ни в первой, ни в последующих репликах, что не соответствует требованию критерия.",
+       "latency_ms": 12158,
+       "output_tokens": 510,
+       "cost_usd": 0.002586,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "83d9f2b91a79a74c",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 12.5,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c02",
+     "title": "Выявление потребности",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Клиент ещё боту назвал сайт #5 «Freedom Finance Global сайты», но оператор переспросил то же #10 «Қай сайтқа кірдіңіз?», и клиент указал #11 «Жоғарыда жаздым ғой».",
+     "evidence": [
+      {
+       "index": 4,
+       "quote": "Freedom Finance Global сайты. Операторға қосыңызшы.",
+       "verified": true
+      },
+      {
+       "index": 9,
+       "quote": "Сәлем. Қай сайтқа кірдіңіз?",
+       "verified": true
+      },
+      {
+       "index": 10,
+       "quote": "Жоғарыда жаздым ғой, Global сайты.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      0,
+      11
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Клиент ещё боту назвал сайт #5 «Freedom Finance Global сайты», но оператор переспросил то же #10 «Қай сайтқа кірдіңіз?», и клиент указал #11 «Жоғарыда жаздым ғой».",
+       "latency_ms": 5039,
+       "output_tokens": 435,
+       "cost_usd": 0.01185,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор в #10 переспросил сайт, хотя клиент уже назвал его в #5 «Freedom Finance Global сайты», и клиенту пришлось повторить в #11 «Жоғарыда жаздым ғой».",
+       "latency_ms": 5885,
+       "output_tokens": 366,
+       "cost_usd": 0.002288,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор в #10 переспросил «Қай сайтқа кірдіңіз?», хотя клиент уже в #5 чётко указал «Freedom Finance Global сайты» — это переспрос уже известного, что является нарушением критерия.",
+       "latency_ms": 72634,
+       "output_tokens": 925,
+       "cost_usd": 0.003985,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "0a9c6ceb09e7fa97",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 18.75,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c03",
+     "title": "Идентификация",
+     "answer_type": "yes_no",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": "na",
+     "final_answer": "na",
+     "explanation": "В #12 оператор дал только общую подсказку: «Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз». Идентификация не требовалась.",
+     "evidence": [
+      {
+       "index": 11,
+       "quote": "Ол ақпараттық сайт. Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": "Общий вопрос о том, как войти в кабинет; данные счёта не раскрывались, защищённых действий не было.",
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "na",
+       "verified": true,
+       "explanation": "В #12 оператор дал только общую подсказку: «Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз». Идентификация не требовалась.",
+       "latency_ms": 4297,
+       "output_tokens": 445,
+       "cost_usd": 0.011802,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Клиент задал общий навигационный вопрос #1 «жеке кабинетке кіретін жерді таппадым», а оператор в #12 лишь указал платформу для входа, не раскрывая данные счёта — идентификация не требовалась.",
+       "latency_ms": 2772,
+       "output_tokens": 374,
+       "cost_usd": 0.002337,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Оператор в #12 лишь указал клиенту, через какую платформу заходить в кабинет, не раскрывая данные счёта — идентификация не требовалась.",
+       "latency_ms": 22509,
+       "output_tokens": 606,
+       "cost_usd": 0.002941,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "9f0bd77d039f39fa",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    },
+    {
+     "criterion_id": "c04",
+     "title": "Корректная и полная консультация",
+     "answer_type": "scale",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": 20,
+     "final_answer": 20,
+     "explanation": "В #12 оператор указал, где входить: «tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы», а клиент в #13 подтвердил: «Ашылды, рақмет».",
+     "evidence": [
+      {
+       "index": 11,
+       "quote": "Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз.",
+       "verified": true
+      },
+      {
+       "index": 12,
+       "quote": "Ашылды, рақмет.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 20,
+       "verified": true,
+       "explanation": "В #12 оператор указал, где входить: «tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы», а клиент в #13 подтвердил: «Ашылды, рақмет».",
+       "latency_ms": 4175,
+       "output_tokens": 410,
+       "cost_usd": 0.011846,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Оператор в #12 дал конкретный способ входа, а клиент в #13 подтвердил успех («Ашылды, рақмет») — все существенные вопросы закрыты.",
+       "latency_ms": 2783,
+       "output_tokens": 309,
+       "cost_usd": 0.002092,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Оператор дал корректный ответ на вопрос клиента о входе в личный кабинет #12 «Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз», клиент подтвердил результат #13 «Ашылды, рақмет».",
+       "latency_ms": 25925,
+       "output_tokens": 721,
+       "cost_usd": 0.00338,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "c7b0cae0409b6c47",
+     "reused": false,
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "criterion_id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "На мягкое замечание клиента #11 «Жоғарыда жаздым ғой» оператор отреагировал решением конкретной проблемы #12 «Сауда шотына tradernet.global веб-нұсқасы... арқылы кіресіз». Грубости в ответах оператора нет.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Жоғарыда жаздым ғой, Global сайты.",
+       "verified": true
+      },
+      {
+       "index": 11,
+       "quote": "Ол ақпараттық сайт. Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "На мягкое замечание клиента #11 «Жоғарыда жаздым ғой» оператор отреагировал решением конкретной проблемы #12 «Сауда шотына tradernet.global веб-нұсқасы... арқылы кіресіз». Грубости в ответах оператора нет.",
+       "latency_ms": 8644,
+       "output_tokens": 721,
+       "cost_usd": 0.01735,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и клиентоориентирован: в #10 вежливо уточняет вопрос, в #12 даёт конкретное решение, клиент подтвердил результат в #13 «Ашылды, рақмет».",
+       "latency_ms": 16145,
+       "output_tokens": 331,
+       "cost_usd": 0.002165,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив, грубости и пренебрежения нет; мягкое замечание клиента в #11 «Жоғарыда жаздым ғой» не является выраженным недовольством, требующим отдельной эмпатической реакции.",
+       "latency_ms": 20966,
+       "output_tokens": 1129,
+       "cost_usd": 0.004635,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "4e62b7d0fa2afb2f",
+     "reused": false,
+     "points": 18.75,
+     "max_points": 18.75,
+     "final_points": 18.75
+    },
+    {
+     "criterion_id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answer_type": "scale",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": 7,
+     "final_answer": 7,
+     "explanation": "В #10 оператор спросил «Қай сайтқа кірдіңіз?», хотя клиент уже назвал сайт в #5, и в #11 клиент повторил «Жоғарыда жаздым ғой». Это один заметный сбой, после которого диалог продолжился ясно.",
+     "evidence": [
+      {
+       "index": 4,
+       "quote": "Freedom Finance Global сайты. Операторға қосыңызшы.",
+       "verified": true
+      },
+      {
+       "index": 9,
+       "quote": "Сәлем. Қай сайтқа кірдіңіз?",
+       "verified": true
+      },
+      {
+       "index": 10,
+       "quote": "Жоғарыда жаздым ғой, Global сайты.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      8,
+      10
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 7,
+       "verified": true,
+       "explanation": "В #10 оператор спросил «Қай сайтқа кірдіңіз?», хотя клиент уже назвал сайт в #5, и в #11 клиент повторил «Жоғарыда жаздым ғой». Это один заметный сбой, после которого диалог продолжился ясно.",
+       "latency_ms": 6466,
+       "output_tokens": 655,
+       "cost_usd": 0.01671,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 7,
+       "verified": true,
+       "explanation": "Один заметный сбой: в #10 оператор спрашивает «Қай сайтқа кірдіңіз?», хотя клиент уже назвал сайт в #5, и клиенту приходится повторять в #11 «Жоғарыда жаздым ғой». Остальные реплики ясные, диалог продолжился успешно — 7.",
+       "latency_ms": 8968,
+       "output_tokens": 375,
+       "cost_usd": 0.002385,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 7,
+       "verified": true,
+       "explanation": "Оператор задал лишний вопрос #10 «Қай сайтқа кірдіңіз?», хотя клиент уже указал сайт в #5, что вынудило клиента повторить ответ в #11 — один заметный сбой, после которого диалог продолжился и был разрешён.",
+       "latency_ms": 30344,
+       "output_tokens": 928,
+       "cost_usd": 0.004044,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "d88d5cb57f543e69",
+     "reused": false,
+     "points": 13.13,
+     "max_points": 18.75,
+     "final_points": 13.13
+    },
+    {
+     "criterion_id": "c07",
+     "title": "Завершение",
+     "answer_type": "yes_no",
+     "weight": 5,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "После сообщения клиента #13 «Ашылды, рақмет» оператор не предложил дальнейшую помощь и не попрощался; его последняя реплика #12 содержит только инструкцию.",
+     "evidence": [
+      {
+       "index": 12,
+       "quote": "Ашылды, рақмет.",
+       "verified": true
+      },
+      {
+       "index": 11,
+       "quote": "Ол ақпараттық сайт. Сауда шотына tradernet.global веб-нұсқасы немесе Freedom Broker қосымшасы арқылы кіресіз.",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      11,
+      12
+     ],
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "После сообщения клиента #13 «Ашылды, рақмет» оператор не предложил дальнейшую помощь и не попрощался; его последняя реплика #12 содержит только инструкцию.",
+       "latency_ms": 4698,
+       "output_tokens": 399,
+       "cost_usd": 0.01083,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "После реплики клиента #13 «Ашылды, рақмет» оператор не попрощался и не подвёл итог — чат оборвался без завершения со стороны оператора, что по критерию c07 оценивается как «Нет».",
+       "latency_ms": 8077,
+       "output_tokens": 321,
+       "cost_usd": 0.002087,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В реплике #12 оператор дал ответ, но не подвёл итог, не предложил помощь и не попрощался — завершение отсутствует.",
+       "latency_ms": 23296,
+       "output_tokens": 1599,
+       "cost_usd": 0.007151,
+       "attempts": 2
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "8b976d8568bcb216",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 6.25,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c08",
+     "title": "Грубые ошибки",
+     "answer_type": "yes_no",
+     "weight": 0,
+     "critical": true,
+     "scored": false,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Реплики оператора #10 «Қай сайтқа кірдіңіз?» и #12 «Ол ақпараттық сайт» содержат только консультацию по входу, без оскорблений, платных предложений и раскрытия данных.",
+     "evidence": [],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Реплики оператора #10 «Қай сайтқа кірдіңіз?» и #12 «Ол ақпараттық сайт» содержат только консультацию по входу, без оскорблений, платных предложений и раскрытия данных.",
+       "latency_ms": 4302,
+       "output_tokens": 308,
+       "cost_usd": 0.00885,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Оператор в #10 и #12 общается корректно, без оскорблений, платных предложений в обход компании и раскрытия конфиденциальных данных — грубой ошибки нет.",
+       "latency_ms": 14104,
+       "output_tokens": 173,
+       "cost_usd": 0.001457,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок (оскорбление, предложение платной услуги в обход компании, раскрытие конфиденциальной информации) в репликах оператора #10 и #12 не выявлено.",
+       "latency_ms": 11415,
+       "output_tokens": 412,
+       "cost_usd": 0.0023,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "3886d4476f649dcf",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Начало и понимание запроса",
+     "points": 0.0,
+     "max_points": 31.25,
+     "final_points": 0.0
+    },
+    {
+     "id": "security",
+     "title": "Безопасность и решение",
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "id": "conduct",
+     "title": "Ведение и завершение диалога",
+     "points": 31.88,
+     "max_points": 43.75,
+     "final_points": 31.88
+    },
+    {
+     "id": "critical",
+     "title": "Грубые нарушения",
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "total": 56.88,
+   "final_total": 56.88,
+   "max_total": 100.0,
+   "critical_flag": false,
+   "critical_note": null,
+   "needs_review": false,
+   "cost_usd": 0.159138,
+   "tokens": {
+    "input": 67930,
+    "output": 12944,
+    "cache_read": 39019,
+    "cache_write": 3069,
+    "neurons": 4310.6
+   },
+   "latency_ms": 72646,
+   "status": "done",
+   "error": null,
+   "warnings": [],
+   "engine": {
+    "prompt_version": "2026-11-07.5"
+   },
+   "queued_ms": 0,
+   "created_at": "2026-11-07T16:39:29.120130+00:00"
+  },
+  {
+   "conversation_id": "p1-en-001",
+   "checklist_id": "chat-quality",
+   "checklist_version": 1,
+   "models": [
+    "claude-opus-5-5",
+    "@cf/zai-org/glm-5.3",
+    "@cf/qwen/qwen3.8-27b"
+   ],
+   "criteria": [
+    {
+     "criterion_id": "c01",
+     "title": "Установление контакта",
+     "answer_type": "yes_no",
+     "weight": 10,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В первой реплике #10 оператор поздоровался на языке клиента и представился: «Hi, I'm Maya from support».",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "Hi, I'm Maya from support.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике #10 оператор поздоровался на языке клиента и представился: «Hi, I'm Maya from support».",
+       "latency_ms": 3162,
+       "output_tokens": 244,
+       "cost_usd": 0.02051,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": null,
+       "error": "@cf/zai-org/glm-5.3: HTTP 429: AiError: AiError: rate limiting: inference request per min rate reached (0a650c37-2439-4a47-89f5-8c58d302e19d)",
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #10 есть приветствие «Hi» и имя «I'm Maya», что полностью соответствует требованию критерия.",
+       "latency_ms": 6801,
+       "output_tokens": 259,
+       "cost_usd": 0.001686,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "83d9f2b91a79a74c",
+     "reused": false,
+     "points": 15.38,
+     "max_points": 15.38,
+     "final_points": 15.38
+    },
+    {
+     "criterion_id": "c02",
+     "title": "Выявление потребности",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "na",
+     "final_answer": "na",
+     "explanation": "Клиент ещё до подключения оператора сообщил боту все детали #5 «Yes, I closed that account», и оператор сразу ответил по существу #10 «Use a different login for the new registration».",
+     "evidence": [
+      {
+       "index": 4,
+       "quote": "Yes, I closed that account. Can I talk to a support agent?",
+       "verified": true
+      },
+      {
+       "index": 9,
+       "quote": "A login stays on record after the account is closed. Use a different login for the new registration.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": "Запрос был понятен и полон с самого начала (в том числе из ответа боту), оператор ответил без уточнений, уточнять было нечего.",
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Клиент ещё до подключения оператора сообщил боту все детали #5 «Yes, I closed that account», и оператор сразу ответил по существу #10 «Use a different login for the new registration».",
+       "latency_ms": 4757,
+       "output_tokens": 458,
+       "cost_usd": 0.01226,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": null,
+       "error": "@cf/zai-org/glm-5.3: HTTP 429: AiError: AiError: rate limiting: inference request per min rate reached (2c3ceb53-3d0d-4af3-9e98-6c3053178e24)",
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Клиент до передачи оператору уже полностью описал ситуацию (#1 «my login is taken», #5 «I closed that account»), оператор #10 сразу дал ответ без уточнений — запрос был полон с самого начала.",
+       "latency_ms": 18204,
+       "output_tokens": 615,
+       "cost_usd": 0.002897,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "0a9c6ceb09e7fa97",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    },
+    {
+     "criterion_id": "c03",
+     "title": "Идентификация",
+     "answer_type": "yes_no",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": "na",
+     "final_answer": "na",
+     "explanation": "В #10 оператор лишь объяснил общее правило: «A login stays on record after the account is closed». Данные счёта не раскрывались, поэтому идентификация не требовалась.",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "A login stays on record after the account is closed. Use a different login for the new registration.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": "Запрос не требовал идентификации: оператор дал общее правило о логинах без раскрытия данных счёта и без защищённых действий.",
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "na",
+       "verified": true,
+       "explanation": "В #10 оператор лишь объяснил общее правило: «A login stays on record after the account is closed». Данные счёта не раскрывались, поэтому идентификация не требовалась.",
+       "latency_ms": 4647,
+       "output_tokens": 404,
+       "cost_usd": 0.010932,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Оператор в #10 дала лишь общий совет «Use a different login for the new registration» без раскрытия данных счёта или защищённых действий, поэтому идентификация не требовалась.",
+       "latency_ms": 31212,
+       "output_tokens": 280,
+       "cost_usd": 0.001829,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "na",
+       "verified": true,
+       "explanation": "Оператор ответила на общий вопрос о правилах регистрации #10 «A login stays on record after the account is closed», не раскрывая данных счёта и не выполняя защищённых действий, поэтому идентификация не требовалась.",
+       "latency_ms": 12816,
+       "output_tokens": 555,
+       "cost_usd": 0.002682,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "9f0bd77d039f39fa",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    },
+    {
+     "criterion_id": "c04",
+     "title": "Корректная и полная консультация",
+     "answer_type": "scale",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": 20,
+     "final_answer": 20,
+     "explanation": "В #10 оператор объяснил причину и дал действие: «Use a different login for the new registration», клиент принял ответ в #11: «Thanks».",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "A login stays on record after the account is closed. Use a different login for the new registration.",
+       "verified": true
+      },
+      {
+       "index": 10,
+       "quote": "Right, I thought I'd just have to wait. Thanks.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 20,
+       "verified": true,
+       "explanation": "В #10 оператор объяснил причину и дал действие: «Use a different login for the new registration», клиент принял ответ в #11: «Thanks».",
+       "latency_ms": 3956,
+       "output_tokens": 348,
+       "cost_usd": 0.010556,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Оператор в #10 дал полное решение: «A login stays on record... Use a different login», а клиент в #11 подтвердил результат («Right... Thanks»), что соответствует ступени 20.",
+       "latency_ms": 6161,
+       "output_tokens": 293,
+       "cost_usd": 0.001927,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Оператор в #10 дал полное объяснение и конкретный следующий шаг, клиент в #11 подтвердил: «Right, I thought I'd just have to wait. Thanks.»",
+       "latency_ms": 14496,
+       "output_tokens": 643,
+       "cost_usd": 0.003035,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "c7b0cae0409b6c47",
+     "reused": false,
+     "points": 30.77,
+     "max_points": 30.77,
+     "final_points": 30.77
+    },
+    {
+     "criterion_id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор вежлив и отреагировал на конкретную проблему клиента: #10 «A login stays on record after the account is closed. Use a different login», а завершил чат словами #12 «You're welcome. Take care!».",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "Hi, I'm Maya from support. A login stays on record after the account is closed.",
+       "verified": true
+      },
+      {
+       "index": 11,
+       "quote": "You're welcome. Take care!",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на конкретную проблему клиента: #10 «A login stays on record after the account is closed. Use a different login», а завершил чат словами #12 «You're welcome. Take care!».",
+       "latency_ms": 3861,
+       "output_tokens": 341,
+       "cost_usd": 0.0097,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлива и ответила по существу вопроса клиента в #10 «A login stays on record after the account is closed. Use a different login». Клиент недовольства не выражал, нарушений нет.",
+       "latency_ms": 5502,
+       "output_tokens": 196,
+       "cost_usd": 0.001476,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на конкретную проблему клиента: #10 «A login stays on record after the account is closed. Use a different login for the new registration».",
+       "latency_ms": 12567,
+       "output_tokens": 525,
+       "cost_usd": 0.002607,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "4e62b7d0fa2afb2f",
+     "reused": false,
+     "points": 23.08,
+     "max_points": 23.08,
+     "final_points": 23.08
+    },
+    {
+     "criterion_id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answer_type": "scale",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": 10,
+     "final_answer": 10,
+     "explanation": "Оператор быстро и ясно ответил в #10: «A login stays on record after the account is closed», и клиент сразу понял ответ в #11: «Right, I thought I'd just have to wait».",
+     "evidence": [
+      {
+       "index": 9,
+       "quote": "A login stays on record after the account is closed. Use a different login for the new registration.",
+       "verified": true
+      },
+      {
+       "index": 10,
+       "quote": "Right, I thought I'd just have to wait. Thanks.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Оператор быстро и ясно ответил в #10: «A login stays on record after the account is closed», и клиент сразу понял ответ в #11: «Right, I thought I'd just have to wait».",
+       "latency_ms": 4071,
+       "output_tokens": 331,
+       "cost_usd": 0.01018,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Оператор ответил ясно и по существу в #10 «A login stays on record after the account is closed», первая реакция в пределах порога, клиент понял ответ и поблагодарил #11.",
+       "latency_ms": 31200,
+       "output_tokens": 236,
+       "cost_usd": 0.001679,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Реплика #10 «Hi, I'm Maya from support. A login stays on record after the account is closed. Use a different login for the new registration» — ясная, логичная, дана в пределах порога; клиент сразу понял и завершил диалог.",
+       "latency_ms": 17982,
+       "output_tokens": 632,
+       "cost_usd": 0.003001,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "d88d5cb57f543e69",
+     "reused": false,
+     "points": 23.08,
+     "max_points": 23.08,
+     "final_points": 23.08
+    },
+    {
+     "criterion_id": "c07",
+     "title": "Завершение",
+     "answer_type": "yes_no",
+     "weight": 5,
+     "critical": false,
+     "scored": true,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "В завершающей реплике #12 только «You're welcome. Take care!» — прощание без итога и без предложения дальнейшей помощи.",
+     "evidence": [
+      {
+       "index": 11,
+       "quote": "You're welcome. Take care!",
+       "verified": true
+      }
+     ],
+     "checked_range": [
+      10,
+      11
+     ],
+     "na_reason": null,
+     "confidence": 0.67,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В завершающей реплике #12 только «You're welcome. Take care!» — прощание без итога и без предложения дальнейшей помощи.",
+       "latency_ms": 4629,
+       "output_tokens": 400,
+       "cost_usd": 0.0108,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Завершающая реплика #12 «You're welcome. Take Care!» — только прощание без итога или предложения дальнейшей помощи, что по критерию c07 оценивается как «Нет».",
+       "latency_ms": 33199,
+       "output_tokens": 306,
+       "cost_usd": 0.002,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор в #10 дал решение («Use a different login for the new registration»), что является итогом, и в #12 попрощался («Take care!») — оба условия критерия выполнены.",
+       "latency_ms": 26403,
+       "output_tokens": 1201,
+       "cost_usd": 0.004751,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "8b976d8568bcb216",
+     "reused": false,
+     "points": 0.0,
+     "max_points": 7.69,
+     "final_points": 0.0
+    },
+    {
+     "criterion_id": "c08",
+     "title": "Грубые ошибки",
+     "answer_type": "yes_no",
+     "weight": 0,
+     "critical": true,
+     "scored": false,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Грубой ошибки нет: оператор дал общую информацию — #10 «A login stays on record after the account is closed» — без оскорблений, сторонних предложений и раскрытия конфиденциальных данных.",
+     "evidence": [],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубой ошибки нет: оператор дал общую информацию — #10 «A login stays on record after the account is closed» — без оскорблений, сторонних предложений и раскрытия конфиденциальных данных.",
+       "latency_ms": 3188,
+       "output_tokens": 266,
+       "cost_usd": 0.00796,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "В репликах оператора #10 и #12 содержится только корректная консультация и вежливое прощание, грубых ошибок нет.",
+       "latency_ms": 16461,
+       "output_tokens": 144,
+       "cost_usd": 0.001235,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок (оскорбление, предложение платной услуги в обход компании, раскрытие конфиденциальной информации) в репликах оператора #10 и #12 не выявлено.",
+       "latency_ms": 10758,
+       "output_tokens": 381,
+       "cost_usd": 0.002105,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "3886d4476f649dcf",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Начало и понимание запроса",
+     "points": 15.38,
+     "max_points": 15.38,
+     "final_points": 15.38
+    },
+    {
+     "id": "security",
+     "title": "Безопасность и решение",
+     "points": 30.77,
+     "max_points": 30.77,
+     "final_points": 30.77
+    },
+    {
+     "id": "conduct",
+     "title": "Ведение и завершение диалога",
+     "points": 46.15,
+     "max_points": 53.85,
+     "final_points": 46.15
+    },
+    {
+     "id": "critical",
+     "title": "Грубые нарушения",
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "total": 92.31,
+   "final_total": 92.31,
+   "max_total": 100.0,
+   "critical_flag": false,
+   "critical_note": null,
+   "needs_review": false,
+   "cost_usd": 0.125811,
+   "tokens": {
+    "input": 55861,
+    "output": 9058,
+    "cache_read": 31402,
+    "cache_write": 2822,
+    "neurons": 2991.8
+   },
+   "latency_ms": 62912,
+   "status": "done",
+   "error": null,
+   "warnings": [],
+   "engine": {
+    "prompt_version": "2026-11-07.5"
+   },
+   "queued_ms": 0,
+   "created_at": "2026-11-07T16:39:52.319860+00:00"
+  },
+  {
+   "conversation_id": "p1-en-006",
+   "checklist_id": "chat-quality",
+   "checklist_version": 1,
+   "models": [
+    "claude-opus-5-5",
+    "@cf/zai-org/glm-5.3",
+    "@cf/qwen/qwen3.8-27b"
+   ],
+   "criteria": [
+    {
+     "criterion_id": "c01",
+     "title": "Установление контакта",
+     "answer_type": "yes_no",
+     "weight": 10,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В первой реплике оператора #11 есть приветствие на языке клиента и имя: «Hello, I'm Sam».",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Hello, I'm Sam. I understand why you'd want to check.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 есть приветствие на языке клиента и имя: «Hello, I'm Sam».",
+       "latency_ms": 3274,
+       "output_tokens": 239,
+       "cost_usd": 0.023,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 есть и приветствие, и имя: «Hello, I'm Sam» — на языке клиента.",
+       "latency_ms": 1192,
+       "output_tokens": 160,
+       "cost_usd": 0.001385,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В первой реплике оператора #11 присутствуют и приветствие «Hello», и имя «I'm Sam», что полностью соответствует требованию критерия.",
+       "latency_ms": 6043,
+       "output_tokens": 291,
+       "cost_usd": 0.002002,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "83d9f2b91a79a74c",
+     "reused": false,
+     "points": 10.0,
+     "max_points": 10.0,
+     "final_points": 10.0
+    },
+    {
+     "criterion_id": "c02",
+     "title": "Выявление потребности",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Перед первым ответом оператор уточнил валюту перевода #14 «What currency did you send?» и учёл её в заявке #16 «with the currency you provided».",
+     "evidence": [
+      {
+       "index": 13,
+       "quote": "Thanks. What currency did you send?",
+       "verified": true
+      },
+      {
+       "index": 15,
+       "quote": "I've sent the case for review with the currency you provided.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Перед первым ответом оператор уточнил валюту перевода #14 «What currency did you send?» и учёл её в заявке #16 «with the currency you provided».",
+       "latency_ms": 5977,
+       "output_tokens": 486,
+       "cost_usd": 0.012924,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": null,
+       "error": "@cf/zai-org/glm-5.3: HTTP 429: AiError: AiError: rate limiting: inference request per min rate reached (ca04d830-8700-4feb-bd7b-54e91c5a1557)",
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор уточнил недостающую деталь (валюту перевода) в #14 «What currency did you send?» и учёл ответ в #16, что соответствует требованию критерия.",
+       "latency_ms": 53123,
+       "output_tokens": 986,
+       "cost_usd": 0.004297,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "0a9c6ceb09e7fa97",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c03",
+     "title": "Идентификация",
+     "answer_type": "yes_no",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор запросил проверку личности в #11 «We'll need to verify your identity before we look at the account», личность подтверждена в #13 «Customer identity verified.» до передачи кейса по переводу в #16.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "We'll need to verify your identity before we look at the account.",
+       "verified": true
+      },
+      {
+       "index": 12,
+       "quote": "Customer identity verified.",
+       "verified": true
+      },
+      {
+       "index": 15,
+       "quote": "I've sent the case for review with the currency you provided.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросил проверку личности в #11 «We'll need to verify your identity before we look at the account», личность подтверждена в #13 «Customer identity verified.» до передачи кейса по переводу в #16.",
+       "latency_ms": 5404,
+       "output_tokens": 380,
+       "cost_usd": 0.010556,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор потребовал идентификацию в #11 «We'll need to verify your identity», и личность подтверждена системой в #13 до раскрытия данных счёта.",
+       "latency_ms": 3534,
+       "output_tokens": 252,
+       "cost_usd": 0.001827,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор запросил верификацию #11 «We'll need to verify your identity before we look at the account», и системное подтверждение #13 «Customer identity verified» пришло до любых действий по счёту.",
+       "latency_ms": 11855,
+       "output_tokens": 562,
+       "cost_usd": 0.002918,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "9f0bd77d039f39fa",
+     "reused": false,
+     "points": 20.0,
+     "max_points": 20.0,
+     "final_points": 20.0
+    },
+    {
+     "criterion_id": "c04",
+     "title": "Корректная и полная консультация",
+     "answer_type": "scale",
+     "weight": 20,
+     "critical": false,
+     "scored": true,
+     "answer": 20,
+     "final_answer": 20,
+     "explanation": "Все вопросы клиента закрыты: перевод передан на проверку с собранными данными #16, путь к отчёту указан #26, а клиент подтвердил результат в #29 «That worked».",
+     "evidence": [
+      {
+       "index": 15,
+       "quote": "I've sent the case for review with the currency you provided. We'll follow up in this chat once there's an update.",
+       "verified": true
+      },
+      {
+       "index": 25,
+       "quote": "In the app, open Reports and Documents, then Broker Report.",
+       "verified": true
+      },
+      {
+       "index": 28,
+       "quote": "That worked. I'll wait here for the transfer update.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Все вопросы клиента закрыты: перевод передан на проверку с собранными данными #16, путь к отчёту указан #26, а клиент подтвердил результат в #29 «That worked».",
+       "latency_ms": 6941,
+       "output_tokens": 579,
+       "cost_usd": 0.01528,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Все запросы клиента закрыты: по переводу дело передано с собранными данными #16, по брокерскому отчёту даны инструкции, подтверждённые клиентом #28 «That worked».",
+       "latency_ms": 16468,
+       "output_tokens": 322,
+       "cost_usd": 0.002175,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 20,
+       "verified": true,
+       "explanation": "Все существенные вопросы клиента (перевод, скриншот, повторное объяснение, путь к отчёту, выбор периода) получили прямые ответы или корректный следующий шаг; клиент подтвердил результат по отчёту в #29 «That worked».",
+       "latency_ms": 24301,
+       "output_tokens": 1037,
+       "cost_usd": 0.004509,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "c7b0cae0409b6c47",
+     "reused": false,
+     "points": 20.0,
+     "max_points": 20.0,
+     "final_points": 20.0
+    },
+    {
+     "criterion_id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answer_type": "yes_no",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "Оператор отреагировал на беспокойство клиента в #11 («I understand why you'd want to check») и снял его опасение в #23 («The details you've given me are already in the case»), сохраняя вежливый тон.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Hello, I'm Sam. I understand why you'd want to check.",
+       "verified": true
+      },
+      {
+       "index": 22,
+       "quote": "You can return to this chat. The details you've given me are already in the case.",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор отреагировал на беспокойство клиента в #11 («I understand why you'd want to check») и снял его опасение в #23 («The details you've given me are already in the case»), сохраняя вежливый тон.",
+       "latency_ms": 6844,
+       "output_tokens": 566,
+       "cost_usd": 0.014304,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на беспокойство клиента: #11 «I understand why you'd want to check» — реакция на «It's making me nervous» из #1; тон на протяжении чата корректный.",
+       "latency_ms": 32161,
+       "output_tokens": 338,
+       "cost_usd": 0.002222,
+       "attempts": 2
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "Оператор вежлив и отреагировал на выраженное клиентом беспокойство в #11: «I understand why you'd want to check», после чего последовательно помог с проблемой.",
+       "latency_ms": 38081,
+       "output_tokens": 997,
+       "cost_usd": 0.00433,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "4e62b7d0fa2afb2f",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answer_type": "scale",
+     "weight": 15,
+     "critical": false,
+     "scored": true,
+     "answer": 10,
+     "final_answer": 10,
+     "explanation": "Оператор ответил быстро (#11 через 1:27 после #9), вёл диалог последовательно и ясно (#16, #26, #30); клиент не переспрашивал, сбоев и долгих пауз нет — ставим 10.",
+     "evidence": [
+      {
+       "index": 10,
+       "quote": "Hello, I'm Sam. I understand why you'd want to check. We'll need to verify your identity",
+       "verified": true
+      },
+      {
+       "index": 15,
+       "quote": "I've sent the case for review with the currency you provided. We'll follow up in this chat once there's an update.",
+       "verified": true
+      },
+      {
+       "index": 29,
+       "quote": "You're welcome. We'll follow up here about the transfer. Goodbye!",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 0.67,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": 7,
+       "verified": true,
+       "explanation": "Оператор сначала отправил запрос на проверку — #16 «I've sent the case for review with the currency you provided», — а затем дозапросил время перевода в #19. Это один заметный сбой в порядке действий, клиент при этом продолжил диалог без переспрашивания.",
+       "latency_ms": 7462,
+       "output_tokens": 701,
+       "cost_usd": 0.017684,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Оператор ответил быстро (#11 через 1:27 после #9), вёл диалог последовательно и ясно (#16, #26, #30); клиент не переспрашивал, сбоев и долгих пауз нет — ставим 10.",
+       "latency_ms": 7265,
+       "output_tokens": 339,
+       "cost_usd": 0.002253,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": 10,
+       "verified": true,
+       "explanation": "Все реплики оператора ясны и последовательны, первая реакция в пределах порога #11, клиент не переспрашивал; оценка 10.",
+       "latency_ms": 33795,
+       "output_tokens": 1529,
+       "cost_usd": 0.006085,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "d88d5cb57f543e69",
+     "reused": false,
+     "points": 15.0,
+     "max_points": 15.0,
+     "final_points": 15.0
+    },
+    {
+     "criterion_id": "c07",
+     "title": "Завершение",
+     "answer_type": "yes_no",
+     "weight": 5,
+     "critical": false,
+     "scored": true,
+     "answer": "yes",
+     "final_answer": "yes",
+     "explanation": "В #30 оператор подвёл итог («We'll follow up here about the transfer») и попрощался («Goodbye!»).",
+     "evidence": [
+      {
+       "index": 29,
+       "quote": "You're welcome. We'll follow up here about the transfer. Goodbye!",
+       "verified": true
+      }
+     ],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #30 оператор подвёл итог («We'll follow up here about the transfer») и попрощался («Goodbye!»).",
+       "latency_ms": 3875,
+       "output_tokens": 279,
+       "cost_usd": 0.008484,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В #30 оператор подвёл итог («We'll follow up here about the transfer») и попрощался («Goodbye!»), что соответствует критерию завершения.",
+       "latency_ms": 15807,
+       "output_tokens": 230,
+       "cost_usd": 0.001713,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "yes",
+       "verified": true,
+       "explanation": "В реплике #30 оператор указал следующий шаг («We'll follow up here about the transfer») и попрощался («Goodbye!»), что полностью соответствует критерию завершения.",
+       "latency_ms": 19031,
+       "output_tokens": 496,
+       "cost_usd": 0.002709,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "8b976d8568bcb216",
+     "reused": false,
+     "points": 5.0,
+     "max_points": 5.0,
+     "final_points": 5.0
+    },
+    {
+     "criterion_id": "c08",
+     "title": "Грубые ошибки",
+     "answer_type": "yes_no",
+     "weight": 0,
+     "critical": true,
+     "scored": false,
+     "answer": "no",
+     "final_answer": "no",
+     "explanation": "Грубых ошибок нет: оператор сначала запросил верификацию в #11 («We'll need to verify your identity before we look at the account»), оскорблений и предложений обхода компании нет.",
+     "evidence": [],
+     "checked_range": null,
+     "na_reason": null,
+     "confidence": 1.0,
+     "votes": [
+      {
+       "model": "claude-opus-5-5",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок нет: оператор сначала запросил верификацию в #11 («We'll need to verify your identity before we look at the account»), оскорблений и предложений обхода компании нет.",
+       "latency_ms": 4372,
+       "output_tokens": 270,
+       "cost_usd": 0.008144,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/zai-org/glm-5.3",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Ни одного признака грубой ошибки нет: оператор вежлив, идентификация подтверждена системой #13 до консультации, никаких предложений личных переводов или контактов в чате отсутствуют.",
+       "latency_ms": 31692,
+       "output_tokens": 198,
+       "cost_usd": 0.001594,
+       "attempts": 1
+      },
+      {
+       "model": "@cf/qwen/qwen3.8-27b",
+       "answer": "no",
+       "verified": true,
+       "explanation": "Грубых ошибок (оскорбление, предложение платной услуги в обход компании, раскрытие конфиденциальной информации) в чате не выявлено.",
+       "latency_ms": 14036,
+       "output_tokens": 600,
+       "cost_usd": 0.003019,
+       "attempts": 1
+      }
+     ],
+     "needs_review": false,
+     "review_reasons": [],
+     "appeal": null,
+     "definition_hash": "3886d4476f649dcf",
+     "reused": false,
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Начало и понимание запроса",
+     "points": 25.0,
+     "max_points": 25.0,
+     "final_points": 25.0
+    },
+    {
+     "id": "security",
+     "title": "Безопасность и решение",
+     "points": 40.0,
+     "max_points": 40.0,
+     "final_points": 40.0
+    },
+    {
+     "id": "conduct",
+     "title": "Ведение и завершение диалога",
+     "points": 35.0,
+     "max_points": 35.0,
+     "final_points": 35.0
+    },
+    {
+     "id": "critical",
+     "title": "Грубые нарушения",
+     "points": null,
+     "max_points": null,
+     "final_points": null
+    }
+   ],
+   "total": 100.0,
+   "final_total": 100.0,
+   "max_total": 100.0,
+   "critical_flag": false,
+   "critical_note": null,
+   "needs_review": false,
+   "cost_usd": 0.153413,
+   "tokens": {
+    "input": 68449,
+    "output": 11837,
+    "cache_read": 39572,
+    "cache_write": 3340,
+    "neurons": 3912.5
+   },
+   "latency_ms": 63115,
+   "status": "done",
+   "error": null,
+   "warnings": [],
+   "engine": {
+    "prompt_version": "2026-11-07.5"
+   },
+   "queued_ms": 0,
+   "created_at": "2026-11-07T16:40:32.235278+00:00"
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+  "_note": "Иллюстративный пример формата для разработки интерфейса. Не реальный результат и не эталон — в продукте не использовать.",
+  "id": "ev_example_0001",
+  "group_id": "DEV",
+  "conversation_id": "p1-ru-029",
+  "created_at": "2026-11-07T20:00:00+05:00",
+  "checklist_id": "chat-quality",
+  "checklist_version": 1,
+  "models": ["claude-opus-5-5", "@cf/zai-org/glm-5.3", "@cf/deepseek-ai/deepseek-v4-pro-0813"],
+  "criteria": [
+    {
+      "criterion_id": "c01", "title": "Установление контакта", "answer_type": "yes_no", "weight": 10, "critical": false, "scored": true,
+      "answer": "yes", "final_answer": "yes", "points": 12.5, "max_points": 12.5, "final_points": 12.5,
+      "explanation": "В первой реплике оператор поздоровался по-русски и представился: «Здравствуйте, я Алексей».",
+      "evidence": [{ "index": 9, "quote": "Здравствуйте, я Алексей.", "verified": true }],
+      "checked_range": null, "na_reason": null,
+      "confidence": 1.0, "votes": [{ "model": "claude-opus-5-5", "answer": "yes" }, { "model": "@cf/zai-org/glm-5.3", "answer": "yes" }, { "model": "@cf/deepseek-ai/deepseek-v4-pro-0813", "answer": "yes" }],
+      "needs_review": false, "appeal": null
+    },
+    {
+      "criterion_id": "c02", "title": "Выявление потребности", "answer_type": "yes_no", "weight": 15, "critical": false, "scored": true,
+      "answer": "no", "final_answer": "no", "points": 0, "max_points": 18.75, "final_points": 0,
+      "explanation": "Клиент написал, что подсказка бота не помогла, но оператор не выяснил, что именно неясно, и отмахнулся.",
+      "evidence": [{ "index": 9, "quote": "Вы вообще читать умеете? Бот всё написал.", "verified": true }],
+      "checked_range": [9, 10], "na_reason": null,
+      "confidence": 0.67, "votes": [{ "model": "claude-opus-5-5", "answer": "no" }, { "model": "@cf/zai-org/glm-5.3", "answer": "no" }, { "model": "@cf/deepseek-ai/deepseek-v4-pro-0813", "answer": "na" }],
+      "needs_review": false, "appeal": null
+    },
+    {
+      "criterion_id": "c03", "title": "Идентификация", "answer_type": "yes_no", "weight": 20, "critical": false, "scored": true,
+      "answer": "na", "final_answer": "na", "points": null, "max_points": null, "final_points": null,
+      "explanation": "Вопрос о том, где войти на платформу; данные счёта не раскрывались и защищённых действий не было.",
+      "evidence": [{ "index": 0, "quote": "Не могу войти в веб-версию.", "verified": true }],
+      "checked_range": null, "na_reason": "Запрос не требовал идентификации: общий вопрос о входе на платформу.",
+      "confidence": 1.0, "votes": [], "needs_review": false, "appeal": null
+    },
+    {
+      "criterion_id": "c04", "title": "Корректная и полная консультация", "answer_type": "scale", "weight": 20, "critical": false, "scored": true,
+      "answer": 20, "final_answer": 20, "points": 25, "max_points": 25, "final_points": 25,
+      "explanation": "Оператор назвал сайт для входа в веб-версию, клиент подтвердил, что вошёл.",
+      "evidence": [{ "index": 11, "quote": "Вход в веб-версию — через сайт платформы.", "verified": true }],
+      "checked_range": null, "na_reason": null,
+      "confidence": 1.0, "votes": [], "needs_review": false, "appeal": null
+    },
+    {
+      "criterion_id": "c05", "title": "Эмпатия и клиентоориентированность", "answer_type": "yes_no", "weight": 15, "critical": false, "scored": true,
+      "answer": "no", "final_answer": "no", "points": 0, "max_points": 18.75, "final_points": 0,
+      "explanation": "Оператор нагрубил клиенту и проигнорировал замечание о тоне.",
+      "evidence": [{ "index": 9, "quote": "Вы вообще читать умеете?", "verified": true }],
+      "checked_range": null, "na_reason": null,
+      "confidence": 1.0, "votes": [], "needs_review": false, "appeal": { "id": "ap_example_0001", "status": "open" }
+    },
+    {
+      "criterion_id": "c06", "title": "Управление диалогом, скорость и грамотность", "answer_type": "scale", "weight": 15, "critical": false, "scored": true,
+      "answer": 4, "final_answer": 4, "points": 7.5, "max_points": 18.75, "final_points": 7.5,
+      "explanation": "Из-за бессодержательной первой реплики клиенту пришлось переспрашивать, на какой сайт перейти.",
+      "evidence": [{ "index": 10, "quote": "Не понимаю, на какой сайт перейти.", "verified": true }],
+      "checked_range": null, "na_reason": null,
+      "confidence": 0.67, "votes": [], "needs_review": true, "appeal": null
+    },
+    {
+      "criterion_id": "c07", "title": "Завершение", "answer_type": "yes_no", "weight": 5, "critical": false, "scored": true,
+      "answer": "no", "final_answer": "no", "points": 0, "max_points": 6.25, "final_points": 0,
+      "explanation": "Сухое «До свидания.» без итога и предложения дальнейшей помощи.",
+      "evidence": [{ "index": 13, "quote": "До свидания.", "verified": true }],
+      "checked_range": [12, 13], "na_reason": null,
+      "confidence": 1.0, "votes": [], "needs_review": false, "appeal": null
+    },
+    {
+      "criterion_id": "c08", "title": "Грубые ошибки", "answer_type": "yes_no", "weight": 0, "critical": true, "scored": false,
+      "answer": "yes", "final_answer": "yes", "points": null, "max_points": null, "final_points": null,
+      "explanation": "Оскорбление клиента: «Вы вообще читать умеете?».",
+      "evidence": [{ "index": 9, "quote": "Вы вообще читать умеете?", "verified": true }],
+      "checked_range": null, "na_reason": null,
+      "confidence": 1.0, "votes": [], "needs_review": false, "appeal": null
+    }
+  ],
+  "sections": [
+    { "id": "start", "title": "Начало и понимание запроса", "points": 12.5, "max_points": 31.25, "final_points": 12.5 },
+    { "id": "security", "title": "Безопасность и решение", "points": 25, "max_points": 25, "final_points": 25 },
+    { "id": "conduct", "title": "Ведение и завершение диалога", "points": 7.5, "max_points": 43.75, "final_points": 7.5 },
+    { "id": "critical", "title": "Грубые нарушения", "points": null, "max_points": null, "final_points": null }
+  ],
+  "total": 45.0,
+  "final_total": 45.0,
+  "critical_flag": true,
+  "critical_note": "Оскорбление клиента (реплика #10).",
+  "needs_review": true,
+  "cost_usd": 0.31,
+  "tokens": { "input": 41000, "output": 9800 },
+  "latency_ms": 38000,
+  "status": "done",
+  "error": null
+}

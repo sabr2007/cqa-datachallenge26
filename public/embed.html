@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Строгий CSP веб-ресурса: только свои файлы рядом (относительные пути), без inline-скриптов и стилей,
+       eval и CDN. Trusted Types запрещают HTML-строки в DOM: данные попадают в документ только как текст.
+       Внешний API: добавьте его origin в connect-src (см. d365/README.md). -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Оценка качества</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/embed.css">
+  <script type="module" src="js/embed/main.js"></script>
+</head>
+<body class="cqa-embed-body">
+  <!-- Точка монтирования. data-api-base — адрес API (пусто = тот же origin);
+       data-app-url — основное приложение для «Полной карточки» (в Dynamics — его опубликованный адрес). -->
+  <div id="cqa-root" class="cqa cqa-embed" data-theme="light" data-api-base="" data-app-url="index.html">
+    <noscript>
+      <p class="cqa-noscript">Для работы панели нужен JavaScript.</p>
+    </noscript>
+  </div>
+</body>
+</html>

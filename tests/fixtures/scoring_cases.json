@@ -1,0 +1,2115 @@
+[
+ {
+  "name": "без N/A: все «Да» и верхние ступени шкал",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "yes",
+   "c02": "yes",
+   "c03": "yes",
+   "c04": 20,
+   "c05": "yes",
+   "c06": 10,
+   "c07": "yes",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 10.0,
+     "max_points": 10.0
+    },
+    "c02": {
+     "points": 15.0,
+     "max_points": 15.0
+    },
+    "c03": {
+     "points": 20.0,
+     "max_points": 20.0
+    },
+    "c04": {
+     "points": 20.0,
+     "max_points": 20.0
+    },
+    "c05": {
+     "points": 15.0,
+     "max_points": 15.0
+    },
+    "c06": {
+     "points": 15.0,
+     "max_points": 15.0
+    },
+    "c07": {
+     "points": 5.0,
+     "max_points": 5.0
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 25.0,
+     "max_points": 25.0
+    },
+    {
+     "id": "security",
+     "points": 40.0,
+     "max_points": 40.0
+    },
+    {
+     "id": "conduct",
+     "points": 35.0,
+     "max_points": 35.0
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 100.0
+  }
+ },
+ {
+  "name": "без N/A: смешанные ответы и промежуточные ступени",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "no",
+   "c02": "yes",
+   "c03": "yes",
+   "c04": 15,
+   "c05": "yes",
+   "c06": 7,
+   "c07": "no",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 0.0,
+     "max_points": 10.0
+    },
+    "c02": {
+     "points": 15.0,
+     "max_points": 15.0
+    },
+    "c03": {
+     "points": 20.0,
+     "max_points": 20.0
+    },
+    "c04": {
+     "points": 15.0,
+     "max_points": 20.0
+    },
+    "c05": {
+     "points": 15.0,
+     "max_points": 15.0
+    },
+    "c06": {
+     "points": 10.5,
+     "max_points": 15.0
+    },
+    "c07": {
+     "points": 0.0,
+     "max_points": 5.0
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 15.0,
+     "max_points": 25.0
+    },
+    {
+     "id": "security",
+     "points": 35.0,
+     "max_points": 40.0
+    },
+    {
+     "id": "conduct",
+     "points": 25.5,
+     "max_points": 35.0
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 75.5
+  }
+ },
+ {
+  "name": "N/A у 02 и 03: вес перераспределяется, максимум остаётся 100",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "yes",
+   "c02": "na",
+   "c03": "na",
+   "c04": 20,
+   "c05": "yes",
+   "c06": 10,
+   "c07": "yes",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 15.38,
+     "max_points": 15.38
+    },
+    "c02": {
+     "points": null,
+     "max_points": null
+    },
+    "c03": {
+     "points": null,
+     "max_points": null
+    },
+    "c04": {
+     "points": 30.77,
+     "max_points": 30.77
+    },
+    "c05": {
+     "points": 23.08,
+     "max_points": 23.08
+    },
+    "c06": {
+     "points": 23.08,
+     "max_points": 23.08
+    },
+    "c07": {
+     "points": 7.69,
+     "max_points": 7.69
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 15.38,
+     "max_points": 15.38
+    },
+    {
+     "id": "security",
+     "points": 30.77,
+     "max_points": 30.77
+    },
+    {
+     "id": "conduct",
+     "points": 53.85,
+     "max_points": 53.85
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 100.0
+  }
+ },
+ {
+  "name": "пример из чек-листа: итог 50,625 → 50,63 (half-up)",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "no",
+   "c02": "yes",
+   "c03": "no",
+   "c04": "na",
+   "c05": "yes",
+   "c06": 7,
+   "c07": "no",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 0.0,
+     "max_points": 12.5
+    },
+    "c02": {
+     "points": 18.75,
+     "max_points": 18.75
+    },
+    "c03": {
+     "points": 0.0,
+     "max_points": 25.0
+    },
+    "c04": {
+     "points": null,
+     "max_points": null
+    },
+    "c05": {
+     "points": 18.75,
+     "max_points": 18.75
+    },
+    "c06": {
+     "points": 13.13,
+     "max_points": 18.75
+    },
+    "c07": {
+     "points": 0.0,
+     "max_points": 6.25
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 18.75,
+     "max_points": 31.25
+    },
+    {
+     "id": "security",
+     "points": 0.0,
+     "max_points": 25.0
+    },
+    {
+     "id": "conduct",
+     "points": 31.88,
+     "max_points": 43.75
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 50.63
+  }
+ },
+ {
+  "name": "шкалы: нижние ступени 04=5 и 06=4, все остальные «Нет»",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "no",
+   "c02": "no",
+   "c03": "no",
+   "c04": 5,
+   "c05": "no",
+   "c06": 4,
+   "c07": "no",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 0.0,
+     "max_points": 10.0
+    },
+    "c02": {
+     "points": 0.0,
+     "max_points": 15.0
+    },
+    "c03": {
+     "points": 0.0,
+     "max_points": 20.0
+    },
+    "c04": {
+     "points": 5.0,
+     "max_points": 20.0
+    },
+    "c05": {
+     "points": 0.0,
+     "max_points": 15.0
+    },
+    "c06": {
+     "points": 6.0,
+     "max_points": 15.0
+    },
+    "c07": {
+     "points": 0.0,
+     "max_points": 5.0
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 0.0,
+     "max_points": 25.0
+    },
+    {
+     "id": "security",
+     "points": 5.0,
+     "max_points": 40.0
+    },
+    {
+     "id": "conduct",
+     "points": 6.0,
+     "max_points": 35.0
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 11.0
+  }
+ },
+ {
+  "name": "шкалы: нулевые ступени и N/A в 07",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "yes",
+   "c02": "na",
+   "c03": "na",
+   "c04": 0,
+   "c05": "yes",
+   "c06": 0,
+   "c07": "na",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 16.67,
+     "max_points": 16.67
+    },
+    "c02": {
+     "points": null,
+     "max_points": null
+    },
+    "c03": {
+     "points": null,
+     "max_points": null
+    },
+    "c04": {
+     "points": 0.0,
+     "max_points": 33.33
+    },
+    "c05": {
+     "points": 25.0,
+     "max_points": 25.0
+    },
+    "c06": {
+     "points": 0.0,
+     "max_points": 25.0
+    },
+    "c07": {
+     "points": null,
+     "max_points": null
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 16.67,
+     "max_points": 16.67
+    },
+    {
+     "id": "security",
+     "points": 0.0,
+     "max_points": 33.33
+    },
+    {
+     "id": "conduct",
+     "points": 25.0,
+     "max_points": 50.0
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 41.67
+  }
+ },
+ {
+  "name": "scored=false: грубая ошибка 08=«Да» не меняет баллы",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "yes",
+   "c02": "yes",
+   "c03": "na",
+   "c04": 10,
+   "c05": "no",
+   "c06": 7,
+   "c07": "yes",
+   "c08": "yes"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 12.5,
+     "max_points": 12.5
+    },
+    "c02": {
+     "points": 18.75,
+     "max_points": 18.75
+    },
+    "c03": {
+     "points": null,
+     "max_points": null
+    },
+    "c04": {
+     "points": 12.5,
+     "max_points": 25.0
+    },
+    "c05": {
+     "points": 0.0,
+     "max_points": 18.75
+    },
+    "c06": {
+     "points": 13.13,
+     "max_points": 18.75
+    },
+    "c07": {
+     "points": 6.25,
+     "max_points": 6.25
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 31.25,
+     "max_points": 31.25
+    },
+    {
+     "id": "security",
+     "points": 12.5,
+     "max_points": 25.0
+    },
+    {
+     "id": "conduct",
+     "points": 19.38,
+     "max_points": 43.75
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 63.13
+  }
+ },
+ {
+  "name": "все критерии с весом N/A → total null",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "main",
+     "criteria": [
+      "c02",
+      "c03",
+      "c04",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c02": "na",
+   "c03": "na",
+   "c04": "na",
+   "c07": "na",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c02": {
+     "points": null,
+     "max_points": null
+    },
+    "c03": {
+     "points": null,
+     "max_points": null
+    },
+    "c04": {
+     "points": null,
+     "max_points": null
+    },
+    "c07": {
+     "points": null,
+     "max_points": null
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "main",
+     "points": null,
+     "max_points": null
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": null
+  }
+ },
+ {
+  "name": "нет ответа по критерию → исключается как N/A",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c06",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c06",
+     "title": "Управление диалогом, скорость и грамотность",
+     "answerType": "scale",
+     "weight": 15,
+     "naAllowed": false,
+     "scale": [
+      {
+       "value": 10
+      },
+      {
+       "value": 7
+      },
+      {
+       "value": 4
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "yes",
+   "c02": "yes",
+   "c04": 20,
+   "c05": "yes",
+   "c06": 10,
+   "c07": "no",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 12.5,
+     "max_points": 12.5
+    },
+    "c02": {
+     "points": 18.75,
+     "max_points": 18.75
+    },
+    "c03": {
+     "points": null,
+     "max_points": null
+    },
+    "c04": {
+     "points": 25.0,
+     "max_points": 25.0
+    },
+    "c05": {
+     "points": 18.75,
+     "max_points": 18.75
+    },
+    "c06": {
+     "points": 18.75,
+     "max_points": 18.75
+    },
+    "c07": {
+     "points": 0.0,
+     "max_points": 6.25
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 31.25,
+     "max_points": 31.25
+    },
+    {
+     "id": "security",
+     "points": 25.0,
+     "max_points": 25.0
+    },
+    {
+     "id": "conduct",
+     "points": 37.5,
+     "max_points": 43.75
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 93.75
+  }
+ },
+ {
+  "name": "вес 0 у применимого критерия: 0 из 0, остальные делят 100",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "main",
+     "criteria": [
+      "x1",
+      "x2",
+      "x3"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "x1",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false
+    },
+    {
+     "id": "x2",
+     "answerType": "yes_no",
+     "weight": 30,
+     "naAllowed": true
+    },
+    {
+     "id": "x3",
+     "answerType": "scale",
+     "weight": 10,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 3
+      },
+      {
+       "value": 2
+      },
+      {
+       "value": 1
+      },
+      {
+       "value": 0
+      }
+     ]
+    }
+   ]
+  },
+  "answers": {
+   "x1": "yes",
+   "x2": "no",
+   "x3": 2
+  },
+  "expected": {
+   "criteria": {
+    "x1": {
+     "points": 0.0,
+     "max_points": 0.0
+    },
+    "x2": {
+     "points": 0.0,
+     "max_points": 75.0
+    },
+    "x3": {
+     "points": 16.67,
+     "max_points": 25.0
+    }
+   },
+   "sections": [
+    {
+     "id": "main",
+     "points": 16.67,
+     "max_points": 100.0
+    }
+   ],
+   "total": 16.67
+  }
+ },
+ {
+  "name": "применим только критерий с весом 0 → total null",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "main",
+     "criteria": [
+      "x1",
+      "x2",
+      "x3"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "x1",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false
+    },
+    {
+     "id": "x2",
+     "answerType": "yes_no",
+     "weight": 30,
+     "naAllowed": true
+    },
+    {
+     "id": "x3",
+     "answerType": "scale",
+     "weight": 10,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 3
+      },
+      {
+       "value": 2
+      },
+      {
+       "value": 1
+      },
+      {
+       "value": 0
+      }
+     ]
+    }
+   ]
+  },
+  "answers": {
+   "x1": "yes",
+   "x2": "na",
+   "x3": "na"
+  },
+  "expected": {
+   "criteria": {
+    "x1": {
+     "points": null,
+     "max_points": null
+    },
+    "x2": {
+     "points": null,
+     "max_points": null
+    },
+    "x3": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "main",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": null
+  }
+ },
+ {
+  "name": "замена критерия: c06 → c09 (Да/Нет, вес 15)",
+  "checklist": {
+   "rules": {
+    "rounding": {
+     "decimals": 2,
+     "mode": "half_up"
+    },
+    "naRedistributesWeight": true,
+    "maxTotal": 100
+   },
+   "sections": [
+    {
+     "id": "start",
+     "criteria": [
+      "c01",
+      "c02"
+     ]
+    },
+    {
+     "id": "security",
+     "criteria": [
+      "c03",
+      "c04"
+     ]
+    },
+    {
+     "id": "conduct",
+     "criteria": [
+      "c05",
+      "c09",
+      "c07"
+     ]
+    },
+    {
+     "id": "critical",
+     "criteria": [
+      "c08"
+     ]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "c01",
+     "title": "Установление контакта",
+     "answerType": "yes_no",
+     "weight": 10,
+     "naAllowed": false
+    },
+    {
+     "id": "c02",
+     "title": "Выявление потребности",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c03",
+     "title": "Идентификация",
+     "answerType": "yes_no",
+     "weight": 20,
+     "naAllowed": true
+    },
+    {
+     "id": "c04",
+     "title": "Корректная и полная консультация",
+     "answerType": "scale",
+     "weight": 20,
+     "naAllowed": true,
+     "scale": [
+      {
+       "value": 20
+      },
+      {
+       "value": 15
+      },
+      {
+       "value": 10
+      },
+      {
+       "value": 5
+      },
+      {
+       "value": 0
+      }
+     ]
+    },
+    {
+     "id": "c05",
+     "title": "Эмпатия и клиентоориентированность",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": false
+    },
+    {
+     "id": "c09",
+     "answerType": "yes_no",
+     "weight": 15,
+     "naAllowed": true
+    },
+    {
+     "id": "c07",
+     "title": "Завершение",
+     "answerType": "yes_no",
+     "weight": 5,
+     "naAllowed": true
+    },
+    {
+     "id": "c08",
+     "title": "Грубые ошибки",
+     "answerType": "yes_no",
+     "weight": 0,
+     "naAllowed": false,
+     "scored": false,
+     "critical": true
+    }
+   ]
+  },
+  "answers": {
+   "c01": "yes",
+   "c02": "na",
+   "c03": "na",
+   "c04": 15,
+   "c05": "yes",
+   "c09": "no",
+   "c07": "yes",
+   "c08": "no"
+  },
+  "expected": {
+   "criteria": {
+    "c01": {
+     "points": 15.38,
+     "max_points": 15.38
+    },
+    "c02": {
+     "points": null,
+     "max_points": null
+    },
+    "c03": {
+     "points": null,
+     "max_points": null
+    },
+    "c04": {
+     "points": 23.08,
+     "max_points": 30.77
+    },
+    "c05": {
+     "points": 23.08,
+     "max_points": 23.08
+    },
+    "c09": {
+     "points": 0.0,
+     "max_points": 23.08
+    },
+    "c07": {
+     "points": 7.69,
+     "max_points": 7.69
+    },
+    "c08": {
+     "points": null,
+     "max_points": null
+    }
+   },
+   "sections": [
+    {
+     "id": "start",
+     "points": 15.38,
+     "max_points": 15.38
+    },
+    {
+     "id": "security",
+     "points": 23.08,
+     "max_points": 30.77
+    },
+    {
+     "id": "conduct",
+     "points": 30.77,
+     "max_points": 53.85
+    },
+    {
+     "id": "critical",
+     "points": null,
+     "max_points": null
+    }
+   ],
+   "total": 69.23
+  }
+ }
+]

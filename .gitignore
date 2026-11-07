@@ -17,6 +17,11 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.pytest_cache/
+.ruff_cache/
+
+# Vercel CLI
+.vercel/
 
 # Локальные БД
 *.sqlite
@@ -27,3 +32,6 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+
+# Локальное хранилище оценок, апелляций и версий чек-листа
+.data/

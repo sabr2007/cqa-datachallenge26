@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CQA — Conversation Quality Analytics</title>
+  <meta name="description" content="Прототип оценки качества работы оператора по транскриптам чатов и звонков.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Шрифт подключается только здесь; стек с системным фолбэком — токен --cqa-font в app.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..800&amp;display=swap">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="cqa-body">
+  <!-- Единственная точка монтирования. data-api-base — адрес бэкенда (пусто = тот же origin). -->
+  <div id="cqa-root" class="cqa" data-api-base="" data-theme="light">
+    <noscript>
+      <p class="cqa-noscript">Для работы интерфейса нужен JavaScript.</p>
+    </noscript>
+  </div>
+</body>
+</html>
