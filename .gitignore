@@ -1,0 +1,29 @@
+# Локальные выгрузки датасета
+data/
+
+# Секреты
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+.vite/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Локальные БД
+*.sqlite
+*.sqlite3
+*.db
+
+# ОС / редакторы
+.DS_Store
+.idea/
+.vscode/
