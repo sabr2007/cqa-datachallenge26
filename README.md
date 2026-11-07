@@ -81,4 +81,6 @@ _Будет заполнено вместе с интерфейсом настр
 
 ## Команда
 
-_GitHub-ники участников будут добавлены._
+- Sabyrzhan — [@sabr2007](https://github.com/sabr2007)
+- Alinazar — [@Alinazavrr](https://github.com/Alinazavrr)
+- Aliakbar Murat — [@enstrong](https://github.com/enstrong)
