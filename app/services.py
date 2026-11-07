@@ -1,4 +1,4 @@
-"""Сборка сервисов приложения (клиенты источника, кеш, аудио-прокси, хранилище, движок)."""
+"""Сборка сервисов приложения (клиенты источника, кеш, аудио-прокси, хранилище, движок, вход)."""
 
 from dataclasses import dataclass
 
@@ -8,6 +8,7 @@ from fastapi import Request
 from app.api.checklists import sync_default_checklist
 from app.api.engine import EngineEvaluator, Evaluator
 from app.audio import AudioProxy
+from app.auth.service import Authenticator, build_authenticator
 from app.config import Settings
 from app.datasets import DatasetStore
 from app.store import Store, open_store
@@ -22,6 +23,7 @@ class Services:
     audio: AudioProxy
     store: Store
     evaluator: Evaluator
+    auth: Authenticator | None = None  # None — вход для жюри выключен
 
     async def aclose(self) -> None:
         await self.upstream.aclose()
@@ -50,7 +52,7 @@ def build_services(
         transport=transport,
     )
     datasets = DatasetStore(upstream.fetch_records, ttl_sec=settings.cache_ttl_sec)
-    resolved_store = store if store is not None else open_store(settings.db_path)
+    resolved_store = store if store is not None else open_store(settings)
     sync_default_checklist(resolved_store, settings.checklist_path)
     return Services(
         settings=settings,
@@ -59,6 +61,7 @@ def build_services(
         audio=audio,
         store=resolved_store,
         evaluator=evaluator if evaluator is not None else EngineEvaluator(),
+        auth=build_authenticator(settings),
     )
 
 

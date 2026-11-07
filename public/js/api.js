@@ -274,7 +274,11 @@ async function requestJson(path, { method = "GET", body: payload, signal, timeou
     const init = { method, headers, signal: controller.signal };
     const response = await fetch(apiUrl(path), payload === undefined ? init : { ...init, body: JSON.stringify(payload) });
     const body = await readJson(response);
-    if (!response.ok) throw errorFromBody(body, response.status);
+    if (!response.ok) {
+      const error = errorFromBody(body, response.status);
+      if (error.status === 401 && error.code === "auth_required") redirectToLogin();
+      throw error;
+    }
     if (body === undefined) {
       throw new ApiError({ code: "bad_response", message: "Сервер ответил не в формате JSON.", status: response.status });
     }
@@ -322,6 +326,33 @@ function errorFromBody(body, status) {
 
 function abortedError() {
   return new ApiError({ code: "aborted", message: "Запрос отменён." });
+}
+
+// Вход для жюри включён, а сессии нет (или она истекла): страница входа, после неё — возврат сюда.
+// Во встроенной панели (iframe стенда Dynamics) уходит верхнее окно, если оно того же origin.
+let loginRedirectStarted = false;
+
+function redirectToLogin() {
+  if (loginRedirectStarted) return;
+  loginRedirectStarted = true;
+  const target = sameOriginTop() ?? window;
+  const { pathname, search, hash } = target.location;
+  const login = new URL("../login.html", import.meta.url);
+  login.searchParams.set("next", `${pathname}${search}${hash}`);
+  try {
+    target.location.assign(login.href);
+  } catch {
+    window.location.assign(login.href); // верхнее окно не дало себя увести (sandbox)
+  }
+}
+
+function sameOriginTop() {
+  try {
+    const top = window.top;
+    return top && top !== window && top.location.origin === window.location.origin ? top : null;
+  } catch {
+    return null; // верхнее окно другого origin — читать его адрес нельзя
+  }
 }
 
 function assertId(value, kind) {

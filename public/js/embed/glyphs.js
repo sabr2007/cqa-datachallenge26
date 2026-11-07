@@ -8,6 +8,7 @@ const STROKE = { fill: "none", stroke: "currentColor", "stroke-width": 1.9, "str
 const GLYPHS = Object.freeze({
   check: [["path", { d: "M5 12.5l4.2 4.2L19 7" }]],
   external: [["path", { d: "M14 4.5h5.5V10" }], ["path", { d: "M19.5 4.5L11 13" }], ["path", { d: "M18 14v4a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 5 18V8a1.5 1.5 0 0 1 1.5-1.5h4" }]],
+  open: [["path", { d: "M5 12h13.5" }], ["path", { d: "M13 6.5l5.5 5.5-5.5 5.5" }]],
   close: [["path", { d: "M6 6l12 12M18 6L6 18" }]],
   chevron: [["path", { d: "M6.5 9.5L12 15l5.5-5.5" }]],
   dispute: [["path", { d: "M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 3.5V17A2.5 2.5 0 0 1 4 14.5z" }], ["path", { d: "M12 7.5v4M12 14v.1" }]],

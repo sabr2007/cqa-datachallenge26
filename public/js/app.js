@@ -1,8 +1,10 @@
 // Точка входа CQA UI. Всё монтируется в #cqa-root; без inline-скриптов и eval (строгий CSP).
+// Внутри Dynamics 365 (host=d365, см. host.js) — без своей шапки и подвала: навигация — карта сайта платформы.
 
 import { configureApi, fetchHealth } from "./api.js";
 import { focusWithoutScroll, h } from "./dom.js";
 import { createHeader } from "./components/header.js";
+import { installHost } from "./host.js";
 import { DEFAULT_GROUP, buildHash, navigate, parseRoute, paths } from "./router.js";
 import { applyTheme, currentTheme, readStoredTheme } from "./theme.js";
 import { renderAppeals } from "./views/appeals.js";
@@ -26,29 +28,34 @@ function boot() {
   const root = document.getElementById("cqa-root");
   if (!root) return;
   configureApi({ base: root.dataset.apiBase ?? "" });
-  applyTheme(root, readStoredTheme());
+  const hosted = installHost(root);
+  if (!hosted) applyTheme(root, readStoredTheme());
 
   const main = h("main", { className: "cqa-main", attrs: { id: "cqa-main", tabindex: "-1" } });
   const app = { root, main, header: null, cleanup: null, routeName: null, listHash: null, listScrollY: 0, rendered: false };
-  app.header = createHeader({
-    onGroupSubmit: (groupId) => navigate(groupTarget(groupId)),
-    onThemeToggle: () => app.header.setTheme(applyTheme(root, currentTheme(root) === "dark" ? "light" : "dark")),
-  });
-  app.header.setTheme(currentTheme(root));
   const skip = h("button", {
     className: "cqa-skip", attrs: { type: "button" }, text: "Перейти к содержимому",
     on: { click: () => focusWithoutScroll(main.querySelector("h1") ?? main) },
   });
-  const footer = createFooter();
-  root.replaceChildren(skip, app.header.el, main, footer.el);
+  if (hosted) {
+    root.replaceChildren(skip, main);
+  } else {
+    app.header = createHeader({
+      onGroupSubmit: (groupId) => navigate(groupTarget(groupId)),
+      onThemeToggle: () => app.header.setTheme(applyTheme(root, currentTheme(root) === "dark" ? "light" : "dark")),
+    });
+    app.header.setTheme(currentTheme(root));
+    const footer = createFooter();
+    root.replaceChildren(skip, app.header.el, main, footer.el);
+    syncHeaderHeight(root, app.header.el);
+    footer.checkHealth();
+  }
 
-  syncHeaderHeight(root, app.header.el);
   window.addEventListener("scroll", () => {
     if (app.routeName === "conversations") app.listScrollY = window.scrollY;
   }, { passive: true });
   window.addEventListener("hashchange", () => renderRoute(app));
   renderRoute(app);
-  footer.checkHealth();
 }
 
 function renderRoute(app) {
@@ -57,7 +64,7 @@ function renderRoute(app) {
   const returningToList = route.name === "conversations" && app.listHash === window.location.hash;
   app.cleanup?.();
   app.cleanup = null;
-  app.header.update({ routeName: route.name, groupId });
+  app.header?.update({ routeName: route.name, groupId });
   if (route.name === "conversations") app.listHash = window.location.hash || buildHash(paths.conversations, { g: groupId });
 
   const ctx = {

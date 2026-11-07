@@ -7,14 +7,12 @@ busy_timeout и BEGIN IMMEDIATE для записей; номер версии �
 транзакции, изменения оценки — с проверкой ревизии (оптимистичная блокировка).
 """
 
-import functools
 import json
 import logging
 import sqlite3
 import threading
 from collections.abc import Callable, Iterator, Sequence
 from contextlib import contextmanager
-from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -27,8 +25,9 @@ from app.store.base import (
     DuplicateAppealError,
     Purpose,
     RevisionConflictError,
-    StorageError,
     StoredEvaluation,
+    guarded,
+    utc_now,
 )
 from app.store.schema import MIGRATIONS, SCHEMA_VERSION
 
@@ -37,24 +36,9 @@ logger = logging.getLogger("cqa.store")
 BUSY_TIMEOUT_SEC = 10.0
 
 
-def utc_now() -> str:
-    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
 def _guarded[**P, R](action: str) -> Callable[[Callable[P, R]], Callable[P, R]]:
     """Ошибки sqlite3 → StorageError (503); подробности уходят только в лог."""
-
-    def decorate(method: Callable[P, R]) -> Callable[P, R]:
-        @functools.wraps(method)
-        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
-            try:
-                return method(*args, **kwargs)
-            except sqlite3.Error as exc:
-                raise StorageError(detail=f"{action}: {type(exc).__name__}: {exc}") from exc
-
-        return wrapper
-
-    return decorate
+    return guarded(action, (sqlite3.Error,))
 
 
 class SqliteStore:
@@ -406,10 +390,6 @@ class SqliteStore:
             },
         )
         return [json.loads(row["doc"]) for row in rows]
-
-
-def open_store(path: str) -> SqliteStore:
-    return SqliteStore(path)
 
 
 def _connect(path: str) -> sqlite3.Connection:

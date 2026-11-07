@@ -64,5 +64,27 @@ def reusable_criteria(
             normalize_answer(criterion, item.get("answer"))
         except AnswerError:
             continue
-        reusable[criterion["id"]] = dict(item)
+        reusable[criterion["id"]] = {**item, "source_evaluation_id": previous.get("id")}
     return reusable
+
+
+def reviewer_decision(
+    criterion: Mapping[str, Any], previous: Mapping[str, Any]
+) -> tuple[Any, dict[str, Any]] | None:
+    """(ответ проверяющего, ссылка на апелляцию) для критерия, по которому апелляция решена.
+
+    При переоценке по новой версии чек-листа решение проверяющего по неизменному критерию
+    переносится в новую оценку вместе со ссылкой на исходную апелляцию (carried_from —
+    оценка, где её решили): без этого переоценка тихо вернула бы ответ модели.
+    """
+    appeal = previous.get("appeal")
+    if not isinstance(appeal, Mapping) or appeal.get("status") != "resolved":
+        return None
+    try:
+        final_answer = normalize_answer(criterion, previous.get("final_answer"))
+    except AnswerError:
+        return None
+    if final_answer is None:
+        return None
+    origin = appeal.get("carried_from") or previous.get("source_evaluation_id")
+    return final_answer, {**appeal, "carried_from": origin}

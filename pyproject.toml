@@ -8,6 +8,7 @@ dependencies = [
     "anthropic>=2.6.0",
     "fastapi>=0.115",
     "httpx>=0.28,<1",
+    "psycopg[binary,pool]>=3.2",
 ]
 
 [dependency-groups]
@@ -19,7 +20,8 @@ dev = [
 ]
 
 # Vercel: FastAPI-приложение `app` из app/main.py (zero-config путь, указан явно,
-# чтобы модуль грузился как пакет app.main). vercel.json не нужен.
+# чтобы модуль грузился как пакет app.main). vercel.json задаёт только maxDuration
+# функции и что в неё не класть; шаги деплоя — docs/DEPLOY.md.
 [tool.vercel]
 entrypoint = "app.main:app"
 

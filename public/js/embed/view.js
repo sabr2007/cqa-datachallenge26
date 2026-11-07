@@ -2,6 +2,7 @@
 // Только сборка DOM из готовых данных — без сети и состояния. Данные вставляются как текст.
 
 import { h } from "../dom.js";
+import { appPageData } from "../host.js";
 import { brandMark, icon } from "../icons.js";
 import { statusPill } from "../components/ui.js";
 import { appealStatusOf, criticalState } from "../evaluation.js";
@@ -9,6 +10,7 @@ import { glyph } from "./glyphs.js";
 
 const PERCENT_SCALE = 100;
 const SOURCE_KEYS = Object.freeze({ xrm: "sourceXrm", data: "sourceData", id: "sourceId", none: "sourceNone" });
+const TARGET_INLINE = 1;
 
 /**
  * Ссылка на карточку диалога в основном приложении (маршрут #/c/<id>?g=<g>&m=<index>).
@@ -21,23 +23,45 @@ export function cardHref(appUrl, groupId, conversationId, messageIndex = null) {
 }
 
 /**
- * Внешняя ссылка: новая вкладка; в Dynamics — через Xrm.Navigation.openUrl (работает и в мобильном клиенте).
- * srText — пояснение только для скринридера, дописывается после видимого текста (имя ссылки содержит видимый текст).
- * @param {{ href: string, className: string, label?: string, ariaLabel?: string, srText?: string, xrm: object | null, children?: Node[] }} options
+ * Карточка откроется в области содержимого Dynamics: в решении есть веб-ресурс приложения и Xrm.Navigation.navigateTo.
+ * @param {{ appResource?: string, xrm: object | null }} links
  */
-export function externalLink({ href, className, label = "", ariaLabel = "", srText = "", xrm, children = [] }) {
+export function opensInline({ appResource = "", xrm }) {
+  return Boolean(appResource) && typeof xrm?.Navigation?.navigateTo === "function";
+}
+
+/**
+ * Ссылка на полную карточку в основном приложении.
+ * В форме Dynamics с веб-ресурсом приложения — страница в области содержимого (navigateTo, target 1: «Назад» платформы
+ * вернёт на форму); без него — новая вкладка, в Dynamics через Xrm.Navigation.openUrl (работает и в мобильном клиенте).
+ * Клик с модификатором — всегда новая вкладка (href — адрес приложения). newTabText — пояснение для скринридера,
+ * когда ссылка уводит в новую вкладку: дописывается к ariaLabel или после видимого текста.
+ * @param {{ href: string, className: string, label?: string, ariaLabel?: string, newTabText?: string,
+ *   links: { appResource?: string, xrm: object | null }, children?: Node[] }} options
+ */
+export function externalLink({ href, className, label = "", ariaLabel = "", newTabText = "", links, children = [] }) {
+  const inline = opensInline(links);
+  const note = !inline && newTabText ? newTabText : "";
   const link = h("a", {
     className,
-    attrs: { href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel || null },
-  }, label, ...children, srText ? h("span", { className: "cqa-sr-only", text: ` (${srText})` }) : null);
+    attrs: { href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel ? (note ? `${ariaLabel} (${note})` : ariaLabel) : null },
+  }, label, ...children, note && !ariaLabel ? h("span", { className: "cqa-sr-only", text: ` (${note})` }) : null);
+  const { xrm } = links;
   const openUrl = xrm?.Navigation?.openUrl;
-  if (typeof openUrl === "function") {
-    link.addEventListener("click", (event) => {
-      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      openUrl.call(xrm.Navigation, new URL(href, window.location.href).href);
-    });
-  }
+  if (!inline && typeof openUrl !== "function") return link;
+  link.addEventListener("click", (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const url = new URL(href, window.location.href);
+    if (!inline) {
+      openUrl.call(xrm.Navigation, url.href);
+      return;
+    }
+    const pageInput = { pageType: "webresource", webresourceName: links.appResource, data: appPageData(url.hash) };
+    Promise.resolve()
+      .then(() => xrm.Navigation.navigateTo(pageInput, { target: TARGET_INLINE }))
+      .catch(() => window.open(url.href, "_blank", "noopener,noreferrer")); // платформа не открыла страницу — новая вкладка
+  });
   return link;
 }
 

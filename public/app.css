@@ -448,7 +448,7 @@
 .cqa-batch__option:has(input:checked) { box-shadow: inset 0 0 0 2px var(--cqa-c-green); }
 .cqa-batch__option.is-off { color: var(--cqa-c-muted); cursor: not-allowed; }
 .cqa-batch__count { font-weight: 600; color: var(--cqa-c-ink-2); }
-.cqa-batch__side { display: grid; gap: 12px; min-width: 0; }
+.cqa-batch__side { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; }
 .cqa-batch__side > .cqa-btn { justify-self: start; }
 .cqa-batch__row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .cqa-batch__row .cqa-batch__label { margin: 0; }
@@ -693,7 +693,7 @@
 .cqa-older { background: var(--cqa-c-surface); }
 
 /* Выбор моделей */
-.cqa-models { border-radius: var(--cqa-r-sm); background: var(--cqa-c-surface); }
+.cqa-models { min-width: 0; border-radius: var(--cqa-r-sm); background: var(--cqa-c-surface); }
 .cqa-models__summary {
   display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border-radius: var(--cqa-r-sm);
   font-size: 14px; list-style: none; cursor: pointer;
@@ -1012,6 +1012,9 @@
     transition-duration: 1ms !important; scroll-behavior: auto !important;
   }
   .cqa-skel::after { display: none; }
+  /* без анимации цель перехода (реплика-доказательство, критерий) подсвечивается статично */
+  .cqa-msg.is-target .cqa-msg__bubble::before, .cqa-msg.is-target .cqa-msg__sys::before,
+  .cqa-crit.is-target::before, .cqa-ac.is-target::before { animation: none !important; opacity: 1; }
 }
 
 /* ---------- 11. Адаптивность ---------- */
@@ -1106,3 +1109,161 @@
   .cqa-theme__icon--moon { right: 7px; }
   .cqa[data-theme="dark"] .cqa-theme__knob { transform: translateX(32px); }
 }
+
+/* ---------- 12. Внутри Dynamics 365 (host=d365, js/host.js) ----------
+   Приложение — веб-ресурс в области содержимого model-driven app: навигация, заголовок вида и команды —
+   у платформы. Поэтому без шапки, подвала и героя-заголовка (h1 остаётся для скринридеров и фокуса), плотнее,
+   системный шрифт (в Dynamics — Segoe UI; CDN шрифтов запрещён CSP), светлая тема и фон области содержимого.
+   Цвета, статусы и компоненты CQA — те же, что во встраиваемой панели на форме обращения. */
+.cqa-body:has(> .cqa[data-host="d365"]) { background: #FAF9F8; }
+.cqa[data-host="d365"] {
+  --cqa-font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --cqa-header-h: 0px;
+  --cqa-gutter: 16px;
+  --cqa-pad: 20px;
+  --cqa-container: 1680px;
+  --cqa-r-sm: 8px;
+  --cqa-r-md: 12px;
+  --cqa-r-lg: 10px;
+  --cqa-r-xl: 8px;
+  --cqa-fs-display: 26px;
+  --cqa-fs-h2: 22px;
+  --cqa-fs-h3: 18px;
+  --cqa-fs-title: 16px;
+  --cqa-fs-lead: 15px;
+  --cqa-fs-body-l: 15px;
+  --cqa-fs-body: 14px;
+  --cqa-host-shadow: 0 1.6px 3.6px rgb(0 0 0 / 12%), 0 0.3px 0.9px rgb(0 0 0 / 10%);
+  background: #FAF9F8;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Герой: заголовок экрана — в заголовке вида платформы; остаются данные (сводка, роль проверяющего, реплики) */
+.cqa[data-host="d365"] .cqa-hero { padding-block: 12px; }
+.cqa[data-host="d365"] .cqa-hero::before { display: none; }
+.cqa[data-host="d365"] .cqa-hero .cqa-container { max-width: none; padding-inline: 16px; }
+.cqa[data-host="d365"] .cqa-hero__grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.cqa[data-host="d365"] .cqa-hero__grid > .cqa-hero__copy { display: contents; }
+.cqa[data-host="d365"] .cqa-hero .cqa-display {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.cqa[data-host="d365"] :is(.cqa-eyebrow, .cqa-back, .cqa-hero .cqa-body-l, .cqa-hero__grid .cqa-lead) { display: none; }
+.cqa[data-host="d365"] :is(.cqa-hero__aside, .cqa-hero__aside--wide) { width: 100%; }
+.cqa[data-host="d365"] .cqa-hero--compact .cqa-hero__copy { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.cqa[data-host="d365"] .cqa-grad-text { background: none; color: var(--cqa-c-ink-2); -webkit-text-fill-color: currentColor; }
+.cqa[data-host="d365"] .cqa-hero--compact .cqa-lead { font-size: 14px; font-weight: 500; }
+.cqa[data-host="d365"] .cqa-stats { gap: 6px; }
+.cqa[data-host="d365"] .cqa-stat { height: 28px; gap: 6px; padding: 0 12px; line-height: 28px; box-shadow: inset 0 0 0 1px var(--cqa-c-line); }
+.cqa[data-host="d365"] .cqa-stat__value { font-size: 14px; }
+.cqa[data-host="d365"] .cqa-stat__label { font-size: 13px; }
+.cqa[data-host="d365"] .cqa-skel--stat { width: 96px; height: 28px; }
+.cqa[data-host="d365"] .cqa-summary { gap: 10px; padding: 14px 18px; border-radius: 8px; box-shadow: var(--cqa-host-shadow); }
+.cqa[data-host="d365"] .cqa-summary--row { padding-block: 12px; }
+.cqa[data-host="d365"] .cqa-summary__head { gap: 8px; }
+.cqa[data-host="d365"] .cqa-summary__kicker { font-size: 13px; }
+.cqa[data-host="d365"] .cqa-summary__total { margin-top: -2px; }
+.cqa[data-host="d365"] .cqa-summary__value { font-size: 30px; }
+.cqa[data-host="d365"] .cqa-summary__unit { font-size: 15px; }
+.cqa[data-host="d365"] .cqa-dist { gap: 6px; }
+.cqa[data-host="d365"] .cqa-dist__title { font-size: 12px; }
+.cqa[data-host="d365"] .cqa-dist__bar { height: 8px; }
+.cqa[data-host="d365"] .cqa-dist__legend { gap: 4px 14px; font-size: 13px; }
+
+/* Лист — карточка области содержимого */
+.cqa[data-host="d365"] .cqa-sheet { margin: 0 16px 16px; padding-block: 16px 24px; border-radius: 8px; box-shadow: var(--cqa-host-shadow); }
+.cqa[data-host="d365"] .cqa-sheet .cqa-container { max-width: none; padding-inline: 20px; }
+
+/* Контролы: высота 32–36 px и скругление 6 px — как поля и кнопки платформы */
+.cqa[data-host="d365"] .cqa-btn { height: 36px; gap: 6px; padding: 0 16px; border-radius: 6px; font-size: 14px; }
+.cqa[data-host="d365"] .cqa-btn--sm { height: 32px; padding: 0 12px; font-size: 13.5px; }
+.cqa[data-host="d365"] .cqa-btn--block { height: 40px; font-size: 15px; }
+.cqa[data-host="d365"] .cqa-seg { gap: 2px; padding: 2px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-seg__btn { height: 30px; gap: 5px; padding: 0 11px; border-radius: 6px; font-size: 13.5px; line-height: 30px; }
+.cqa[data-host="d365"] .cqa-seg__count { font-size: 12px; }
+.cqa[data-host="d365"] .cqa-search__input { height: 34px; padding: 0 12px 0 36px; border-radius: 6px; font-size: 14px; }
+.cqa[data-host="d365"] .cqa-search__icon { left: 11px; width: 17px; height: 17px; }
+.cqa[data-host="d365"] :is(.cqa-select--filter, .cqa-filter--select select) { height: 34px; min-height: 34px; padding: 0 10px; border-radius: 6px; font-size: 14px; }
+.cqa[data-host="d365"] .cqa-filters { gap: 10px; }
+.cqa[data-host="d365"] .cqa-toolbar { gap: 8px 14px; }
+.cqa[data-host="d365"] .cqa-toolbar--eval { padding-top: 10px; }
+.cqa[data-host="d365"] .cqa-filter { gap: 4px; }
+.cqa[data-host="d365"] .cqa-filter__label { padding-left: 2px; font-size: 12px; }
+.cqa[data-host="d365"] .cqa-filter--select { min-width: 200px; }
+.cqa[data-host="d365"] .cqa-actions { margin-top: 12px; padding-top: 12px; }
+.cqa[data-host="d365"] .cqa-export { padding: 2px 2px 2px 10px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-export__link { height: 28px; padding: 0 10px; border-radius: 6px; font-size: 13px; }
+.cqa[data-host="d365"] .cqa-meta-row { margin: 12px 0 6px; }
+.cqa[data-host="d365"] .cqa-meta-row__info { font-size: 13px; }
+.cqa[data-host="d365"] .cqa-batch { gap: 12px; padding: 16px 18px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-batch__title { font-size: 16px; }
+.cqa[data-host="d365"] .cqa-state { gap: 10px; padding: 20px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-state__title { font-size: 17px; }
+.cqa[data-host="d365"] .cqa-state__text { font-size: 14px; }
+.cqa[data-host="d365"] .cqa-state__icon { width: 40px; height: 40px; border-radius: 10px; }
+
+/* Таблица диалогов: плотные строки, как сетка представления */
+.cqa[data-host="d365"] .cqa-th { padding: 8px 12px; font-size: 12px; font-weight: 600; }
+.cqa[data-host="d365"] .cqa-td { padding: 10px 12px; }
+.cqa[data-host="d365"] .cqa-col-id { width: 150px; }
+.cqa[data-host="d365"] :is(.cqa-col-messages, .cqa-col-duration) { width: 112px; }
+.cqa[data-host="d365"] .cqa-col-status { width: 176px; }
+.cqa[data-host="d365"] .cqa-row__link { font-size: 14px; }
+.cqa[data-host="d365"] .cqa-row__meta { font-size: 12px; }
+.cqa[data-host="d365"] .cqa-row__count { font-size: 14px; }
+.cqa[data-host="d365"] :is(.cqa-row__time, .cqa-row__preview) { font-size: 13.5px; }
+.cqa[data-host="d365"] .cqa-row__critical { margin-top: 6px; font-size: 13px; }
+.cqa[data-host="d365"] .cqa-row__score { font-size: 17px; }
+.cqa[data-host="d365"] .cqa-status { height: 24px; padding: 0 10px; font-size: 12px; }
+.cqa[data-host="d365"] .cqa-skel-row { padding-block: 16px; }
+
+/* Полная карточка диалога */
+.cqa[data-host="d365"] .cqa-detail { grid-template-columns: minmax(0, 1fr) clamp(340px, 36vw, 440px); gap: 20px; }
+.cqa[data-host="d365"] .cqa-section-head { margin-bottom: 12px; }
+.cqa[data-host="d365"] .cqa-msgs { gap: 8px; }
+.cqa[data-host="d365"] .cqa-msg { scroll-margin-top: 120px; }
+.cqa[data-host="d365"] .cqa-msg__bubble { padding: 9px 14px 10px; border-radius: 14px; }
+.cqa[data-host="d365"] .cqa-msg__text { font-size: 14px; }
+.cqa[data-host="d365"] .cqa-player { top: 12px; gap: 10px; margin-bottom: 16px; padding: 14px 16px; }
+.cqa[data-host="d365"] .cqa-eval { top: 12px; max-height: calc(100vh - 24px); }
+.cqa[data-host="d365"] .cqa-eval__card { gap: 16px; padding: 18px; }
+
+/* Апелляции и роль проверяющего */
+.cqa[data-host="d365"] .cqa-ac-list { gap: 12px; }
+.cqa[data-host="d365"] .cqa-ac { gap: 14px; padding: 16px 18px; scroll-margin-top: 16px; }
+.cqa[data-host="d365"] .cqa-ac__fact dd { font-size: 14px; }
+.cqa[data-host="d365"] .cqa-ac__comment { padding: 10px 12px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-ac__fragment { padding: 12px; }
+.cqa[data-host="d365"] .cqa-role { gap: 12px; padding: 12px 16px; border-radius: 8px; box-shadow: var(--cqa-host-shadow); }
+.cqa[data-host="d365"] .cqa-role.is-on { box-shadow: inset 0 0 0 2px var(--cqa-c-green); }
+.cqa[data-host="d365"] .cqa-role__title { font-size: 15px; }
+.cqa[data-host="d365"] .cqa-role__text { font-size: 13px; }
+
+/* Экспорт набора — команда платформы «Экспорт в Excel» над видом, своя группа ссылок не нужна */
+.cqa[data-host="d365"] .cqa-export { display: none; }
+
+/* Чек-лист и аналитика: те же экраны, плотнее */
+.cqa[data-host="d365"] .cqa-a-sheet { padding-top: 16px; }
+.cqa[data-host="d365"] .cqa-a-tabs { gap: 2px; padding: 2px; margin-bottom: 16px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-a-tab { height: 32px; padding: 0 14px; border-radius: 6px; font-size: 13.5px; }
+.cqa[data-host="d365"] .cqa-a-input { height: 34px; padding: 0 12px; border-radius: 6px; font-size: 14px; }
+.cqa[data-host="d365"] .cqa-a-textarea { height: auto; padding: 8px 12px; }
+.cqa[data-host="d365"] .cqa-a-select { padding-right: 34px; }
+.cqa[data-host="d365"] .cqa-in-hero__value { font-size: 36px; }
+.cqa[data-host="d365"] .cqa-in-panel { gap: 32px; }
+.cqa[data-host="d365"] .cqa-in-tile { padding: 14px 16px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-in-tile__value { font-size: 24px; }
+.cqa[data-host="d365"] .cqa-in-tile--hero .cqa-in-tile__value { font-size: 32px; }
+.cqa[data-host="d365"] .cqa-cl { gap: 32px; }
+.cqa[data-host="d365"] .cqa-cl-section { gap: 8px; }
+.cqa[data-host="d365"] .cqa-cl-section__meta { font-size: 13px; }
+.cqa[data-host="d365"] .cqa-faq__summary { grid-template-columns: 36px minmax(0, 1fr) 20px; gap: 6px 14px; padding: 14px 12px; border-radius: 8px; }
+.cqa[data-host="d365"] .cqa-faq__num { font-size: 13.5px; }
+.cqa[data-host="d365"] .cqa-faq__plus { width: 20px; height: 20px; }
+.cqa[data-host="d365"] .cqa-faq__body { gap: 12px; padding: 0 12px 20px 62px; }
+.cqa[data-host="d365"] .cqa-cond__text { font-size: 14.5px; }
+.cqa[data-host="d365"] .cqa-scale__row { padding: 8px 12px; }
+.cqa[data-host="d365"] .cqa-scale__value { font-size: 15px; }
+.cqa[data-host="d365"] .cqa-scale__label { font-size: 14px; }
+.cqa[data-host="d365"] .cqa-rules { gap: 14px; padding: 20px; }
+.cqa[data-host="d365"] .cqa-rules__value { font-size: 15px; }

@@ -42,6 +42,7 @@
 .d365 :where(h1, h2, h3, p, ul, ol, dl, dd) { margin: 0; }
 .d365 :where(ul, ol) { padding: 0; list-style: none; }
 .d365 :focus-visible { outline: 2px solid var(--d365-accent); outline-offset: 2px; }
+.d365 :is(h1, h2)[tabindex="-1"]:focus { outline: none; } /* цель программного фокуса после перехода на страницу */
 .d365-noscript { padding: 24px; }
 .d365-sr-only {
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -79,6 +80,7 @@
 }
 
 /* ---------- Карта сайта ---------- */
+/* Пункты, которые открывают страницы, — ссылки (средняя кнопка открывает их в новой вкладке, как в Dynamics). */
 .d365-frame { display: flex; flex: 1; min-height: 0; }
 .d365-nav {
   position: sticky; top: var(--d365-top-h); flex: none; width: var(--d365-nav-w); height: calc(100vh - var(--d365-top-h));
@@ -99,6 +101,13 @@
 }
 .d365-nav__item--current .d365-nav__icon { color: var(--d365-accent); }
 .d365-nav__item--link:hover { background: var(--d365-hover); }
+.d365-nav__item--current.d365-nav__item--link:hover { background: var(--d365-surface); }
+.d365-nav__badge {
+  display: inline-grid; place-items: center; flex: none; min-width: 20px; height: 20px; margin-left: auto; padding: 0 6px;
+  border-radius: 10px; background: var(--d365-accent); color: #FFFFFF; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.d365-nav__badge[hidden] { display: none; }
+.d365-nav--collapsed .d365-nav__badge { position: absolute; top: 3px; right: 6px; min-width: 16px; height: 16px; padding: 0 4px; font-size: 10.5px; }
 .d365-nav--collapsed { width: var(--d365-nav-rail); }
 .d365-nav--collapsed .d365-nav__label, .d365-nav--collapsed .d365-nav__title { display: none; }
 .d365-nav--collapsed .d365-nav__item { justify-content: center; padding: 0; }
@@ -120,9 +129,20 @@
 .d365-cmd--inert:hover { background: transparent; }
 .d365-cmd--primary { background: var(--d365-accent-bg); color: var(--d365-accent-ink); font-weight: 600; }
 .d365-cmd--primary:hover { background: #DCE6FB; }
+.d365-cmd[aria-disabled="true"] { color: var(--d365-ink-3); cursor: default; }
+.d365-cmd[aria-disabled="true"] svg { color: var(--d365-ink-3); }
+.d365-cmd[aria-disabled="true"]:hover { background: transparent; }
+a.d365-cmd { text-decoration: none; }
+
+/* Область содержимого: страница веб-ресурса заполняет высоту окна и прокручивается внутри iframe,
+   форма и представление прокручиваются вместе со страницей. */
+.d365-content { display: flex; flex-direction: column; min-width: 0; }
+.d365-main--fill { height: calc(100vh - var(--d365-top-h)); }
+.d365-main--fill .d365-content { flex: 1; min-height: 0; }
 
 .d365-form { display: grid; align-content: start; gap: 12px; padding: 16px 20px 32px; }
 .d365-loading { padding: 12px 4px; color: var(--d365-ink-2); }
+.d365-notices { padding: 12px 20px 0; }
 .d365-notices:empty { display: none; }
 .d365-notice {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -219,6 +239,41 @@
 .d365-dl__row dd { margin-top: 2px; font-size: 13px; overflow-wrap: anywhere; }
 .d365-dl__row dd.d365-code { padding: 4px 6px; border-radius: 4px; background: var(--d365-bg); }
 
+/* Страница веб-ресурса и представление: заголовок вида, под ним содержимое */
+.d365-view { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.d365-view__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; padding: 14px 20px 10px; }
+.d365-view__title { font-size: 20px; font-weight: 600; line-height: 1.3; outline: none; }
+.d365-view__sub { font-size: 12.5px; color: var(--d365-ink-2); overflow-wrap: anywhere; }
+.d365-view__frame { display: block; flex: 1; width: 100%; min-height: 360px; border: 0; background: var(--d365-canvas); }
+
+/* Представление записей (сетка) */
+.d365-grid__wrap {
+  margin: 0 20px 28px; overflow-x: auto; border-radius: var(--d365-radius);
+  background: var(--d365-surface); box-shadow: var(--d365-shadow);
+}
+.d365-grid { width: 100%; min-width: 720px; border-collapse: collapse; table-layout: fixed; font-size: 13.5px; }
+.d365-grid__th {
+  padding: 10px 12px; border-bottom: 1px solid var(--d365-line); background: var(--d365-surface);
+  font-size: 12.5px; font-weight: 600; text-align: left; color: var(--d365-ink-2); white-space: nowrap;
+}
+.d365-grid__col-id { width: 136px; }
+.d365-grid__col-channel { width: 84px; }
+.d365-grid__col-lang { width: 104px; }
+.d365-grid__col-count { width: 72px; }
+.d365-grid__col-score { width: 188px; }
+.d365-grid__col-appeal { width: 104px; }
+.d365-grid__cell {
+  padding: 9px 12px; border-bottom: 1px solid var(--d365-line-2); font-weight: 400; text-align: left;
+  vertical-align: top; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.d365-grid__row { cursor: pointer; }
+.d365-grid__row:hover > .d365-grid__cell { background: #F5F5F5; }
+.d365-grid__row:last-child > .d365-grid__cell { border-bottom: 0; }
+.d365-grid__link { border-radius: 2px; color: var(--d365-accent-ink); font-weight: 600; text-decoration: none; }
+.d365-grid__link:hover { text-decoration: underline; }
+.d365-grid__state:empty { display: none; }
+.d365-grid__state { padding: 12px 16px; }
+
 /* Состояния */
 .d365-skeleton { display: grid; gap: 12px; }
 .d365-skeleton__line { display: block; height: 14px; border-radius: 4px; background: var(--d365-line-2); }
@@ -246,6 +301,11 @@
 @keyframes d365-slide { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Адаптивность ---------- */
+@media (max-width: 1365px) {
+  /* Неактивные команды (декорация) — только значком, чтобы рабочие команды формы помещались в панель */
+  .d365-cmd--inert { padding: 0 8px; }
+  .d365-cmd--inert span { display: none; }
+}
 @media (max-width: 1279px) {
   .d365-select { max-width: 260px; }
 }
@@ -261,9 +321,19 @@
   .d365-top__field > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .d365-select { max-width: 200px; }
 }
+@media (max-width: 900px) {
+  .d365-grid__col-channel, .d365-grid__col-lang, .d365-grid__col-count,
+  .d365-grid__cell:nth-child(3), .d365-grid__cell:nth-child(4), .d365-grid__cell:nth-child(5) { display: none; }
+  .d365-grid { min-width: 520px; }
+}
 @media (max-width: 720px) {
-  .d365-nav { display: none; }
+  /* Карта сайта остаётся узкой полосой иконок: по ней ходят между страницами CQA */
+  .d365 { --d365-nav-rail: 48px; }
+  .d365-nav__item { margin: 0 4px; }
   .d365-form { padding: 12px 10px 24px; }
+  .d365-view__head { padding: 12px 12px 8px; }
+  .d365-grid__wrap { margin-inline: 10px; }
+  .d365-notices { padding-inline: 10px; }
   .d365-fields { grid-template-columns: minmax(0, 1fr); }
   .d365-top__app { display: none; }
 }

@@ -10,7 +10,8 @@ import { describeError } from "./errors.js";
 import { glyph } from "./glyphs.js";
 import { PENDING_TTL_MS, clearPending, readPending, writePending } from "./pending.js";
 import {
-  actionButton, buildFooter, buildHeader, cardHref, externalLink, loadingView, progressView, sectionsView, stateView, summaryView,
+  actionButton, buildFooter, buildHeader, cardHref, externalLink, loadingView, opensInline, progressView, sectionsView, stateView,
+  summaryView,
 } from "./view.js";
 
 const CHECKLIST_WAIT_MS = 1500;
@@ -24,14 +25,15 @@ const CONTEXT_PROBLEMS = Object.freeze({
 
 /**
  * @param {HTMLElement} root #cqa-root
- * @param {{ context: import("./context.js").EmbedContext, i18n: object, appUrl: string }} options
+ * @param {{ context: import("./context.js").EmbedContext, i18n: object, appUrl: string, appResource: string }} options
+ *   appResource — веб-ресурс приложения: «Полная карточка» откроется в области содержимого Dynamics
  * @returns {{ destroy: () => void }}
  */
-export function createPanel(root, { context, i18n, appUrl }) {
+export function createPanel(root, { context, i18n, appUrl, appResource = "" }) {
   const { groupId, conversationId, xrm } = context;
   const t = i18n.t;
   const lifetime = new AbortController();
-  const links = Object.freeze({ appUrl, groupId, conversationId, xrm });
+  const links = Object.freeze({ appUrl, appResource, groupId, conversationId, xrm });
   let op = null;
   let progress = null;
   let pollTimer = 0;
@@ -203,10 +205,11 @@ export function createPanel(root, { context, i18n, appUrl }) {
   }
 
   function openCardLink() {
+    const inline = opensInline(links);
     return externalLink({
       href: cardHref(appUrl, groupId, conversationId), className: "cqa-btn cqa-btn--sm cqa-btn--white",
-      label: t("openCard"), srText: t("newTab"), xrm,
-      children: [glyph("external", { size: 16 })],
+      label: t("openCard"), newTabText: t("newTab"), links,
+      children: [glyph(inline ? "open" : "external", { size: 16 })],
     });
   }
 

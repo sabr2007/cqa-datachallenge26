@@ -286,20 +286,24 @@ def previous_evaluation(
 ) -> dict[str, Any] | None:
     """Основа для reuse: последняя успешная оценка диалога по тому же чек-листу.
 
-    Какие критерии не изменились, решает движок (по definition_hash критериев).
+    Какие критерии не изменились, решает движок (по definition_hash критериев). Апелляции
+    подмешиваются, чтобы движок перенёс решения проверяющего вместе с их деталями.
     """
     history = store.list_evaluations(
         group_id=request.group_id, conversation_id=request.conversation_id, limit=REUSE_LOOKBACK
     )
-    return next(
+    base = next(
         (
-            stored.doc
+            stored
             for stored in history
             if stored.doc.get("status") == "done"
             and stored.doc.get("checklist_id") == version.checklist_id
         ),
         None,
     )
+    if base is None:
+        return None
+    return with_appeals(base.doc, store.list_appeals(evaluation_ids=[base.evaluation_id]))
 
 
 def read_evaluation(store: Store, evaluation_id: str) -> dict[str, Any]:

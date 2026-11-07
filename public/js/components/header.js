@@ -8,11 +8,12 @@ import { DEFAULT_GROUP, buildHash, paths } from "../router.js";
 const INPUT_ID = "cqa-group-input";
 const ERROR_ID = "cqa-group-error";
 const OPTIONS_ID = "cqa-group-options";
-const APPEALS_EVENT = "cqa:appeals-changed";
+/** Событие окна: очередь апелляций набора изменилась. Слушают шапка и, в режиме хоста, host.js. */
+export const APPEALS_CHANGED_EVENT = "cqa:appeals-changed";
 
 /** Сообщить шапке, что очередь апелляций набора изменилась (подана / решена). */
 export function notifyAppealsChanged(groupId) {
-  window.dispatchEvent(new CustomEvent(APPEALS_EVENT, { detail: { groupId } }));
+  window.dispatchEvent(new CustomEvent(APPEALS_CHANGED_EVENT, { detail: { groupId } }));
 }
 
 /**
@@ -58,7 +59,7 @@ export function createHeader({ onGroupSubmit, onThemeToggle }) {
     links.appeals.title = count ? `Открытых апелляций: ${count}` : "Очередь апелляций";
   }
 
-  window.addEventListener(APPEALS_EVENT, (event) => {
+  window.addEventListener(APPEALS_CHANGED_EVENT, (event) => {
     if (event.detail?.groupId === currentGroup) refreshAppealCount(currentGroup);
   });
 
@@ -123,7 +124,9 @@ function datasetForm(onSubmit) {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const value = input.value.trim();
+    // API кейса не различает регистр group_id, а оценки хранятся по точной строке:
+    // «dev» и «DEV» — один набор, поэтому храним и показываем в верхнем регистре.
+    const value = input.value.trim().toUpperCase();
     if (!isValidId(value)) {
       showError("group_id: латинские буквы, цифры, «_» и «-», до 64 символов.");
       return;

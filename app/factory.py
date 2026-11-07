@@ -9,6 +9,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from app.api.engine import Evaluator
+from app.auth import SessionGate
 from app.config import Settings, load_settings
 from app.errors import register_error_handlers
 from app.routes import router
@@ -47,6 +48,9 @@ def create_app(
     app.state.services = services
     register_error_handlers(app)
     app.include_router(router)
+    if services.auth is not None:
+        # Вход для жюри: /api/* (кроме health и входа) — только с действующей сессией.
+        app.add_middleware(SessionGate, codec=services.auth.codec)
     _mount_frontend(app, resolved)  # строго после API-роутов
     return app
 

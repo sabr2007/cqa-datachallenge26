@@ -12,13 +12,14 @@ export const TABS = Object.freeze([
   { id: "quality", label: "Качество" },
 ]);
 const PANEL_ID = "d365-tabpanel";
+const TITLE_ID = "d365-rec-title";
 
 /**
  * @param {HTMLElement} host
  * @param {{ onTabChange: (tab: string) => void, onOpenPanel: () => void, onRetryConversation: () => void }} handlers
  */
 export function createForm(host, { onTabChange, onOpenPanel, onRetryConversation }) {
-  const header = h("section", { className: "d365-rec", attrs: { "aria-labelledby": "d365-rec-title" } });
+  const header = h("section", { className: "d365-rec", attrs: { "aria-labelledby": TITLE_ID } });
   const tabButtons = TABS.map((tab) => h("button", {
     className: "d365-tab",
     attrs: { type: "button", role: "tab", id: `d365-tab-${tab.id}`, "aria-controls": PANEL_ID, "aria-selected": "false", tabindex: "-1" },
@@ -28,8 +29,7 @@ export function createForm(host, { onTabChange, onOpenPanel, onRetryConversation
   }));
   const tablist = h("div", { className: "d365-tabs", attrs: { role: "tablist", "aria-label": "Вкладки формы" } }, tabButtons);
   const panel = h("div", { className: "d365-tabpanel", attrs: { id: PANEL_ID, role: "tabpanel", tabindex: "-1" } });
-  const notices = h("div", { className: "d365-notices" });
-  host.replaceChildren(notices, header, tablist, panel);
+  host.replaceChildren(header, tablist, panel);
 
   let renderedKey = "";
   let embedLoads = 0;
@@ -55,13 +55,11 @@ export function createForm(host, { onTabChange, onOpenPanel, onRetryConversation
     focusTab(tab) {
       tabButtons.find((button) => button.dataset.tab === tab)?.focus();
     },
-    /** Уведомление формы над шапкой — как formContext.ui.setFormNotification. */
-    notify(message, level = "error") {
-      const close = h("button", { className: "d365-icon-btn d365-notice__close", attrs: { type: "button", "aria-label": "Скрыть уведомление" }, text: "×" });
-      const bar = h("div", { className: `d365-notice d365-notice--${level}`, attrs: { role: level === "error" ? "alert" : "status" } },
-        h("span", { text: message }), close);
-      close.addEventListener("click", () => bar.remove());
-      notices.replaceChildren(bar);
+    /** Фокус на заголовок записи — после перехода на форму (кнопка, с которой ушли, уже уничтожена). */
+    focusTitle() {
+      const title = header.querySelector(`#${TITLE_ID}`);
+      title?.setAttribute("tabindex", "-1");
+      title?.focus({ preventScroll: true });
     },
   };
 
@@ -74,22 +72,27 @@ export function createForm(host, { onTabChange, onOpenPanel, onRetryConversation
     return summaryTab({ record: view.record, conversation: view.conversation, operator: operatorLabel(view), onOpenTab: onTabChange, onOpenPanel });
   }
 
+  /** Заголовок и подпись обновляются на месте: фокус на заголовке переживает догрузку реплик. */
   function renderHeader(view) {
     const { record } = view;
-    const title = record ? `Обращение · ${record.conversationId} · ${operatorLabel(view)}` : "Новое обращение";
+    if (!header.firstChild) {
+      header.append(h("div", { className: "d365-rec__id" },
+        h("span", { className: "d365-rec__icon", attrs: { "aria-hidden": "true" }, text: "Об" }),
+        h("div", { className: "d365-rec__names" },
+          h("h1", { className: "d365-rec__title", attrs: { id: TITLE_ID } }),
+          h("p", { className: "d365-rec__sub" }))),
+      h("dl", { className: "d365-rec__fields" }));
+    }
+    header.querySelector(".d365-rec__title").textContent = record
+      ? `Обращение · ${record.conversationId} · ${operatorLabel(view)}` : "Новое обращение";
+    header.querySelector(".d365-rec__sub").textContent = record ? "Обращение · Основная форма · Сохранено" : "Обращение · Основная форма";
     const fields = record
       ? [["Канал", channelName(record.channel)], ["Язык", languageName(record.language)], ["Реплик", String(record.messageCount)],
         ["Оценка качества", evaluationText(record.evaluation)]]
       : [["Состояние", "Не сохранено"]];
-    header.replaceChildren(
-      h("div", { className: "d365-rec__id" },
-        h("span", { className: "d365-rec__icon", attrs: { "aria-hidden": "true" }, text: "Об" }),
-        h("div", { className: "d365-rec__names" },
-          h("h1", { className: "d365-rec__title", attrs: { id: "d365-rec-title" }, text: title }),
-          h("p", { className: "d365-rec__sub", text: record ? "Обращение · Основная форма · Сохранено" : "Обращение · Основная форма" }))),
-      h("dl", { className: "d365-rec__fields" }, fields.map(([label, value]) => h("div", { className: "d365-rec__field" },
-        h("dt", { text: label }),
-        h("dd", { className: label === "Оценка качества" && record?.evaluation?.critical ? "d365-danger" : "", text: value })))));
+    header.querySelector(".d365-rec__fields").replaceChildren(...fields.map(([label, value]) => h("div", { className: "d365-rec__field" },
+      h("dt", { text: label }),
+      h("dd", { className: label === "Оценка качества" && record?.evaluation?.critical ? "d365-danger" : "", text: value }))));
   }
 
   function onTabKeydown(event) {

@@ -10,6 +10,8 @@ import { createPanel } from "./panel.js";
 
 const ROOT_ID = "cqa-root";
 const DEFAULT_APP_URL = "index.html";
+/** Имя веб-ресурса: буквы, цифры, «_», «.» и «/» — как требует Dynamics. */
+const WEB_RESOURCE_NAME = /^[A-Za-z0-9_][A-Za-z0-9_./]{0,199}$/;
 
 let mounted = null;
 
@@ -23,7 +25,15 @@ function mount() {
   document.documentElement.lang = i18n.htmlLang;
   document.title = i18n.t("title");
   root.lang = i18n.htmlLang;
-  mounted = createPanel(root, { context, i18n, appUrl: safeAppUrl(root.dataset.appUrl) });
+  mounted = createPanel(root, {
+    context, i18n, appUrl: safeAppUrl(root.dataset.appUrl), appResource: safeWebResource(root.dataset.appWebresource),
+  });
+}
+
+/** Веб-ресурс приложения для «Полной карточки» в области содержимого; пусто — карточка в новой вкладке. */
+function safeWebResource(value) {
+  const name = String(value ?? "").trim();
+  return WEB_RESOURCE_NAME.test(name) ? name : "";
 }
 
 /** Адрес основного приложения для «Полной карточки»: относительный путь или http(s); иначе — по умолчанию. */

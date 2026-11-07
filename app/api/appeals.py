@@ -221,7 +221,12 @@ def _apply_decision(
     result = find_result(evaluation, criterion_id)
     if result is None:
         raise criterion_not_found(criterion_id)
-    resolved_ref = {"appeal": {"id": appeal["id"], "status": "resolved"}}
+    # решение проверяющего снимает с критерия «нужна проверка»
+    resolved_ref = {
+        "appeal": {"id": appeal["id"], "status": "resolved"},
+        "needs_review": False,
+        "review_reasons": [],
+    }
     record = {"action": decision.action, "new_answer": None, "reason": decision.reason}
     if decision.action == "confirm":
         updated = _replace_result(evaluation, criterion_id, resolved_ref)
@@ -236,8 +241,16 @@ def _apply_decision(
             if result.get("critical")
             else rescored.get("critical_note"),
         }
+    updated = {**updated, "needs_review": _any_needs_review(updated)}
     decided = {**appeal, "status": "resolved", "decision": {**record, "decided_at": utc_now()}}
     return updated, decided
+
+
+def _any_needs_review(evaluation: Mapping[str, Any]) -> bool:
+    return any(
+        isinstance(item, Mapping) and bool(item.get("needs_review"))
+        for item in evaluation.get("criteria") or []
+    )
 
 
 def _checked_answer(

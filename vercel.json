@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "fluid": true,
+  "functions": {
+    "app/main.py": {
+      "maxDuration": 300,
+      "excludeFiles": "{.env,.env.*,.data/**,data/**,tests/**,docs/**,scripts/**,eval/runs/**,.gstack/**,.claude/**,.playwright-mcp/**,.vercel/**,.venv/**,.pytest_cache/**,.ruff_cache/**}"
+    }
+  }
+}

@@ -1,11 +1,22 @@
-// Стенд «Dynamics 365»: макет формы обращения model-driven app со встраиваемой панелью оценки.
-// Страница играет роль платформы: держит заглушку window.Xrm (её веб-ресурс читает через parent.Xrm),
-// вкладки формы, панель команд с navigateTo и переключатели «запись» и «язык пользователя» для демо.
-// Данные — только реальный API: список диалогов набора и реплики выбранного диалога.
+// Стенд «Dynamics 365»: макет model-driven app «Обслуживание клиентов» с решением CQA.
+// Страница играет роль платформы: держит заглушку window.Xrm (веб-ресурсы читают её через parent.Xrm),
+// карту сайта, панель команд, историю переходов и область содержимого. В области содержимого открываются:
+//   • экраны приложения CQA — веб-ресурс cqa_/quality/index.html (оценки, апелляции, чек-лист, аналитика,
+//     полная карточка диалога), карта сайта «Качество (CQA)» и Xrm.Navigation.navigateTo (target: 1);
+//   • форма записи «Обращение» с вкладкой «Качество» (веб-ресурс cqa_/quality/embed.html) — Xrm.Navigation.openForm;
+//   • представление «Активные обращения».
+// Переключатели «Запись» и «Язык пользователя» в верхней панели — инструменты стенда для демо.
+// Данные — только реальный API: записи — диалоги набора DEV, реплики — выбранного диалога.
 
-import { fetchConversation, fetchListing, isAbortError } from "../../js/api.js";
+import { countOpenAppeals, exportUrl, fetchConversation, fetchListing, isAbortError } from "../../js/api.js";
 import { h } from "../../js/dom.js";
+import { createAppPage } from "./appPage.js";
+import { createCaseGrid } from "./caseGrid.js";
 import { TABS, createForm } from "./form.js";
+import {
+  APP_RESOURCE, QUALITY_VIEWS, appPage, cardIdOf, createHistory, groupOf, pageFromParams, pageUrl,
+  qualityViewOf, recordPage, routeFromData, sitemapIdOf, sitemapPage,
+} from "./navigation.js";
 import { operatorName, recordFromListItem } from "./record.js";
 import { buildShell } from "./shell.js";
 import { createSidePanel } from "./sidePanel.js";
@@ -19,168 +30,365 @@ const LANGUAGES = Object.freeze([
 ]);
 const USER = Object.freeze({ name: "Контролёр качества", id: "0D7C2F4B-6A1E-4B8F-9C3D-2E5A7B9C1D3F" });
 const DEFAULT_TAB = "quality";
+const START_VIEW = QUALITY_VIEWS[0].id;
+const STAND_TITLE = "стенд Dynamics 365";
+const IDLE = Object.freeze({ status: "idle", data: null, error: null });
+const LOADING = Object.freeze({ status: "loading", data: null, error: null });
+const MESSAGE_SOURCE = "cqa";
 
 let state = Object.freeze({
-  status: "loading", error: null, records: Object.freeze([]), recordId: "", creating: false,
-  tab: DEFAULT_TAB, lcid: LANGUAGES[0].lcid,
-  conversation: Object.freeze({ status: "idle", data: null, error: null }), operator: "", reloadToken: 0,
+  lcid: LANGUAGES[0].lcid, page: null,
+  records: Object.freeze([]), recordsStatus: "loading", recordsError: "",
+  conversation: IDLE, operator: "", reloadToken: 0,
 });
-let conversationRequest = null;
 let shell = null;
-let form = null;
 let sidePanel = null;
+let pages = null;
+let view = null;
+let recordsReady = null;
+let conversationRequest = null;
+let appealRequest = 0;
 
 function boot() {
   const root = document.getElementById("d365-root");
   if (!root) return;
   const params = new URLSearchParams(window.location.search);
   const lcid = Number(params.get("lang"));
-  setState({
-    tab: TABS.some((tab) => tab.id === params.get("tab")) ? params.get("tab") : DEFAULT_TAB,
-    lcid: LANGUAGES.some((language) => language.lcid === lcid) ? lcid : LANGUAGES[0].lcid,
-    recordId: params.get("record") ?? "",
-  }, { render: false });
+  patch({ lcid: LANGUAGES.some((language) => language.lcid === lcid) ? lcid : LANGUAGES[0].lcid });
 
   installXrmStub(window, {
-    getRecord: currentRecord,
+    getRecord: () => (state.page?.type === "record" ? currentRecord() : null),
     getUser: () => ({ ...USER, lcid: state.lcid }),
+    findRecords: () => recordsReady.then(() => state.records),
     openDialog: (options) => sidePanel.open(options),
-    onRefresh: () => refreshListing(),
+    openPage: openWebResourcePage,
+    openRecord: openRecordForm,
+    onRefresh: () => Promise.all([refreshRecords(), refreshAppealCount()]).then(() => undefined),
   });
   shell = buildShell({
-    group: GROUP, languages: LANGUAGES, lcid: state.lcid, commands: commandList(),
-    onRecordChange: selectRecord, onLanguageChange: (next) => { sidePanel.close(); setState({ lcid: next }); },
+    languages: LANGUAGES, lcid: state.lcid,
+    hrefFor: (id) => pageUrl(sitemapPage(id, GROUP), state.lcid),
+    onSitemap: openSitemapItem,
+    onRecordChange: (id) => go(recordPage(id, state.page?.type === "record" ? state.page.tab : DEFAULT_TAB)),
+    onLanguageChange: changeLanguage,
   });
   root.replaceChildren(shell.el);
   sidePanel = createSidePanel(root);
-  form = createForm(shell.formHost, {
-    onTabChange: (tab) => setState({ tab }),
-    onOpenPanel: openQualityPanel,
-    onRetryConversation: () => loadConversation(state.recordId),
+  pages = createHistory({
+    initial: pageFromParams(params, { fallback: sitemapPage(START_VIEW, GROUP), tabs: TABS.map((tab) => tab.id), defaultTab: DEFAULT_TAB }),
+    lcid: () => state.lcid,
+    onShow: showPage,
   });
-  shell.formHost.prepend(h("p", { className: "d365-loading", attrs: { role: "status" }, text: "Загружаем записи набора DEV…" }));
-  loadListing();
+  window.addEventListener("message", onAppMessage);
+  recordsReady = loadRecords();
+  recordsReady.catch(() => {}); // ошибка уже показана; Web API получит её в своём промисе
+  pages.start();
 }
 
-async function loadListing() {
+/* ---------- страницы ---------- */
+
+function showPage(page, { initial }) {
+  conversationRequest?.abort();
+  sidePanel.close();
+  shell.clearNotice();
+  view = null; // прежняя страница уничтожается вместе со своими веб-ресурсами
+  patch({ page, conversation: IDLE, operator: "" });
+  shell.setCurrent(sitemapIdOf(page));
+  shell.selectRecord(page.type === "record" ? page.record : "");
+  if (page.type === "app") view = appView(page);
+  else if (page.type === "record") view = recordView(page);
+  else view = casesView();
+  shell.setCommands(commandsFor(page));
+  document.title = `${view.title} — ${STAND_TITLE}`;
+  if (!initial) view.focus();
+  if (page.type !== "app" && state.recordsStatus === "ready") refreshRecords(); // итог мог измениться (апелляция)
+  refreshAppealCount();
+}
+
+/** Экран приложения CQA — веб-ресурс в области содержимого. */
+function appView(page) {
+  const quality = qualityViewOf(page.route);
+  const cardId = cardIdOf(page.route);
+  const group = groupOf(page.route, GROUP);
+  const title = quality?.title ?? (cardId ? `Диалог ${cardId}` : "Качество (CQA)");
+  const subtitle = cardId ? `Полная карточка оценки · набор ${group}` : `Набор ${group} · веб-ресурс ${APP_RESOURCE}`;
+  const result = { title };
+  const appPageView = createAppPage({
+    route: page.route, title, subtitle,
+    onRouteChange: (route) => { if (view === result) rememberRoute(route); },
+  });
+  shell.setContent(appPageView.el, { fill: true });
+  return Object.assign(result, { focus: appPageView.focus, reload: appPageView.reload, currentRoute: appPageView.currentRoute });
+}
+
+/** Форма записи «Обращение»: создаётся, когда записи набора загружены и запись найдена. */
+function recordView(page) {
+  const host = h("div", { className: "d365-form" });
+  shell.setContent(host, { fill: false });
+  let form = null;
+  const result = {
+    title: page.record ? `Обращение ${page.record}` : "Новое обращение",
+    focus: () => form?.focusTitle(),
+    update: () => form?.update(formView()),
+    recordsChanged: sync,
+  };
+  sync();
+  return result;
+
+  function sync() {
+    if (page.record && state.recordsStatus !== "ready") {
+      const failed = state.recordsStatus === "error";
+      form = null;
+      host.replaceChildren(h("p", {
+        className: failed ? "d365-error d365-error--page" : "d365-loading", attrs: { role: failed ? "alert" : "status" },
+        text: failed ? `Не удалось загрузить записи набора ${GROUP}: ${state.recordsError}` : `Загружаем записи набора ${GROUP}…`,
+      }));
+      return;
+    }
+    if (page.record && !currentRecord()) {
+      form = null;
+      host.replaceChildren(h("div", { className: "d365-error d365-error--page", attrs: { role: "alert" } },
+        h("p", { text: `Запись «Обращение» с диалогом ${page.record} не найдена в наборе ${GROUP}.` }),
+        h("button", { className: "d365-btn", attrs: { type: "button" }, text: "К активным обращениям", on: { click: () => go(sitemapPage("cases", GROUP)) } })));
+      return;
+    }
+    if (!form) {
+      form = createForm(host, {
+        onTabChange: (tab) => updatePage(recordPage(state.page.record, tab)),
+        onOpenPanel: openQualityPanel,
+        onRetryConversation: () => loadConversation(page.record),
+      });
+      if (page.record) loadConversation(page.record);
+    }
+    form.update(formView());
+  }
+}
+
+function casesView() {
+  const grid = createCaseGrid({
+    hrefFor: (id) => pageUrl(recordPage(id, DEFAULT_TAB), state.lcid),
+    onOpen: (id) => go(recordPage(id, DEFAULT_TAB)),
+  });
+  shell.setContent(grid.el, { fill: false });
+  const sync = () => grid.update({ status: state.recordsStatus, records: state.records, error: state.recordsError });
+  sync();
+  return { title: "Активные обращения", focus: grid.focus, update: sync, recordsChanged: sync };
+}
+
+/** Команды страницы — как панель команд model-driven app: «Назад» всегда первой. */
+function commandsFor(page) {
+  const canGoBack = pages.canGoBack();
+  const back = {
+    label: "Назад", icon: "back", onClick: goBack, disabled: !canGoBack,
+    title: canGoBack ? "Вернуться к предыдущей странице" : "Это первая страница сеанса",
+  };
+  const create = { label: "Создать", icon: "plus", onClick: () => go(recordPage("", DEFAULT_TAB)) };
+  if (page.type === "cases") {
+    return [back, create, { label: "Обновить", icon: "refresh", onClick: () => refreshRecords() }];
+  }
+  if (page.type === "record") {
+    return [
+      back,
+      { label: "Сохранить", icon: "save" },
+      { label: "Сохранить и закрыть", icon: "saveClose", onClick: () => (canGoBack ? goBack() : go(sitemapPage("cases", GROUP))) },
+      create,
+      { label: "Обновить", icon: "refresh", onClick: refreshForm },
+      { label: "Оценка качества", icon: "panel", onClick: openQualityPanel, primary: true },
+      { label: "Решить обращение", icon: "check" },
+      { label: "Назначить", icon: "assign" },
+      { label: "Поделиться", icon: "share" },
+    ];
+  }
+  const refresh = { label: "Обновить", icon: "refresh", onClick: () => { view.reload(); refreshAppealCount(); } };
+  const cardId = cardIdOf(page.route);
+  if (cardId) {
+    return [back, { label: "Открыть обращение", icon: "ticket", onClick: () => go(recordPage(cardId, DEFAULT_TAB)) }, refresh];
+  }
+  if (qualityViewOf(page.route)?.id === "conversations") {
+    const group = groupOf(page.route, GROUP);
+    return [back, refresh, { label: "Экспорт в Excel", icon: "download", href: exportUrl(group, "csv"), download: true,
+      title: `Последние оценки набора ${group} — CSV для Excel` }];
+  }
+  return [back, refresh];
+}
+
+/* ---------- переходы ---------- */
+
+function go(page) {
+  rememberAppRoute();
+  pages.push(page);
+}
+
+/** Пункт карты сайта; уже открытый пункт открывается заново с видом по умолчанию — без лишней записи в истории. */
+function openSitemapItem(id) {
+  const page = sitemapPage(id, GROUP);
+  const reopening = state.page?.type === page.type && sitemapIdOf(state.page) === id && state.page.type !== "record";
+  if (reopening) pages.replace(page);
+  else go(page);
+}
+
+function goBack() {
+  rememberAppRoute();
+  pages.back();
+}
+
+/** Текущая вкладка формы и т. п. — на месте, без новой записи в истории. */
+function updatePage(page) {
+  patch({ page });
+  pages.update(page);
+  view?.update?.();
+}
+
+/** Экран веб-ресурса с его фильтрами — в текущую запись истории: «Назад» и перезагрузка вернут его как был. */
+function rememberAppRoute() {
+  if (typeof view?.currentRoute === "function") rememberRoute(view.currentRoute());
+}
+
+function rememberRoute(route) {
+  if (state.page?.type !== "app" || route === state.page.route) return;
+  patch({ page: appPage(route) });
+  pages.update(state.page);
+}
+
+/** Xrm.Navigation.navigateTo(webresource, target 1): экран приложения CQA в области содержимого. */
+function openWebResourcePage({ webresourceName, data }) {
+  if (webresourceName !== APP_RESOURCE) {
+    return Promise.reject(new Error(`Макет открывает в области содержимого только веб-ресурс ${APP_RESOURCE}.`));
+  }
+  const route = routeFromData(data);
+  return afterCurrentTask(() => go(route ? appPage(route) : sitemapPage(START_VIEW, GROUP)));
+}
+
+/** Xrm.Navigation.openForm: форма записи «Обращение» (вкладка — параметр формы cqa_tab). */
+async function openRecordForm({ entityId, parameters }) {
+  const tab = TABS.some((item) => item.id === parameters.cqa_tab) ? parameters.cqa_tab : DEFAULT_TAB;
+  if (!entityId) {
+    await afterCurrentTask(() => go(recordPage("", tab)));
+    return Object.freeze({ savedEntityReference: Object.freeze([]) });
+  }
+  await recordsReady;
+  const record = state.records.find((item) => item.guid.toLowerCase() === entityId.toLowerCase());
+  if (!record) throw new Error(`Запись incident {${entityId}} не найдена.`);
+  await afterCurrentTask(() => go(recordPage(record.conversationId, tab)));
+  return Object.freeze({
+    savedEntityReference: Object.freeze([{ entityType: "incident", id: `{${record.guid}}`, name: record.title }]),
+  });
+}
+
+/** Переход после текущей задачи: вызов пришёл из iframe, который этот переход уничтожит. */
+function afterCurrentTask(action) {
+  return new Promise((resolve) => window.setTimeout(() => {
+    action();
+    resolve();
+  }, 0));
+}
+
+/** Сообщения веб-ресурсов приложения (js/host.js): очередь апелляций изменилась. */
+function onAppMessage(event) {
+  if (event.origin !== window.location.origin || event.data?.source !== MESSAGE_SOURCE) return;
+  if (event.data.type === "appeals-changed") refreshAppealCount();
+}
+
+/* ---------- записи и форма ---------- */
+
+async function loadRecords() {
   try {
     const listing = await fetchListing(GROUP);
-    const records = Object.freeze(listing.items.map((item) => recordFromListItem(item, GROUP)));
-    const recordId = records.some((record) => record.conversationId === state.recordId) ? state.recordId : defaultRecordId(records);
-    shell.formHost.querySelector(".d365-loading")?.remove();
-    shell.setRecords(records, recordId);
-    setState({ status: "ready", records, recordId });
-    loadConversation(recordId);
+    setRecords(Object.freeze(listing.items.map((item) => recordFromListItem(item, GROUP))));
+    return state.records;
   } catch (error) {
+    patch({ recordsStatus: "error", recordsError: error.message });
     shell.setRecordsError("Записи не загрузились");
-    shell.formHost.replaceChildren(h("div", { className: "d365-error d365-error--page", attrs: { role: "alert" } },
-      h("p", { text: `Не удалось загрузить записи набора ${GROUP}: ${error.message}` }),
-      h("button", { className: "d365-btn", attrs: { type: "button" }, text: "Повторить", on: { click: () => window.location.reload() } })));
+    view?.recordsChanged?.();
+    throw error;
   }
 }
 
-/** Данные формы перечитаны (Xrm.Page.data.refresh или «Обновить»): шапка и сводка покажут свежую оценку. */
-async function refreshListing() {
+/** Данные записей перечитаны (Xrm.Page.data.refresh, «Обновить», переход на форму): шапка покажет свежий итог. */
+async function refreshRecords() {
   try {
     const listing = await fetchListing(GROUP);
-    const records = Object.freeze(listing.items.map((item) => recordFromListItem(item, GROUP)));
-    shell.setRecords(records, state.creating ? records[0]?.conversationId ?? "" : state.recordId);
-    setState({ records });
+    setRecords(Object.freeze(listing.items.map((item) => recordFromListItem(item, GROUP))));
   } catch (error) {
-    form.notify(`Не удалось перечитать данные записи: ${error.message}`, "warning");
+    shell.notify(`Не удалось перечитать данные записей: ${error.message}`, "warning");
   }
+}
+
+function setRecords(records) {
+  patch({ records, recordsStatus: "ready", recordsError: "" });
+  shell.setRecords(records, state.page?.type === "record" ? state.page.record : "");
+  view?.recordsChanged?.();
+}
+
+async function refreshAppealCount() {
+  const request = ++appealRequest;
+  const count = await countOpenAppeals(GROUP);
+  if (request === appealRequest) shell.setAppealCount(count);
 }
 
 async function loadConversation(recordId) {
   conversationRequest?.abort();
-  if (!recordId) return;
   const controller = new AbortController();
   conversationRequest = controller;
-  setState({ conversation: Object.freeze({ status: "loading", data: null, error: null }), operator: "" });
+  patchForm({ conversation: LOADING, operator: "" });
   try {
     const data = await fetchConversation(GROUP, recordId, { signal: controller.signal });
-    if (state.recordId === recordId) setState({ conversation: Object.freeze({ status: "ok", data, error: null }), operator: operatorName(data) });
+    if (isOpenRecord(recordId)) patchForm({ conversation: Object.freeze({ status: "ok", data, error: null }), operator: operatorName(data) });
   } catch (error) {
-    if (isAbortError(error) || state.recordId !== recordId) return;
-    setState({ conversation: Object.freeze({ status: "error", data: null, error }) });
+    if (isAbortError(error) || !isOpenRecord(recordId)) return;
+    patchForm({ conversation: Object.freeze({ status: "error", data: null, error }) });
   }
-}
-
-function selectRecord(recordId) {
-  sidePanel.close();
-  setState({ recordId, creating: false });
-  loadConversation(recordId);
-}
-
-function commandList() {
-  return [
-    { label: "Назад", icon: "back" },
-    { label: "Сохранить", icon: "save" },
-    { label: "Сохранить и закрыть", icon: "saveClose" },
-    { label: "Создать", icon: "plus", onClick: startCreate },
-    { label: "Обновить", icon: "refresh", onClick: refreshForm },
-    { label: "Оценка качества", icon: "panel", onClick: openQualityPanel, primary: true },
-    { label: "Решить обращение", icon: "check" },
-    { label: "Назначить", icon: "assign" },
-    { label: "Поделиться", icon: "share" },
-  ];
 }
 
 /** Команда «Оценка качества»: тот же код, что в решении Dynamics (js/embed/command.js). */
 function openQualityPanel() {
   const command = window.CQA?.openQualityPanel;
   if (typeof command !== "function") {
-    form.notify("Команда «Оценка качества» не загружена: нет js/embed/command.js.", "error");
+    shell.notify("Команда «Оценка качества» не загружена: нет js/embed/command.js.", "error");
     return;
   }
   // Как успешный колбэк команды в Dynamics: после закрытия панели перечитать данные формы.
-  command(window.Xrm.Page, GROUP).then(() => refreshListing(), (error) => form.notify(`navigateTo: ${error.message}`, "error"));
+  command(window.Xrm.Page, GROUP).then(() => refreshRecords(), (error) => shell.notify(`navigateTo: ${error.message}`, "error"));
 }
 
-/** «Создать»: форма в режиме создания — у записи ещё нет id, веб-ресурс покажет «сохраните запись». */
-function startCreate() {
-  sidePanel.close();
-  conversationRequest?.abort();
-  setState({ creating: true, conversation: Object.freeze({ status: "idle", data: null, error: null }), operator: "" });
-}
-
-/** «Обновить»: перечитать данные записи и пересоздать содержимое вкладки (как обновление формы). */
+/** «Обновить» на форме: перечитать данные записи и пересоздать содержимое вкладки (как обновление формы). */
 function refreshForm() {
-  setState({ reloadToken: state.reloadToken + 1 });
-  refreshListing();
-  if (!state.creating) loadConversation(state.recordId);
+  patchForm({ reloadToken: state.reloadToken + 1 });
+  refreshRecords();
+  if (state.page.record) loadConversation(state.page.record);
+}
+
+function changeLanguage(lcid) {
+  sidePanel.close();
+  patch({ lcid });
+  pages.update(state.page);
+  view?.update?.(); // форма: веб-ресурс вкладки «Качество» пересоздаётся с новым userlcid
+}
+
+function formView() {
+  return {
+    record: currentRecord(), tab: state.page.tab, lcid: state.lcid, conversation: state.conversation,
+    operator: state.operator, reloadToken: state.reloadToken,
+  };
 }
 
 function currentRecord() {
-  if (state.creating) return null;
-  return state.records.find((record) => record.conversationId === state.recordId) ?? null;
+  const { page } = state;
+  if (page?.type !== "record" || !page.record) return null;
+  return state.records.find((record) => record.conversationId === page.record) ?? null;
 }
 
-function defaultRecordId(records) {
-  const critical = records.find((record) => record.evaluation?.critical);
-  const evaluated = records.find((record) => record.evaluation);
-  return (critical ?? evaluated ?? records[0])?.conversationId ?? "";
+function isOpenRecord(recordId) {
+  return state.page?.type === "record" && state.page.record === recordId;
 }
 
-function setState(patch, { render = true } = {}) {
-  state = Object.freeze({ ...state, ...patch });
-  if (!render || state.status !== "ready") return;
-  syncUrl();
-  const record = currentRecord();
-  document.title = record ? `Обращение ${record.conversationId} — стенд Dynamics 365` : "Новое обращение — стенд Dynamics 365";
-  form.update({
-    record, tab: state.tab, lcid: state.lcid, conversation: state.conversation,
-    operator: state.operator, reloadToken: state.reloadToken,
-  });
+function patch(next) {
+  state = Object.freeze({ ...state, ...next });
 }
 
-function syncUrl() {
-  const params = new URLSearchParams();
-  if (!state.creating && state.recordId) params.set("record", state.recordId);
-  params.set("tab", state.tab);
-  params.set("lang", String(state.lcid));
-  const next = `${window.location.pathname}?${params}`;
-  if (`${window.location.pathname}${window.location.search}` !== next) history.replaceState(history.state, "", next);
+function patchForm(next) {
+  patch(next);
+  if (state.page?.type === "record") view?.update?.();
 }
 
 boot();

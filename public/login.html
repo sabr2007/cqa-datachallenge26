@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Страница входа для жюри: без inline-скриптов, стилей и обработчиков в разметке;
+       данные приложения закрыты на уровне API (/api/*), сама страница публичная. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex">
+  <title>Вход — CQA</title>
+  <meta name="description" content="Вход для жюри в CQA — оценку качества работы операторов по транскриптам чатов и звонков.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..800&amp;display=swap">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script type="module" src="js/auth/login.js"></script>
+</head>
+<body class="cqa-body">
+  <div id="cqa-root" class="cqa cqa-auth" data-theme="light">
+    <main class="cqa-auth__main">
+      <section class="cqa-auth__intro" aria-labelledby="login-title">
+        <a class="cqa-brand" href="./" aria-label="CQA — на главную">
+          <img class="cqa-brand__mark" src="favicon.svg" width="36" height="36" alt="">
+          <span class="cqa-brand__text" aria-hidden="true">
+            <span class="cqa-brand__name">CQA</span>
+            <span class="cqa-brand__caption">Conversation Quality Analytics</span>
+          </span>
+        </a>
+        <p class="cqa-eyebrow"><span class="cqa-eyebrow__dot" aria-hidden="true"></span>Data Challenge'26 · кейс Freedom Broker</p>
+        <h1 id="login-title" class="cqa-display">Вход для&nbsp;жюри</h1>
+        <p class="cqa-lead cqa-grad-text">Оценка качества работы операторов по&nbsp;транскриптам чатов и&nbsp;звонков</p>
+        <ul class="cqa-auth__facts">
+          <li class="cqa-auth__fact"><span class="cqa-auth__fact-mark cqa-cat-1" aria-hidden="true"></span>Оценки диалогов по&nbsp;чек-листу с&nbsp;цитатами из&nbsp;переписки</li>
+          <li class="cqa-auth__fact"><span class="cqa-auth__fact-mark cqa-cat-2" aria-hidden="true"></span>Апелляции и&nbsp;решения проверяющего с&nbsp;пересчётом итога</li>
+          <li class="cqa-auth__fact"><span class="cqa-auth__fact-mark cqa-cat-3" aria-hidden="true"></span>Аналитика, точность против эталона и&nbsp;стенд Dynamics&nbsp;365</li>
+        </ul>
+      </section>
+
+      <section class="cqa-auth__card" aria-labelledby="login-form-title">
+        <div class="cqa-auth__head">
+          <h2 id="login-form-title" class="cqa-auth__title">Войдите, чтобы продолжить</h2>
+          <p class="cqa-auth__hint">Логин и пароль для жюри указаны в README репозитория.</p>
+        </div>
+
+        <p id="login-status" class="cqa-auth__status" role="status" hidden></p>
+        <p id="login-error" class="cqa-auth__error" role="alert" hidden></p>
+
+        <form id="login-form" class="cqa-auth__form" method="post" novalidate aria-busy="false">
+          <div class="cqa-field">
+            <label class="cqa-field__label" for="login-username">Логин</label>
+            <input id="login-username" class="cqa-field__input" name="username" type="text"
+                   autocomplete="username" autocapitalize="none" spellcheck="false"
+                   maxlength="256" required aria-describedby="login-username-error">
+            <p id="login-username-error" class="cqa-field__error" hidden></p>
+          </div>
+
+          <div class="cqa-field">
+            <label class="cqa-field__label" for="login-password">Пароль</label>
+            <div class="cqa-field__control">
+              <input id="login-password" class="cqa-field__input cqa-field__input--with-action" name="password"
+                     type="password" autocomplete="current-password" maxlength="256" required
+                     aria-describedby="login-password-error login-caps">
+              <button id="login-password-toggle" class="cqa-field__action" type="button"
+                      aria-controls="login-password" aria-pressed="false">Показать</button>
+            </div>
+            <p id="login-caps" class="cqa-field__note" hidden>Включён Caps Lock</p>
+            <p id="login-password-error" class="cqa-field__error" hidden></p>
+          </div>
+
+          <button id="login-submit" class="cqa-btn cqa-btn--dark cqa-btn--block cqa-auth__submit" type="submit" aria-disabled="false">Войти</button>
+        </form>
+
+        <p class="cqa-auth__foot">Сессия хранится 7&nbsp;дней в&nbsp;защищённой cookie этого сайта. Выйти — <a href="login.html?logout=1">login.html?logout=1</a>.</p>
+      </section>
+    </main>
+    <noscript>
+      <p class="cqa-noscript">Для входа нужен JavaScript.</p>
+    </noscript>
+  </div>
+</body>
+</html>

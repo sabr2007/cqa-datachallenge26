@@ -11,6 +11,7 @@ import {
 import {
   APPEAL_FILTERS, SCORE_FILTERS, STATUS_FILTERS, UNAVAILABLE_HINT, effectiveTotal, hasEvaluations, isFailAnswer, matchesEvaluation,
 } from "../evaluation.js";
+import { isHosted } from "../host.js";
 import { DEFAULT_GROUP, buildHash, paths, replaceHash } from "../router.js";
 import { batchPanel } from "../components/batchBar.js";
 import { filterGroup, searchField, segmented, selectFilter } from "../components/controls.js";
@@ -352,7 +353,7 @@ function buildSheet(initialFilters, groupId, { onFilters, onRefresh }) {
       const visible = applySort(applyFilters(listing.items, activeFilters, { dataAvailable, criteriaById }), activeFilters);
       const evaluated = listing.items.filter((item) => item.evaluation).length;
       info.replaceChildren("Показано ", h("strong", { className: "cqa-num", text: formatInt(visible.length) }),
-        ` из ${countLabel(listing.total, FORMS.dialog)} · оценено ${formatInt(evaluated)} · строка открывает карточку диалога`);
+        ` из ${countLabel(listing.total, FORMS.dialog)} · оценено ${formatInt(evaluated)} · строка открывает ${isHosted() ? "обращение" : "карточку диалога"}`);
       side.replaceChildren(...refreshControl(listing, onRefresh));
       exportLinks.replaceChildren(...exportControls(groupId, evaluated));
       batch.update({ scopes: batchScopes(listing, visible, checklist?.version ?? null), latestVersion: checklist?.version ?? null });

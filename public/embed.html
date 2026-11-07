@@ -16,8 +16,9 @@
 </head>
 <body class="cqa-embed-body">
   <!-- Точка монтирования. data-api-base — адрес API (пусто = тот же origin);
-       data-app-url — основное приложение для «Полной карточки» (в Dynamics — его опубликованный адрес). -->
-  <div id="cqa-root" class="cqa cqa-embed" data-theme="light" data-api-base="" data-app-url="index.html">
+       data-app-webresource — веб-ресурс приложения CQA в решении: «Полная карточка» открывается в области
+       содержимого Dynamics (Xrm.Navigation.navigateTo, target 1); пусто — в новой вкладке по data-app-url. -->
+  <div id="cqa-root" class="cqa cqa-embed" data-theme="light" data-api-base="" data-app-url="index.html" data-app-webresource="cqa_/quality/index.html">
     <noscript>
       <p class="cqa-noscript">Для работы панели нужен JavaScript.</p>
     </noscript>

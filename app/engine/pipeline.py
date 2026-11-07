@@ -29,7 +29,7 @@ from app.engine.providers import (
     open_providers,
     resolve_spec,
 )
-from app.engine.reuse import criterion_fingerprint, reusable_criteria
+from app.engine.reuse import criterion_fingerprint, reusable_criteria, reviewer_decision
 from app.engine.scoring import NA, AnswerError, normalize_answer, scale_values, score_evaluation
 from app.engine.settings import EngineSettings, load_engine_settings
 from app.engine.transcript import extract_facts, format_transcript, render_facts
@@ -461,23 +461,35 @@ def _criterion_result(
     }
 
 
+def _critical_reason(result: Mapping[str, Any]) -> str:
+    """Почему отмечена грубая ошибка: причина решения проверяющего, если он изменил ответ."""
+    appeal = result.get("appeal") or {}
+    decision = appeal.get("decision") if isinstance(appeal, Mapping) else None
+    if result["final_answer"] != result["answer"] and isinstance(decision, Mapping):
+        return str(decision.get("reason") or result["explanation"])
+    return result["explanation"]
+
+
 def _reused_result(
     criterion: Mapping[str, Any], previous: Mapping[str, Any], fingerprint: str
 ) -> dict[str, Any]:
     answer = normalize_answer(criterion, previous.get("answer"))
+    carried = reviewer_decision(criterion, previous)
+    final_answer, appeal = carried if carried is not None else (answer, None)
     return {
         **_criterion_header(criterion),
         "answer": answer,
-        "final_answer": answer,
+        "final_answer": final_answer,
         "explanation": previous.get("explanation") or "",
         "evidence": list(previous.get("evidence") or []),
         "checked_range": previous.get("checked_range"),
         "na_reason": previous.get("na_reason"),
         "confidence": previous.get("confidence"),
         "votes": list(previous.get("votes") or []),
-        "needs_review": bool(previous.get("needs_review")),
-        "review_reasons": list(previous.get("review_reasons") or []),
-        "appeal": None,
+        # решение проверяющего снимает «нужна проверка» с критерия
+        "needs_review": carried is None and bool(previous.get("needs_review")),
+        "review_reasons": [] if carried is not None else list(previous.get("review_reasons") or []),
+        "appeal": appeal,
         "definition_hash": fingerprint,
         "reused": True,
     }
@@ -521,14 +533,24 @@ def _assemble(
     warnings: list[str],
 ) -> dict[str, Any]:
     answers = {item["criterion_id"]: item["answer"] for item in results}
+    final_answers = {item["criterion_id"]: item["final_answer"] for item in results}
     scores = score_evaluation(checklist, answers)
+    # final_* отличаются от ответа моделей, только если перенесено решение проверяющего
+    final_scores = (
+        scores if final_answers == answers else score_evaluation(checklist, final_answers)
+    )
     for item in results:
         points = scores["criteria"][item["criterion_id"]]
+        final = final_scores["criteria"][item["criterion_id"]]
         item.update(
-            points=points["points"], max_points=points["max_points"], final_points=points["points"]
+            points=points["points"],
+            max_points=points["max_points"],
+            final_points=final["points"],
+            final_max_points=final["max_points"],
         )
+    final_sections = {section["id"]: section for section in final_scores["sections"]}
     answered = [item for item in results if item["answer"] is not None]
-    critical = [item for item in results if item["critical"] and item["answer"] == "yes"]
+    critical = [item for item in results if item["critical"] and item["final_answer"] == "yes"]
     status = "done" if answered or not results else "error"
     return {
         "conversation_id": conversation.conversation_id,
@@ -537,13 +559,18 @@ def _assemble(
         "models": model_ids,
         "criteria": results,
         "sections": [
-            {**section, "final_points": section["points"]} for section in scores["sections"]
+            {
+                **section,
+                "final_points": final_sections[section["id"]]["points"],
+                "final_max_points": final_sections[section["id"]]["max_points"],
+            }
+            for section in scores["sections"]
         ],
         "total": scores["total"],
-        "final_total": scores["total"],
+        "final_total": final_scores["total"],
         "max_total": scores["max_total"],
-        "critical_flag": scores["critical_flag"],
-        "critical_note": "; ".join(item["explanation"] for item in critical) or None,
+        "critical_flag": final_scores["critical_flag"],
+        "critical_note": "; ".join(_critical_reason(item) for item in critical) or None,
         "needs_review": any(item["needs_review"] for item in results),
         "cost_usd": round(usage.cost_usd, 6),
         "tokens": {

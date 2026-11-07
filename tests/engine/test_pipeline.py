@@ -89,6 +89,7 @@ def test_single_model_evaluation_has_contract_fields_and_scores():
         "points": 12.5,
         "max_points": 31.25,
         "final_points": 12.5,
+        "final_max_points": 31.25,
     }
     assert all(c["definition_hash"] and c["reused"] is False for c in result["criteria"])
     assert result["cost_usd"] > 0
@@ -275,6 +276,42 @@ def test_reuse_reevaluates_only_changed_criteria():
         != next(c for c in first["criteria"] if c["criterion_id"] == "c01")["max_points"]
     )
     assert second["checklist_version"] == 2
+
+
+def test_reuse_keeps_reviewer_decision_for_unchanged_criteria():
+    checklist = load_checklist()
+    first = run(
+        make_conversation(),
+        checklist,
+        models=[GLM],
+        providers={"cloudflare": FakeProvider(script_for(GLM, GOOD))},
+    )
+    first["id"] = "ev_first"
+    decision = {"action": "change", "new_answer": "no", "reason": "Оскорбления не было."}
+    appeal = {"id": "ap_1", "status": "resolved", "original_answer": "yes", "decision": decision}
+    first["criteria"] = [
+        {**c, "final_answer": "no", "appeal": appeal, "needs_review": True}
+        if c["criterion_id"] == "c08"
+        else c
+        for c in first["criteria"]
+    ]
+    changed = copy.deepcopy(checklist)
+    changed["version"] = 2
+    c06 = next(c for c in changed["criteria"] if c["id"] == "c06")
+    c06["guidance"] = c06.get("guidance", "") + " Новое уточнение."
+    provider = FakeProvider(script_for(GLM, GOOD))
+
+    second = run(
+        make_conversation(), changed, models=[GLM], reuse=first, providers={"cloudflare": provider}
+    )
+
+    c08 = next(c for c in second["criteria"] if c["criterion_id"] == "c08")
+    assert c08["answer"] == "yes" and c08["final_answer"] == "no"
+    assert c08["appeal"]["decision"] == decision
+    assert c08["appeal"]["carried_from"] == "ev_first"
+    assert c08["needs_review"] is False
+    assert second["critical_flag"] is False  # грубая ошибка снята решением проверяющего
+    assert second["total"] == first["total"]
 
 
 def test_claude_requests_share_prefix_and_schema_and_wait_for_cache_warmup():

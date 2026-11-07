@@ -10,7 +10,8 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
 )
 # httpx на INFO печатает полный URL запроса, а в нём подписи (sig=…) — не пускаем в лог.
-for noisy_logger in ("httpx", "httpcore"):
+# Пул psycopg на INFO пишет строку на каждую выдачу соединения — тоже лишнее.
+for noisy_logger in ("httpx", "httpcore", "psycopg.pool"):
     logging.getLogger(noisy_logger).setLevel(logging.WARNING)
 
 app = create_app()

@@ -15,6 +15,10 @@ from tests.support import load_payload
 # Тесты не трогают рабочую базу .data/cqa.sqlite: load_settings() (например, при импорте
 # app.main) берёт базу в памяти, даже если CQA_DB_PATH задан в окружении разработчика.
 os.environ["CQA_DB_PATH"] = MEMORY_DB
+# Рабочий Postgres и вход для жюри тесты тоже не видят, даже если окружение взято из
+# .env.local: Postgres-тесты ходят только в CQA_TEST_DATABASE_URL, в отдельные схемы.
+for _name in ("DATABASE_URL", "POSTGRES_URL", "CQA_DB_SCHEMA", "CQA_AUTH_USER", "VERCEL"):
+    os.environ.pop(_name, None)
 
 Handler = Callable[[httpx.Request], Any]
 ClientFactory = Callable[..., TestClient]

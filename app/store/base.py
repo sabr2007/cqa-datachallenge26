@@ -1,11 +1,14 @@
 """Интерфейс хранилища (Store) и его типы — без привязки к конкретной базе.
 
-Сейчас реализация одна — SQLite (app.store.sqlite); интерфейс оставлен узким,
-чтобы её можно было заменить на Postgres (Vercel), не трогая API.
+Реализации две, с одной семантикой (её проверяют контрактные тесты tests/store):
+SQLite (app.store.sqlite) — локально и в тестах, Postgres (app.store.postgres) —
+в облаке (Vercel + Neon). Какая работает, решает app.store.open_store по настройкам.
 """
 
-from collections.abc import Sequence
+import functools
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from typing import Any, Literal, Protocol
 
 from app.errors import ApiError
@@ -18,12 +21,41 @@ PURPOSES: tuple[Purpose, ...] = ("regular", "sandbox")
 APPEAL_STATUSES: tuple[AppealStatus, ...] = ("open", "resolved")
 
 
+def utc_now() -> str:
+    """Время в формате контракта: ISO 8601, UTC, до секунды (так хранятся все даты)."""
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 class StorageError(ApiError):
     """База недоступна или вернула ошибку; подробности — только в серверный лог."""
 
     status_code = 503
     code = "storage_unavailable"
     message = "Хранилище оценок временно недоступно. Попробуйте ещё раз."
+
+
+def _describe(exc: Exception) -> str:
+    return f"{type(exc).__name__}: {exc}"
+
+
+def guarded[**P, R](
+    action: str,
+    errors: tuple[type[Exception], ...],
+    describe: Callable[[Exception], str] = _describe,
+) -> Callable[[Callable[P, R]], Callable[P, R]]:
+    """Ошибки драйвера базы (errors) → StorageError (503); подробности — только в лог."""
+
+    def decorate(method: Callable[P, R]) -> Callable[P, R]:
+        @functools.wraps(method)
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+            try:
+                return method(*args, **kwargs)
+            except errors as exc:
+                raise StorageError(detail=f"{action}: {describe(exc)}") from exc
+
+        return wrapper
+
+    return decorate
 
 
 class RevisionConflictError(Exception):

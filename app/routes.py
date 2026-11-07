@@ -10,6 +10,7 @@ from app.api.conversations import find_conversation
 from app.api.evaluations import listing_summaries
 from app.api.routes import router as api_router
 from app.audio import iterate_and_close, media_headers, parse_range
+from app.auth.routes import router as auth_router
 from app.errors import audio_not_found
 from app.services import Services, get_services
 from app.validation import require_group_id
@@ -61,3 +62,4 @@ async def get_conversation_audio(
 
 
 router.include_router(api_router)
+router.include_router(auth_router)

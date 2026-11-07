@@ -5,7 +5,8 @@ import { h } from "../dom.js";
 import { icon } from "../icons.js";
 import { FORMS, SPEAKERS, channelName, formatDuration, formatInt, formatPoints, languageName, plural, speakerName } from "../format.js";
 import { effectiveTotal } from "../evaluation.js";
-import { buildHash, navigate, paths } from "../router.js";
+import { isHosted, openRoute } from "../host.js";
+import { buildHash, paths } from "../router.js";
 import { statusPill } from "../components/ui.js";
 
 const COLUMNS = Object.freeze([
@@ -23,7 +24,7 @@ const COLUMNS = Object.freeze([
  */
 export function conversationTable(items, { groupId, sort, dir, onSort, jobState = () => null, latestVersion = null }) {
   return h("table", { className: "cqa-table", attrs: { role: "table" } },
-    h("caption", { className: "cqa-sr-only", text: "Диалоги набора. Строка открывает карточку диалога." }),
+    h("caption", { className: "cqa-sr-only", text: `Диалоги набора. Строка открывает ${isHosted() ? "обращение этого диалога" : "карточку диалога"}.` }),
     h("thead", { attrs: { role: "rowgroup" } },
       h("tr", { attrs: { role: "row" } }, COLUMNS.map((column) => headerCell(column, { sort, dir, onSort })))),
     h("tbody", { attrs: { role: "rowgroup" }, on: { click: onRowClick } },
@@ -138,5 +139,5 @@ function onRowClick(event) {
   if (!target || target.closest("a, button, input, abbr")) return;
   if (window.getSelection()?.toString()) return; // пользователь выделяет текст
   const tr = target.closest("tr[data-href]");
-  if (tr) navigate(tr.getAttribute("data-href"));
+  if (tr) openRoute(tr.getAttribute("data-href")); // в Dynamics — форма обращения (host.js)
 }
