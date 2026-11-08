@@ -1,6 +1,6 @@
 <div align="center">
 
-# CQA — Conversation Quality Analytics · команда Bolme
+# CQA — Conversation Quality Analytics · команда gg-f-ez
 
 **ИИ проверяет каждый диалог оператора по чек-листу прямо в Dynamics 365. У каждого балла есть объяснение и реплика-доказательство.**
 
@@ -315,7 +315,7 @@ scripts/             выгрузка набора, прогон точност�
 tests/               pytest и node-тесты
 ```
 
-## Команда Bolme
+## Команда gg-f-ez
 
 - Sabyrzhan — [@sabr2007](https://github.com/sabr2007)
 - Alinazar — [@Alinazavrr](https://github.com/Alinazavrr)
