@@ -1,0 +1,1036 @@
+{
+  "group_id": "FBroker",
+  "exported_at": "2026-11-08T06:10:40Z",
+  "items": [
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-en-001",
+      "language": "EN",
+      "channel": "chat",
+      "evaluation_id": "ev_d1026edb973cf1c0",
+      "created_at": "2026-11-08T06:08:50Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 12.5,
+          "final_points": 12.5,
+          "max_points": 12.5,
+          "final_max_points": 12.5
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 18.75,
+          "final_points": 18.75,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 20,
+          "final_answer": 20,
+          "points": 25.0,
+          "final_points": 25.0,
+          "max_points": 25.0,
+          "final_max_points": 25.0
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 18.75,
+          "final_points": 18.75,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 4,
+          "final_answer": 4,
+          "points": 7.5,
+          "final_points": 7.5,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 6.25,
+          "final_max_points": 6.25
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 82.5,
+      "final_total": 82.5,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": false,
+      "cost_usd": 0.132451
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-en-002",
+      "language": "EN",
+      "channel": "chat",
+      "evaluation_id": "ev_ba68defb988c5e49",
+      "created_at": "2026-11-08T06:09:40Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 15.38,
+          "final_points": 15.38,
+          "max_points": 15.38,
+          "final_max_points": 15.38
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 20,
+          "final_answer": 20,
+          "points": 30.77,
+          "final_points": 30.77,
+          "max_points": 30.77,
+          "final_max_points": 30.77
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 7.69,
+          "final_points": 7.69,
+          "max_points": 7.69,
+          "final_max_points": 7.69
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 100.0,
+      "final_total": 100.0,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": false,
+      "cost_usd": 0.136229
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-kz-001",
+      "language": "KZ",
+      "channel": "chat",
+      "evaluation_id": "ev_3109312618a7c1c4",
+      "created_at": "2026-11-08T06:08:10Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 12.5,
+          "final_points": 12.5,
+          "max_points": 12.5,
+          "final_max_points": 12.5
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 18.75,
+          "final_points": 18.75,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 20,
+          "final_answer": 20,
+          "points": 25.0,
+          "final_points": 25.0,
+          "max_points": 25.0,
+          "final_max_points": 25.0
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 18.75,
+          "final_points": 18.75,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 18.75,
+          "final_points": 18.75,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 6.25,
+          "final_max_points": 6.25
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 93.75,
+      "final_total": 93.75,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": false,
+      "cost_usd": 0.136735
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-kz-002",
+      "language": "KZ",
+      "channel": "chat",
+      "evaluation_id": "ev_72c3c10d2f28a8be",
+      "created_at": "2026-11-08T06:08:17Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 12.5,
+          "final_points": 12.5,
+          "max_points": 12.5,
+          "final_max_points": 12.5
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 0,
+          "final_answer": 0,
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 25.0,
+          "final_max_points": 25.0
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 4,
+          "final_answer": 4,
+          "points": 7.5,
+          "final_points": 7.5,
+          "max_points": 18.75,
+          "final_max_points": 18.75
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 6.25,
+          "final_max_points": 6.25
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 20.0,
+      "final_total": 20.0,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": false,
+      "cost_usd": 0.187557
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-kz-003",
+      "language": "KZ",
+      "channel": "chat",
+      "evaluation_id": "ev_0ccdcff7bc665cbe",
+      "created_at": "2026-11-08T06:08:30Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 15.38,
+          "final_points": 15.38,
+          "max_points": 15.38,
+          "final_max_points": 15.38
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 15,
+          "final_answer": 15,
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 30.77,
+          "final_max_points": 30.77
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 7.69,
+          "final_points": 7.69,
+          "max_points": 7.69,
+          "final_max_points": 7.69
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 92.31,
+      "final_total": 92.31,
+      "critical_flag": true,
+      "critical_note": "В #12 оператор предлагает «ақшаны маған жеке аударыңыз. Компания арқылы рәсімдемей-ақ», то есть перевести деньги лично ему в обход компании, — это грубая ошибка.",
+      "needs_review": true,
+      "cost_usd": 0.197807
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-kz-004",
+      "language": "KZ",
+      "channel": "chat",
+      "evaluation_id": "ev_8e9e9ced95e6721e",
+      "created_at": "2026-11-08T06:08:50Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 18.18,
+          "final_points": 18.18,
+          "max_points": 18.18,
+          "final_max_points": 18.18
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 27.27,
+          "final_points": 27.27,
+          "max_points": 27.27,
+          "final_max_points": 27.27
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 27.27,
+          "final_points": 27.27,
+          "max_points": 27.27,
+          "final_max_points": 27.27
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 27.27,
+          "final_points": 27.27,
+          "max_points": 27.27,
+          "final_max_points": 27.27
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 100.0,
+      "final_total": 100.0,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": true,
+      "cost_usd": 0.146869
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-ru-001",
+      "language": "RU",
+      "channel": "chat",
+      "evaluation_id": "ev_ea7b4785b9886e56",
+      "created_at": "2026-11-08T06:07:33Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 15.38,
+          "final_points": 15.38,
+          "max_points": 15.38,
+          "final_max_points": 15.38
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 15.38,
+          "final_points": 15.38,
+          "max_points": 30.77,
+          "final_max_points": 30.77
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 23.08,
+          "final_points": 23.08,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 7.69,
+          "final_points": 7.69,
+          "max_points": 7.69,
+          "final_max_points": 7.69
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 84.62,
+      "final_total": 84.62,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": false,
+      "cost_usd": 0.141911
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-ru-002",
+      "language": "RU",
+      "channel": "chat",
+      "evaluation_id": "ev_da9889438ae3976a",
+      "created_at": "2026-11-08T06:07:29Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 15.38,
+          "final_points": 15.38,
+          "max_points": 15.38,
+          "final_max_points": 15.38
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 15.38,
+          "final_points": 15.38,
+          "max_points": 30.77,
+          "final_max_points": 30.77
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 4,
+          "final_answer": 4,
+          "points": 9.23,
+          "final_points": 9.23,
+          "max_points": 23.08,
+          "final_max_points": 23.08
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 7.69,
+          "final_points": 7.69,
+          "max_points": 7.69,
+          "final_max_points": 7.69
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 47.69,
+      "final_total": 47.69,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": true,
+      "cost_usd": 0.167945
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-ru-003",
+      "language": "RU",
+      "channel": "chat",
+      "evaluation_id": "ev_1291759a8eaa3dd8",
+      "created_at": "2026-11-08T06:07:29Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 10.0,
+          "final_points": 10.0,
+          "max_points": 10.0,
+          "final_max_points": 10.0
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 15.0,
+          "final_points": 15.0,
+          "max_points": 15.0,
+          "final_max_points": 15.0
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 20.0,
+          "final_points": 20.0,
+          "max_points": 20.0,
+          "final_max_points": 20.0
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 20,
+          "final_answer": 20,
+          "points": 20.0,
+          "final_points": 20.0,
+          "max_points": 20.0,
+          "final_max_points": 20.0
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 15.0,
+          "final_points": 15.0,
+          "max_points": 15.0,
+          "final_max_points": 15.0
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 10,
+          "final_answer": 10,
+          "points": 15.0,
+          "final_points": 15.0,
+          "max_points": 15.0,
+          "final_max_points": 15.0
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 5.0,
+          "final_points": 5.0,
+          "max_points": 5.0,
+          "final_max_points": 5.0
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "no",
+          "final_answer": "no",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 100.0,
+      "final_total": 100.0,
+      "critical_flag": false,
+      "critical_note": null,
+      "needs_review": false,
+      "cost_usd": 0.178473
+    },
+    {
+      "group_id": "FBroker",
+      "conversation_id": "p2-ru-004",
+      "language": "RU",
+      "channel": "chat",
+      "evaluation_id": "ev_99f10aed63ef942c",
+      "created_at": "2026-11-08T06:07:49Z",
+      "checklist_id": "chat-quality",
+      "checklist_version": 1,
+      "models": [
+        "claude-opus-5-5",
+        "@cf/zai-org/glm-5.3",
+        "@cf/qwen/qwen3.8-27b"
+      ],
+      "criteria": [
+        {
+          "criterion_id": "c01",
+          "title": "Установление контакта",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 11.76,
+          "final_max_points": 11.76
+        },
+        {
+          "criterion_id": "c02",
+          "title": "Выявление потребности",
+          "answer": "na",
+          "final_answer": "na",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        },
+        {
+          "criterion_id": "c03",
+          "title": "Идентификация",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 23.53,
+          "final_max_points": 23.53
+        },
+        {
+          "criterion_id": "c04",
+          "title": "Корректная и полная консультация",
+          "answer": 5,
+          "final_answer": 5,
+          "points": 5.88,
+          "final_points": 5.88,
+          "max_points": 23.53,
+          "final_max_points": 23.53
+        },
+        {
+          "criterion_id": "c05",
+          "title": "Эмпатия и клиентоориентированность",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": 17.65,
+          "final_points": 17.65,
+          "max_points": 17.65,
+          "final_max_points": 17.65
+        },
+        {
+          "criterion_id": "c06",
+          "title": "Управление диалогом, скорость и грамотность",
+          "answer": 4,
+          "final_answer": 4,
+          "points": 7.06,
+          "final_points": 7.06,
+          "max_points": 17.65,
+          "final_max_points": 17.65
+        },
+        {
+          "criterion_id": "c07",
+          "title": "Завершение",
+          "answer": "no",
+          "final_answer": "no",
+          "points": 0.0,
+          "final_points": 0.0,
+          "max_points": 5.88,
+          "final_max_points": 5.88
+        },
+        {
+          "criterion_id": "c08",
+          "title": "Грубые ошибки",
+          "answer": "yes",
+          "final_answer": "yes",
+          "points": null,
+          "final_points": null,
+          "max_points": null,
+          "final_max_points": null
+        }
+      ],
+      "total": 30.59,
+      "final_total": 30.59,
+      "critical_flag": true,
+      "critical_note": "В #12 оператор раскрыл данные счёта без идентификации: «На вашем счёте действует ограничение на вывод». В #13 клиент подтверждает: «Я ещё не подтверждал личность».",
+      "needs_review": true,
+      "cost_usd": 0.22588
+    }
+  ]
+}
